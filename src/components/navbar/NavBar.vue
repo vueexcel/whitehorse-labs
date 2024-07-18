@@ -165,10 +165,11 @@ const NAVBAR_LINKS = [
   }
 ]
 
-const currentActive = ref<'Solutions' | 'About' | 'Resources' | 'languages' | null>(null)
+const currentActive = ref<string | null>(null)
 const subMenuItems = computed(() => {
   return {
     ...(NAVBAR_LINKS.filter((link) => link.sublinks).reduce((prev, link) => {
+      // @ts-ignore
       prev[link.label] = link.sublinks
       return prev
     }, {}) as any),
@@ -207,6 +208,6 @@ const subMenuItems = computed(() => {
         link: '/india'
       }
     ]
-  }[currentActive.value]
+  }[currentActive.value as string]
 })
 </script>
