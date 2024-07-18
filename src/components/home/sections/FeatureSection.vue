@@ -3,32 +3,32 @@
     <div class="absolute top-0 left-0 w-full h-full">
       <div class="relative z-10 flex w-full h-full select-none">
         <img
-          src="../../../assets/images/home/image 1.png"
+          src="../../../assets/images/home/image-1.png"
           alt="images"
           class="absolute top-0 left-0 pointer-events-none"
         />
         <img
-          src="../../../assets/images/home/image 2.png"
+          src="../../../assets/images/home/image-2.png"
           alt="images"
           class="absolute top-0 right-0 pointer-events-none"
         />
         <img
-          src="../../../assets/images/home/image 3.png"
+          src="../../../assets/images/home/image-3.png"
           alt="images"
           class="absolute pointer-events-none top-[50%] h-52 left-0 translate-y-[-20%]"
         />
         <img
-          src="../../../assets/images/home/image 5.png"
+          src="../../../assets/images/home/image-5.png"
           alt="images"
           class="absolute pointer-events-none h-52 right-0 top-[50%] translate-y-[-20%]"
         />
         <img
-          src="../../../assets/images/home/image 6.png"
+          src="../../../assets/images/home/image-6.png"
           alt="images"
           class="absolute bottom-0 pointer-events-none left-[20%]"
         />
         <img
-          src="../../../assets/images/home/image 7.png"
+          src="../../../assets/images/home/image-7.png"
           alt="images"
           class="absolute bottom-0 pointer-events-none right-[20%]"
         />
