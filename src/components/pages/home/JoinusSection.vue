@@ -1,42 +1,48 @@
 <template>
-  <section class="flex items-start w-full px-12 py-24 text-white bg-black font-roboto">
-    <div class="flex items-center w-56 h-auto">
-      <span class="block bg-[#FF544F] size-3"></span>
-      <span class="ml-2 text-xs uppercase font-roboto">Join US</span>
+  <section
+    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto"
+  >
+    <div class="flex items-center w-full h-auto mb-8 md:w-56 md:mb-0">
+      <span class="block bg-[#FF544F] w-3 h-3 md:w-4 md:h-4"></span>
+      <span class="ml-2 text-sm uppercase md:text-xs font-roboto">Join Us</span>
     </div>
-    <div class="w-full">
-      <h5 class="text-5xl font-roboto">
+    <div class="w-full max-w-4xl">
+      <h5 class="text-3xl md:text-5xl font-roboto">
         <span class="inline-block">Discover a world</span><br />
         <span
-          class="inline-block mt-2 text-6xl italic font-normal font-roboto"
-          style="font-family: Tiempos Headline"
-          >where technology is <br />
-          synonymous with trust</span
+          class="inline-block mt-2 text-4xl italic font-normal md:text-6xl"
+          style="font-family: 'Tiempos Headline'"
         >
+          where technology is <br />
+          synonymous with trust
+        </span>
       </h5>
-      <p class="my-12 font-roboto">
-        Fill out the form below to receive our newsletter, important updates, <br />
+      <p class="my-6 text-sm md:my-12 md:text-base">
+        Fill out the form below to receive our newsletter, important updates,
+        <br class="hidden md:block" />
         and information about our services directly in your inbox.
       </p>
 
-      <div class="grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <InputView v-model="formValues.firstName" type="text" required placeholder="First Name" />
         <InputView v-model="formValues.lastName" type="text" required placeholder="Last Name" />
         <InputView v-model="formValues.jobTitle" type="text" placeholder="Job Title" />
         <InputView v-model="formValues.companyName" type="text" placeholder="Company Name" />
-        <InputView v-model="formValues.email" type="text" placeholder="Email" required />
-        <InputView v-model="formValues.phoneNumber" type="text" placeholder="Phone number" />
+        <InputView v-model="formValues.email" type="email" required placeholder="Email" />
+        <InputView v-model="formValues.phoneNumber" type="text" placeholder="Phone Number" />
       </div>
 
-      <p class="flex items-center mt-8">
-        Please select your interests<span class="text-[#FF544F] text-xl ml-1.5 mt-2">*</span>
+      <p class="flex items-center mt-6 text-sm md:mt-8 md:text-base">
+        Please select your interests
+        <span class="text-[#FF544F] text-xl ml-1.5 mt-1">*</span>
       </p>
 
-      <div class="flex flex-wrap max-w-3xl mt-2">
+      <div class="flex flex-wrap max-w-4xl mt-2">
+        <span></span>
         <CheckboxInput v-model="formValues.interests.companyNews" label="Company News" />
         <CheckboxInput
           v-model="formValues.interests.counterfeitDetection"
-          label="Counterfeit Deterction"
+          label="Counterfeit Detection"
         />
         <CheckboxInput v-model="formValues.interests.failureAnalysis" label="Failure Analysis" />
         <CheckboxInput v-model="formValues.interests.lifecycle" label="Lifecycle & Reliability" />
