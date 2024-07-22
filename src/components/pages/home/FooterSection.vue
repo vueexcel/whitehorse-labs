@@ -87,7 +87,7 @@ const footerMenuItems = [
     title: 'Resources',
     links: [
       { name: 'News & Insights', href: '#' },
-      { name: 'Terminology', href: '#' },
+      { name: 'Terminology', href: '/terminology' },
       { name: 'Global Calendar', href: '#' },
       { name: 'Free Downloads', href: '#' }
     ]

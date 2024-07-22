@@ -21,7 +21,10 @@ const router = createRouter({
     //   // which is lazy-loaded when the route is visited.
     //   component: () => import('../views/AboutView.vue')
     // }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0, left: 0 }
+  }
 });
 
 export default router;
