@@ -1,29 +1,37 @@
 <template>
-  <section class="w-full px-12">
-    <table class="w-full mt-12 mb-32">
-      <thead>
-        <tr class="border-b border-[#D8D8D8] px-12">
-          <th class="p-2 px-4 pl-20 text-sm uppercase font-roboto-mono text-start">Word</th>
-          <th class="p-2 px-4 text-sm uppercase font-roboto-mono text-start">Definition</th>
-          <th class="p-2 px-4 pr-20 text-sm uppercase font-roboto-mono text-start">Example</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="border-b last:border-0 border-[#D8D8D8] px-12"
-          v-for="(item, index) in tableData"
-          :key="index"
-        >
-          <td class="px-4 py-5 pl-20 text-lg align-top font-roboto">{{ item.word }}</td>
-          <td class="px-4 align-top py-5 font-roboto text-[#828282]">
-            {{ item.definition }}
-          </td>
-          <td class="px-4 py-5 pr-20 align-top pointer-events-none">
-            <img v-if="item.example" :src="item.example" alt="images" class="w-full max-w-44" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <section class="w-full px-4 md:px-12">
+    <!-- Wrapping the table in a div with overflow-x-auto for responsiveness -->
+    <div class="overflow-x-auto">
+      <table class="w-full mt-12 mb-32">
+        <thead>
+          <tr class="border-b border-[#D8D8D8] px-12">
+            <th class="p-2 px-4 pl-20 text-sm uppercase font-roboto-mono text-start">Word</th>
+            <th class="p-2 px-4 text-sm uppercase font-roboto-mono text-start">Definition</th>
+            <th class="p-2 px-4 pr-20 text-sm uppercase font-roboto-mono text-start">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b last:border-0 border-[#D8D8D8] px-12"
+            v-for="(item, index) in tableData"
+            :key="index"
+          >
+            <td class="px-4 py-5 pl-20 text-lg align-top font-roboto">{{ item.word }}</td>
+            <td class="px-4 align-top py-5 font-roboto text-[#828282]">
+              {{ item.definition }}
+            </td>
+            <td class="px-4 py-5 pr-20 align-top pointer-events-none">
+              <img
+                v-if="item.example"
+                :src="item.example"
+                alt="images"
+                class="w-full max-w-44 min-w-36"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </template>
 
