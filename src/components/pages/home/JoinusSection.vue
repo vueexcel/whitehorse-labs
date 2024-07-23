@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto"
+    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]"
   >
     <div class="flex items-center w-full h-auto mb-8 md:w-56 md:mb-0">
       <span class="block bg-[#FF544F] w-3 h-3 md:w-4 md:h-4"></span>
