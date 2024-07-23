@@ -6,13 +6,11 @@
         <span class="ml-2 text-xs uppercase md:text-sm font-roboto">Free Downloads</span>
       </div>
 
-      <h5 class="text-2xl text-black md:text-4xl font-roboto md:text-left">
-        Resources for your success
-      </h5>
+      <h5 class="text-2xl text-black md:text-4xl font-roboto">Resources for your success</h5>
     </div>
 
-    <div class="w-full max-w-full mx-auto mt-3 md:mt-4 md:max-w-6xl">
-      <p class="text-[#828282] font-roboto md:text-left max-w-96 md:ml-52">
+    <div class="w-full mt-3 md:mt-4 max-w-96 md:ml-52">
+      <p class="text-[#828282] font-roboto">
         Explore our free downloadable content for valuable industry insights and resources.
       </p>
     </div>
