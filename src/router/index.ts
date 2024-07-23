@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'terminology',
       component: () => import('../views/TerminologyView.vue')
     },
+    {
+      path: '/downloads',
+      name: 'downloads',
+      component: () => import('../views/DownloadView.vue')
+    },
     // {
     //   path: '/about',
     //   name: 'about',

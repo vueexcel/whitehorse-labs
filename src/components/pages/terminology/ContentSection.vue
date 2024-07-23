@@ -1,13 +1,22 @@
 <template>
-  <section class="w-full px-4 md:px-12">
-    <!-- Wrapping the table in a div with overflow-x-auto for responsiveness -->
+  <section class="w-full px-6 sm:px-12">
     <div class="overflow-x-auto">
       <table class="w-full mt-12 mb-32">
         <thead>
           <tr class="border-b border-[#D8D8D8] px-12">
-            <th class="p-2 px-4 pl-20 text-sm uppercase font-roboto-mono text-start">Word</th>
-            <th class="p-2 px-4 text-sm uppercase font-roboto-mono text-start">Definition</th>
-            <th class="p-2 px-4 pr-20 text-sm uppercase font-roboto-mono text-start">Example</th>
+            <th
+              class="p-2 px-2 pl-6 text-sm uppercase sm:px-4 sm:pl-12 md:pl-20 font-roboto-mono text-start"
+            >
+              Word
+            </th>
+            <th class="p-2 px-2 text-sm uppercase sm:px-4 font-roboto-mono text-start">
+              Definition
+            </th>
+            <th
+              class="p-2 px-2 pr-6 text-sm uppercase sm:px-4 sm:pr-12 md:pr-20 font-roboto-mono text-start"
+            >
+              Example
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -16,16 +25,18 @@
             v-for="(item, index) in tableData"
             :key="index"
           >
-            <td class="px-4 py-5 pl-20 text-lg align-top font-roboto">{{ item.word }}</td>
-            <td class="px-4 align-top py-5 font-roboto text-[#828282]">
+            <td class="px-2 py-5 pl-6 text-lg align-top sm:px-4 sm:pl-12 md:pl-20 font-roboto">
+              {{ item.word }}
+            </td>
+            <td class="px-2 sm:px-4 align-top py-5 font-roboto text-[#828282]">
               {{ item.definition }}
             </td>
-            <td class="px-4 py-5 pr-20 align-top pointer-events-none">
+            <td class="px-2 py-5 pr-6 align-top pointer-events-none sm:px-4 sm:pr-12 md:pr-20">
               <img
                 v-if="item.example"
                 :src="item.example"
                 alt="images"
-                class="w-full max-w-44 min-w-36"
+                class="w-full mx-auto max-w-32 md:max-w-40 lg:max-w-44"
               />
             </td>
           </tr>
