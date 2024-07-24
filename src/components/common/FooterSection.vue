@@ -18,7 +18,7 @@
           >
             <h6 class="mb-4 text-xl md:text-2xl font-roboto">{{ menu.title }}</h6>
             <router-link
-              :to="link.href"
+              :to="menu.link + link.href"
               class="text-[#828282] text-sm mb-3"
               v-for="link in menu.links"
               :key="link.name"
@@ -59,6 +59,7 @@ import YoutubeIcon from '@/components/icons/YoutubeIcon.vue'
 const footerMenuItems = [
   {
     title: 'Solutions',
+    link: '/solutions',
     links: [
       { name: 'Testing Laboratory', href: '/testing-laboratory' },
       { name: 'Factory Auditing', href: '#' },
@@ -68,6 +69,7 @@ const footerMenuItems = [
   },
   {
     title: 'About',
+    link: '/about',
     links: [
       { name: 'Who We Are', href: '#' },
       { name: 'Why White Horse Labs?', href: '#' },
@@ -77,6 +79,7 @@ const footerMenuItems = [
   },
   {
     title: 'Case Studies',
+    link: '/case-studies',
     links: [
       { name: 'Boeing', href: '#' },
       { name: 'Tesla', href: '#' },
@@ -86,6 +89,7 @@ const footerMenuItems = [
   },
   {
     title: 'Resources',
+    link: '/resources',
     links: [
       { name: 'News & Insights', href: '/news-insights' },
       { name: 'Terminology', href: '/terminology' },

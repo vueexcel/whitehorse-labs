@@ -2,10 +2,7 @@
   <section
     class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]"
   >
-    <div class="flex items-center w-full h-auto mb-8 md:w-56 md:mb-0">
-      <span class="block bg-[#FF544F] w-3 h-3 md:w-4 md:h-4"></span>
-      <span class="ml-2 text-sm uppercase md:text-xs font-roboto">Join Us</span>
-    </div>
+    <RedTitle title="Join Us" class="mt-2 mb-8 md:mb-0 md:w-56" />
     <div class="w-full max-w-4xl">
       <h5 class="text-3xl md:text-5xl font-roboto">
         <span class="inline-block">Discover a world</span><br />
@@ -62,6 +59,7 @@ import { ref } from 'vue'
 import CheckboxInput from '@/components/CheckboxInput.vue'
 import InputView from '@/components/InputView.vue'
 import BaseButton from '@/components/BaseButton.vue'
+import RedTitle from '@/components/common/RedTitle.vue'
 
 const formValues = ref({
   firstName: '',

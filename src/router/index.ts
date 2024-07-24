@@ -11,19 +11,37 @@ const router = createRouter({
 
     // Resources
     {
-      path: '/terminology',
-      name: 'terminology',
-      component: () => import('../views/TerminologyView.vue')
+      path: '/resources',
+      name: 'resources',
+      children: [
+        {
+          path: 'news',
+          name: 'news',
+          component: () => import('../views/NewsView.vue')
+        },
+        {
+          path: 'terminology',
+          name: 'terminology',
+          component: () => import('../views/TerminologyView.vue')
+        },
+        {
+          path: 'global-calendar',
+          name: 'global-calendar',
+          component: () => import('../views/CalendarView.vue')
+        },
+        {
+          path: 'downloads',
+          name: 'downloads',
+          component: () => import('../views/DownloadView.vue')
+        }
+      ]
     },
+
+    // Solutions
     {
-      path: '/downloads',
-      name: 'downloads',
-      component: () => import('../views/DownloadView.vue')
-    },
-    {
-      path: '/global-calendar',
-      name: 'global-calendar',
-      component: () => import('../views/CalendarView.vue')
+      path: '/solutions/testing-laboratory',
+      name: 'testing-laboratory',
+      component: () => import('../views/TestingLaboratoryView.vue')
     }
   ],
   scrollBehavior() {

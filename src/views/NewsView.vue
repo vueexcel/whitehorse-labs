@@ -1,0 +1,1 @@
+<template>News Section</template>
