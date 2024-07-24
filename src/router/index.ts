@@ -8,6 +8,8 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/HomeView.vue')
     },
+
+    // Resources
     {
       path: '/terminology',
       name: 'terminology',
@@ -22,15 +24,7 @@ const router = createRouter({
       path: '/global-calendar',
       name: 'global-calendar',
       component: () => import('../views/CalendarView.vue')
-    },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    }
   ],
   scrollBehavior() {
     return { top: 0, left: 0 }

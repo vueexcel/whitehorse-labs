@@ -7,7 +7,7 @@
         to="/"
         class="flex items-start justify-center h-auto mt-8 mb-20 sm:mt-0 sm:mb-0 sm:ml-5 w-36 sm:w-44 sm:justify-normal"
       >
-        <img src="../../../assets/images/logo.svg" alt="logo" class="h-28 sm:h-24" />
+        <img :src="Logo" alt="logo" class="h-28 sm:h-24" />
       </router-link>
       <div class="w-full max-w-full md:max-w-6xl">
         <div class="grid w-full grid-cols-1 gap-8 mb-12 sm:grid-cols-2 md:grid-cols-4 md:gap-4">
@@ -50,6 +50,7 @@
 </template>
 
 <script setup lang="ts">
+import Logo from '@/assets/images/logo.svg'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
@@ -59,7 +60,7 @@ const footerMenuItems = [
   {
     title: 'Solutions',
     links: [
-      { name: 'Testing Laboratory', href: '#' },
+      { name: 'Testing Laboratory', href: '/testing-laboratory' },
       { name: 'Factory Auditing', href: '#' },
       { name: 'Programming, Packaging & Logistics', href: '#' },
       { name: 'Training & Education', href: '#' }
@@ -86,7 +87,7 @@ const footerMenuItems = [
   {
     title: 'Resources',
     links: [
-      { name: 'News & Insights', href: '/new' },
+      { name: 'News & Insights', href: '/news-insights' },
       { name: 'Terminology', href: '/terminology' },
       { name: 'Global Calendar', href: '/global-calendar' },
       { name: 'Free Downloads', href: '/downloads' }

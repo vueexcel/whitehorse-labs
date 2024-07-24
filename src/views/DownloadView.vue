@@ -12,6 +12,6 @@
 import HeaderSection from '@/components/pages/downloads/HeaderSection.vue'
 import ResourcesSection from '@/components/pages/downloads/InfoSection.vue'
 import ContentSection from '@/components/pages/downloads/ContentSection.vue'
-import JoinusSection from '@/components/pages/downloads/JoinusSection.vue'
-import FooterSection from '@/components/pages/downloads/FooterSection.vue'
+import JoinusSection from '@/components/common/JoinusSection.vue'
+import FooterSection from '@/components/common/FooterSection.vue'
 </script>
