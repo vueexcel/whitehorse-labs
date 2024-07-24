@@ -18,6 +18,11 @@ const router = createRouter({
       name: 'downloads',
       component: () => import('../views/DownloadView.vue')
     },
+    {
+      path: '/global-calendar',
+      name: 'global-calendar',
+      component: () => import('../views/CalendarView.vue')
+    },
     // {
     //   path: '/about',
     //   name: 'about',
