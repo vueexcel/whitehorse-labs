@@ -56,9 +56,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CheckboxInput from '@/components/CheckboxInput.vue'
-import InputView from '@/components/InputView.vue'
-import BaseButton from '@/components/BaseButton.vue'
+import CheckboxInput from '@/components/common/CheckboxInput.vue'
+import InputView from '@/components/common/InputView.vue'
+import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 
 const formValues = ref({

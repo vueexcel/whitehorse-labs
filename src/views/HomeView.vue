@@ -20,6 +20,6 @@ import FeatureSection from '@/components/pages/home/FeatureSection.vue'
 import SolutionsSection from '@/components/pages/home/SolutionsSection.vue'
 import CasestudySection from '@/components/pages/home/CasestudtySection.vue'
 import AboutSection from '@/components/pages/home/AboutSection.vue'
-import JoinusSection from '@/components/common/JoinusSection.vue'
-import FooterSection from '@/components/common/FooterSection.vue'
+import JoinusSection from '@/components/pages/common/JoinusSection.vue'
+import FooterSection from '@/components/pages/common/FooterSection.vue'
 </script>

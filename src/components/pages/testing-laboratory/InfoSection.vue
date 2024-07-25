@@ -27,6 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import BaseButton from '@/components/BaseButton.vue'
+import BaseButton from '@/components/common/BaseButton.vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
 </script>
