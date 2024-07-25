@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '@/assets/images/logo.svg'
+import Logo from '@/assets/images/common/logo.svg'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'

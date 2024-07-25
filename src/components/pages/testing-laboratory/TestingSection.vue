@@ -16,7 +16,7 @@
             class="bg-[#EEEEEE] rounded-full size-[15rem] sm:size-[18rem] lg:size-[22rem] flex items-center justify-center flex-col"
           >
             <span class="text-[#FF544F] font-roboto-mono">STEP 01</span>
-            <span class="mt-2 text-xl text-center text-black max-w-32 font-roboto"
+            <span class="mt-4 text-2xl text-center text-black max-w-32 font-roboto"
               >Quotation & Test Plan</span
             >
           </div>

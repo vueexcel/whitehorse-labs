@@ -37,7 +37,7 @@ const props = withDefaults(
 const svgStyle = () => {
   const type = props.type
   const angle =
-    type == 'right' ? 180 : type == 'down' ? 90 : type == 'up' ? -90 : type == 'top-right' ? -45 : 0
+    type == 'left' ? 180 : type == 'down' ? 90 : type == 'up' ? -90 : type == 'top-right' ? -45 : 0
 
   return {
     transform: `rotate(${angle}deg)`

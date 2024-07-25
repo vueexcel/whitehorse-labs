@@ -4,7 +4,7 @@
     :style="'background-image: url(' + HeroImage + ')'"
   >
     <div
-      class="w-full h-full mx-auto max-w-[1350px] px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8"
+      class="w-full h-full mx-auto max-w-[1350px] px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border"
     >
       <h5
         class="text-3xl sm:text-4xl md:text-5xl leading-[1.2] text-white font-roboto text-center sm:text-left"

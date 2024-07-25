@@ -1,26 +1,28 @@
 <template>
   <section class="relative w-full px-6 py-16 sm:px-12">
     <div class="flex flex-col w-full sm:flex-row">
-      <div class="w-full mb-2 sm:w-64 sm:mb-0">
+      <div class="w-auto mb-2 mr-8 md:w-64 sm:mb-0">
         <RedTitle :title="title!" :text-class="textClass" class="sm:mt-2" />
       </div>
       <div class="flex flex-col w-full">
-        <div class="flex flex-col items-start w-full mb-8 sm:flex-row sm:items-end max-h-max">
+        <div class="flex flex-col items-start w-full mb-8 lg:flex-row max-h-max">
           <h4
             class="max-w-sm mt-4 text-2xl text-black sm:text-4xl font-roboto sm:mt-0"
             :class="textClass"
           >
             {{ subtitle }}
           </h4>
-          <router-link
-            v-if="cta"
-            class="flex items-center mt-4 text-xs uppercase sm:mb-2 sm:mt-0 sm:ml-auto hover:opacity-70 font-roboto"
-            :class="textClass"
-            :to="ctaLink!"
-          >
-            {{ cta }}
-            <ArrowIcon :path-class="'stroke-[#FF544F]'" class="ml-1" type="top-right" />
-          </router-link>
+          <slot name="cta">
+            <router-link
+              v-if="cta"
+              class="flex items-center mt-4 ml-auto text-xs uppercase sm:ml-0 sm:mb-2 lg:mt-0 lg:ml-auto hover:opacity-70 font-roboto"
+              :class="textClass"
+              :to="ctaLink!"
+            >
+              {{ cta }}
+              <ArrowIcon :path-class="'stroke-[#FF544F]'" class="ml-1" type="top-right" />
+            </router-link>
+          </slot>
         </div>
         <div class="max-w-full sm:max-w-5xl" v-if="$slots.top || $slots.topBottom">
           <div
