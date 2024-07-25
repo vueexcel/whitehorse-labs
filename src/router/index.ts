@@ -39,9 +39,28 @@ const router = createRouter({
 
     // Solutions
     {
-      path: '/solutions/testing-laboratory',
-      name: 'testing-laboratory',
-      component: () => import('../views/TestingLaboratoryView.vue')
+      path: '/solutions',
+      name: 'solutions',
+      children: [
+        {
+          path: 'testing-laboratory',
+          name: 'testing-laboratory',
+          component: () => import('../views/solutions/TestingLaboratoryView.vue')
+        }
+      ]
+    },
+
+    // ABout
+    {
+      path: '/about',
+      name: 'about',
+      children: [
+        {
+          path: 'who-we-are',
+          name: 'who-we-are',
+          component: () => import('../views/about/WhoWeAreView.vue')
+        }
+      ]
     }
   ],
   scrollBehavior() {

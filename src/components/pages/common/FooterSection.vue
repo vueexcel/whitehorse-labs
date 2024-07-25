@@ -71,7 +71,7 @@ const footerMenuItems = [
     title: 'About',
     link: '/about',
     links: [
-      { name: 'Who We Are', href: '#' },
+      { name: 'Who We Are', href: '/who-we-are' },
       { name: 'Why White Horse Labs?', href: '#' },
       { name: 'Join Our Team', href: '#' },
       { name: 'Our Locations', href: '#' }
