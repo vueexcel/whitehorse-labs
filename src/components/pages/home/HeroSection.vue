@@ -1,6 +1,7 @@
 <template>
   <section
-    class="w-full flex items-end bg-[url('../assets/images/home/landingImage.png')] h-screen bg-cover bg-center bg-no-repeat"
+    class="flex items-end w-full h-screen bg-center bg-no-repeat bg-cover"
+    :style="'background-image: url(' + BackgroundImage + ')'"
   >
     <div class="w-full mx-auto max-w-[1350px] px-4 mb-8">
       <h2 class="mb-32 text-6xl text-white">
@@ -11,19 +12,26 @@
       </h2>
 
       <div class="flex items-center justify-between w-full text-[12px] uppercase">
-        <p class="flex items-center text-white uppercase w-max">
-          <span class="block bg-[#FF544F] size-[12px] mr-2"></span>global guardians of technological
-          integrity
-        </p>
-        <p class="flex items-center text-white w-max">
-          scroll to explore
-          <img
-            src="../../../assets/images/home/arrow-down.svg"
-            class="mt-1 ml-2 rotate-90 size-3"
-            alt="arrow-down"
-          />
+        <RedTitle
+          title="global guardians of technological integrity"
+          text-class="text-white"
+          class="mb-5 ml-0 w-max"
+        />
+
+        <p
+          class="flex items-center text-xs text-white cursor-pointer w-max hover:opacity-75 font-roboto-mono"
+        >
+          scroll to explores
+          <ArrowIcon class-name="ml-1 size-4 ml-2" type="down" path-class="stroke-white" />
         </p>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import BackgroundImage from '@/assets/images/home/landingImage.png'
+
+import RedTitle from '@/components/common/RedTitle.vue'
+import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+</script>

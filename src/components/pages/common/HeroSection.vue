@@ -26,8 +26,8 @@
         <p
           class="flex items-center text-xs text-white cursor-pointer w-max hover:opacity-75 font-roboto-mono"
         >
-          scroll to explore
-          <img :src="ArrowDown" class="mt-1 ml-2 rotate-90 size-3" alt="arrow-down" />
+          scroll to explores
+          <ArrowIcon class-name="ml-1 size-4 ml-2" type="down" path-class="stroke-white" />
         </p>
       </div>
     </div>
@@ -35,8 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import ArrowDown from '@/assets/images/home/arrow-down.svg'
 import RedTitle from '@/components/common/RedTitle.vue'
+import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 
 defineProps<{
   title: string
