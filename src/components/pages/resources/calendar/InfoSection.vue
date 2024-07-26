@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import InfoSection from '@/components/pages/downloads/InfoSection.vue'
+import InfoSection from '@/components/pages/resources/downloads/InfoSection.vue'
 </script>
