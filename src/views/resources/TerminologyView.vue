@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSection from '@/components/pages/terminology/HeaderSection.vue'
-import ContentSection from '@/components/pages/terminology/ContentSection.vue'
+import HeaderSection from '@/components/pages/resources/terminology/HeaderSection.vue'
+import ContentSection from '@/components/pages/resources/terminology/ContentSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 </script>

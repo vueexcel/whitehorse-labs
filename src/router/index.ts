@@ -17,22 +17,22 @@ const router = createRouter({
         {
           path: 'news',
           name: 'news',
-          component: () => import('../views/NewsView.vue')
+          component: () => import('../views/resources/NewsView.vue')
         },
         {
           path: 'terminology',
           name: 'terminology',
-          component: () => import('../views/TerminologyView.vue')
+          component: () => import('../views/resources/TerminologyView.vue')
         },
         {
           path: 'global-calendar',
           name: 'global-calendar',
-          component: () => import('../views/CalendarView.vue')
+          component: () => import('../views/resources/CalendarView.vue')
         },
         {
           path: 'downloads',
           name: 'downloads',
-          component: () => import('../views/DownloadView.vue')
+          component: () => import('../views/resources/DownloadView.vue')
         }
       ]
     },

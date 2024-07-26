@@ -28,14 +28,14 @@
 
 <script setup lang="ts">
 import HeroSection from '@/components/pages/common/HeroSection.vue'
-import InfoSection from '@/components/pages/testing-laboratory/InfoSection.vue'
+import InfoSection from '@/components/pages/solutions/testing-laboratory/InfoSection.vue'
 import ServicesSection from '@/components/pages/common/ServicesSection.vue'
-import TestingSection from '@/components/pages/testing-laboratory/TestingSection.vue'
+import TestingSection from '@/components/pages/solutions/testing-laboratory/TestingSection.vue'
 import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
+import SolutionsSection from '@/components/pages/solutions/testing-laboratory/SolutionsSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
-import SolutionsSection from '@/components/pages/testing-laboratory/SolutionsSection.vue'
 
 import HeroImage from '@/assets/images/solutions/testing-laboratory/hero.png'
 
