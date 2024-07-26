@@ -18,8 +18,14 @@
         </button>
       </div>
       <transition name="accordion">
-        <div v-show="activeIndex === index" class="w-full border">
+        <div v-show="activeIndex === index" class="relative w-full">
           <img :src="item.image" alt="images" class="object-cover w-full" />
+          <p
+            v-if="item.description"
+            class="absolute left-0 max-w-lg p-4 text-white top-12 font-roboto sm:ml-64"
+          >
+            {{ item.description }}
+          </p>
         </div>
       </transition>
     </li>
@@ -35,6 +41,7 @@ interface SolutionsList {
   title: string
   link: string
   image: string
+  description?: string
 }
 
 defineProps<{

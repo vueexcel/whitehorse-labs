@@ -4,6 +4,7 @@
     cta-link="#"
     cta="Let's talk"
     subtitle="A history of leadership and innovation"
+    class="pb-2"
   >
     <template #top>
       <p class="text-[#828282] font-roboto">
@@ -31,9 +32,108 @@
         connecting our world are trustworthy and reliable.
       </p>
     </template>
+
+    <div class="flex items-start w-full px-0 mt-16 sm:px-12 md:px-14 lg:px-16">
+      <ul>
+        <li
+          v-for="({ year }, index) in HISTORY_DATA"
+          :key="year"
+          class="mb-5 font-roboto text-[#828282] cursor-pointer hover:opacity-60"
+          :class="{ 'text-black': index == activeIndex }"
+          @click="activeIndex = index"
+        >
+          {{ year }}
+        </li>
+      </ul>
+      <div class="relative w-full ml-12">
+        <div
+          class="flex flex-col w-full transition-transform"
+          v-if="activeIndex != -1"
+          :style="{ transform: 'translateY(' + (activeIndex * 46 - 30) + 'px)' }"
+        >
+          <span class="inline-block mb-2 ml-24 text-2xl">{{ HISTORY_DATA[activeIndex].year }}</span>
+          <div class="border-t border-[#D5D5D5] flex pl-24 py-6 items-start justify-between">
+            <p class="w-full max-w-lg text-[#828282]">
+              {{ HISTORY_DATA[activeIndex].description }}
+            </p>
+
+            <img
+              :src="HISTORY_DATA[activeIndex].image"
+              alt="images"
+              class="object-cover rounded-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </SectionHeader>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+
+import HistoryImage1 from '@/assets/images/about/who-we-are/history-1.png'
+import HistoryImage2 from '@/assets/images/about/who-we-are/history-2.png'
+import HistoryImage3 from '@/assets/images/about/who-we-are/history-3.png'
+import HistoryImage4 from '@/assets/images/about/who-we-are/history-4.png'
+
+const HISTORY_DATA = [
+  {
+    year: 2004,
+    image: HistoryImage1,
+    description:
+      'White Horse Laboratories is founded at the source, tackling the counterfeit challenge head-on at its epicenter in Hong Kong SAR.'
+  },
+  {
+    year: 2006,
+    image: HistoryImage2,
+    description:
+      'White Horse Laboratories opens an office in Huaqiang Bei district of Shenzhen, China securing the counterfeir region.'
+  },
+  {
+    year: 2008,
+    image: HistoryImage3,
+    description:
+      'White Horse Laboratories expans the test lab area, technical equipment, and personnel for enabling growth into the future.'
+  },
+  {
+    year: 2009,
+    image: HistoryImage4,
+    description:
+      'White Horse Laboratories receives ISO 9001 and ANSI/ESD S20.20 certifications, IDEA-STD-1010B Standard Committee, AS6171 Committee.'
+  },
+  {
+    year: 2010
+  },
+  {
+    year: 2012
+  },
+  {
+    year: 2014
+  },
+  {
+    year: 2015
+  },
+  {
+    year: 2016
+  },
+  {
+    year: 2017
+  },
+  {
+    year: 2018
+  },
+  {
+    year: 2019
+  },
+  {
+    year: 2022
+  },
+  {
+    year: 2023
+  }
+]
+
+const activeIndex = ref(0)
 </script>
