@@ -7,7 +7,7 @@
       <div class="flex flex-col w-full">
         <div class="flex flex-col items-start w-full mb-8 lg:flex-row max-h-max">
           <h4
-            class="max-w-sm mt-4 text-2xl text-black sm:text-4xl font-roboto sm:mt-0"
+            class="max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
             :class="textClass"
           >
             {{ subtitle }}

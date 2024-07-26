@@ -3,7 +3,7 @@
     <HeroSection />
     <WatchSection />
     <ServicesSection />
-    <FullWidthBox />
+    <FullWidthBoxSection />
     <HistorySection />
     <SolutionSection />
     <JoinusSection />
@@ -15,7 +15,7 @@
 import HeroSection from '@/components/pages/about/who-we-are/HeroSection.vue'
 import WatchSection from '@/components/pages/about/who-we-are/WatchSection.vue'
 import ServicesSection from '@/components/pages/about/who-we-are/ServicesSection.vue'
-import FullWidthBox from '@/components/pages/about/who-we-are/FullWidthBox.vue'
+import FullWidthBoxSection from '@/components/pages/about/who-we-are/FullWidthBoxSection.vue'
 import HistorySection from '@/components/pages/about/who-we-are/HistorySection.vue'
 import SolutionSection from '@/components/pages/about/who-we-are/SolutionsSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
