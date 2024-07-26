@@ -11,7 +11,9 @@
         >
       </h2>
 
-      <div class="flex items-center justify-between w-full text-[12px] uppercase">
+      <div
+        class="flex items-center flex-col md:flex-row md:justify-between w-full text-[12px] uppercase"
+      >
         <RedTitle
           title="global guardians of technological integrity"
           text-class="text-white"
