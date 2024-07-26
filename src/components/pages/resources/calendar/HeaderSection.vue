@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSection from '@/components/pages/terminology/HeaderSection.vue'
+import HeaderSection from '@/components/pages/resources/terminology/HeaderSection.vue'
 </script>
