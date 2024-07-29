@@ -15,9 +15,14 @@ const router = createRouter({
       name: 'resources',
       children: [
         {
-          path: 'news',
+          path: 'news-insights',
           name: 'news',
           component: () => import('../views/resources/NewsView.vue')
+        },
+        {
+          path: 'news-insight/:id',
+          name: 'news-detail',
+          component: () => import('../views/resources/NewsDetailsView.vue')
         },
         {
           path: 'terminology',

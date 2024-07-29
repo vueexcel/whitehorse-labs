@@ -1,15 +1,13 @@
 <template>
     <main>
-        <HeroSection />
-        <ContentSection />
+        <DetailsSection />
         <JoinusSection />
         <FooterSection />
     </main>
 </template>
 
 <script setup lang="ts">
-import HeroSection from '@/components/pages/resources/news-insight/HeroSection.vue';
-import ContentSection from '@/components/pages/resources/news-insight/ContentSection.vue';
+import DetailsSection from '@/components/pages/resources/news-insight/DetailsSection.vue';
 import JoinusSection from '@/components/pages/common/JoinusSection.vue';
 import FooterSection from '@/components/pages/common/FooterSection.vue';
 </script>

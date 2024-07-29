@@ -2,7 +2,9 @@
   <section class="relative w-full px-6 py-16 sm:px-12">
     <div class="flex flex-col w-full sm:flex-row">
       <div class="w-auto mb-2 mr-8 md:w-64 sm:mb-0">
-        <RedTitle :title="title!" :text-class="textClass" class="sm:mt-2" />
+        <slot name="title">
+          <RedTitle :title="title!" :text-class="textClass" class="sm:mt-2" />
+        </slot>
       </div>
       <div class="flex flex-col w-full">
         <div class="flex flex-col items-start w-full mb-8 lg:flex-row max-h-max">

@@ -51,8 +51,12 @@
           v-if="activeIndex != -1"
           :style="{ transform: 'translateY(' + (activeIndex * 46 - 30) + 'px)' }"
         >
-          <span class="inline-block mb-2 ml-24 text-2xl">{{ HISTORY_DATA[activeIndex].year }}</span>
-          <div class="border-t border-[#D5D5D5] flex pl-24 py-6 items-start justify-between">
+          <span class="inline-block pl-2 mb-2 text-2xl sm:pl-24">{{
+            HISTORY_DATA[activeIndex].year
+          }}</span>
+          <div
+            class="border-t border-[#D5D5D5] flex flex-col sm:flex-row pl-2 sm:pl-24 py-6 items-start justify-between"
+          >
             <p class="w-full max-w-lg text-[#828282]">
               {{ HISTORY_DATA[activeIndex].description }}
             </p>
@@ -60,7 +64,7 @@
             <img
               :src="HISTORY_DATA[activeIndex].image"
               alt="images"
-              class="object-cover rounded-lg"
+              class="object-cover mt-4 rounded-lg sm:mt-0"
             />
           </div>
         </div>
