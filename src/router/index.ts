@@ -83,6 +83,13 @@ const router = createRouter({
           component: () => import('../views/case-study/CaseStudyDetailView.vue')
         }
       ]
+    },
+
+    // contact
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue')
     }
   ],
   scrollBehavior() {
