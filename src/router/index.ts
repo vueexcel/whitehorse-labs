@@ -66,6 +66,23 @@ const router = createRouter({
           component: () => import('../views/about/WhoWeAreView.vue')
         }
       ]
+    },
+
+    // case study
+    {
+      path: '/case-studies',
+      children: [
+        {
+          path: '',
+          name: 'case-study',
+          component: () => import('../views/case-study/CaseStudyView.vue')
+        },
+        {
+          path: ':id',
+          name: 'case-study-detail',
+          component: () => import('../views/case-study/CaseStudyDetailView.vue')
+        }
+      ]
     }
   ],
   scrollBehavior() {

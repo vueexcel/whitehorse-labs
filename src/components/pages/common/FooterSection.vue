@@ -81,10 +81,10 @@ const footerMenuItems = [
     title: 'Case Studies',
     link: '/case-studies',
     links: [
-      { name: 'Boeing', href: '#' },
-      { name: 'Tesla', href: '#' },
-      { name: 'General Motors', href: '#' },
-      { name: 'NASA', href: '#' }
+      { name: 'Boeing', href: '/boeing' },
+      { name: 'Tesla', href: '/tesla' },
+      { name: 'General Motors', href: '/general-moters' },
+      { name: 'NASA', href: '/nasa' }
     ]
   },
   {
