@@ -1,7 +1,7 @@
 <template>
   <SectionHeader title="What We Do" subtitle="Our Solutions" class="pb-0">
     <div
-      class="relative max-w-4xl rounded-lg lg:ml-60 aspect-[3/4] sm:aspect-video"
+      class="relative max-w-4xl rounded-lg lg:ml-60 aspect-[3/4] sm:aspect-video cards"
       v-for="item in DUMMY_DATA"
       :key="item.id"
     >
@@ -38,3 +38,15 @@ const DUMMY_DATA = [
   }
 ]
 </script>
+
+<style scoped>
+.cards {
+  animation: fade-in linear;
+  animation-timeline: view();
+}
+
+@keyframes fade-in {
+  from { scale: 0.5; opacity: 0; }
+  to { scale: 1; opacity: 1; }
+}
+</style>

@@ -81,6 +81,16 @@ import HistoryImage1 from '@/assets/images/about/who-we-are/history-1.png'
 import HistoryImage2 from '@/assets/images/about/who-we-are/history-2.png'
 import HistoryImage3 from '@/assets/images/about/who-we-are/history-3.png'
 import HistoryImage4 from '@/assets/images/about/who-we-are/history-4.png'
+import HistoryImage5 from '@/assets/images/about/who-we-are/history-5.png'
+import HistoryImage6 from '@/assets/images/about/who-we-are/history-6.png'
+import HistoryImage7 from '@/assets/images/about/who-we-are/history-7.png'
+import HistoryImage8 from '@/assets/images/about/who-we-are/history-8.png'
+import HistoryImage9 from '@/assets/images/about/who-we-are/history-9.png'
+import HistoryImage10 from '@/assets/images/about/who-we-are/history-10.png'
+import HistoryImage11 from '@/assets/images/about/who-we-are/history-11.png'
+import HistoryImage12 from '@/assets/images/about/who-we-are/history-12.png'
+import HistoryImage13 from '@/assets/images/about/who-we-are/history-13.png'
+import HistoryImage14 from '@/assets/images/about/who-we-are/history-14.png'
 
 const HISTORY_DATA = [
   {
@@ -108,34 +118,54 @@ const HISTORY_DATA = [
       'White Horse Laboratories receives ISO 9001 and ANSI/ESD S20.20 certifications, IDEA-STD-1010B Standard Committee, AS6171 Committee.'
   },
   {
-    year: 2010
+    year: 2010,
+    image: HistoryImage5,
+    description: 'Approval by Plexus for counterfeit prevention program. Factory auditor certification'
   },
   {
-    year: 2012
+    year: 2012,
+    image: HistoryImage6,
+    description: 'Hong Kong facility evolves into 3PL provider for the electronics industry'
   },
   {
-    year: 2014
+    year: 2014,
+    image: HistoryImage7,
+    description: '10th anniversary of the company. Approval by Thales.'
   },
   {
-    year: 2015
+    year: 2015,
+    image: HistoryImage8,
+    description: 'Global approval by Jabil. IPC member'
   },
   {
-    year: 2016
+    year: 2016,
+    image: HistoryImage9,
+    description: 'Expansion of capacities for failure analysis, life cycle and reliability testing'
   },
   {
-    year: 2017
+    year: 2017,
+    image: HistoryImage10,
+    description: 'Approval by Flex for MedAccred certification program'
   },
   {
-    year: 2018
+    year: 2018,
+    image: HistoryImage11,
+    description: 'Site expansion with European branch office in Munich, Germany'
   },
   {
-    year: 2019
+    year: 2019,
+    image: HistoryImage12,
+    description: '15th anniversary of the company. Approval by Molex and UTC for expanded testing. COGD member'
   },
   {
-    year: 2022
+    year: 2022,
+    image: HistoryImage13,
+    description: 'Approval by several automotive and medical manufacturers, expansion to Singapore, Bangalore and Cleveland'
   },
   {
-    year: 2023
+    year: 2023,
+    image: HistoryImage14,
+    description: 'DIN EN ISO/IEC 17025:2017 accreditation of Test Labs in Shenzhen and Cleveland, expansion to Germany'
   }
 ]
 

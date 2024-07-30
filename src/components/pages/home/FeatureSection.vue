@@ -18,7 +18,7 @@
         <img :src="Image7" alt="images" class="absolute bottom-0 pointer-events-none right-[20%]" />
       </div>
     </div>
-    <p class="text-white text-center max-w-[470px] text-3xl z-20 px-6 sm:px-12">
+    <p class="text-white text-center max-w-md text-3xl z-20 px-6 sm:px-12">
       We safeguard supply chains with specialized testing, inspection, and logistics solutions,
       strategically integrated to ensure product integrity and reduce risk.
     </p>
