@@ -10,5 +10,5 @@
 <script setup lang="ts">
 import HeroSection from '@/components/pages/common/HeroSection.vue'
 
-import HeroImage from '@/assets/images/common/case-study/case-study-1.png'
+import HeroImage from '@/assets/images/case-studies/case-study-hero-1.png'
 </script>
