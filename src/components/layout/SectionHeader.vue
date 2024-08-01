@@ -1,5 +1,5 @@
 <template>
-  <section class="relative w-full px-6 py-16 sm:px-12">
+  <section class="relative w-full px-6 py-16 sm:px-12" ref="section">
     <div class="flex flex-col w-full sm:flex-row">
       <div class="w-auto mb-2 mr-8 md:w-64 sm:mb-0">
         <slot name="title">
@@ -44,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 
@@ -54,4 +55,9 @@ defineProps<{
   subtitle: string
   textClass?: string
 }>()
+
+const section = ref<HTMLElement | null>(null)
+defineExpose({
+  section: section
+})
 </script>
