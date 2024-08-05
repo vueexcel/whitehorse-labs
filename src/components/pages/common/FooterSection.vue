@@ -13,12 +13,12 @@
         <div class="grid w-full grid-cols-1 gap-8 mb-12 sm:grid-cols-2 md:grid-cols-4 md:gap-4">
           <div
             class="flex flex-col items-start w-full text-white font-roboto"
-            v-for="menu in footerMenuItems"
+            v-for="menu in FooterLinks"
             :key="menu.title"
           >
             <h6 class="mb-4 text-xl md:text-2xl font-roboto">{{ menu.title }}</h6>
             <router-link
-              :to="menu.link + link.href"
+              :to="`${menu.href}/${link.href}`"
               class="text-[#828282] text-sm mb-3"
               v-for="link in menu.links"
               :key="link.name"
@@ -56,48 +56,7 @@ import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
 import YoutubeIcon from '@/components/icons/YoutubeIcon.vue'
 
-const footerMenuItems = [
-  {
-    title: 'Solutions',
-    link: '/solutions',
-    links: [
-      { name: 'Testing Laboratory', href: '/testing-laboratory' },
-      { name: 'Factory Auditing', href: '#' },
-      { name: 'Programming, Packaging & Logistics', href: '#' },
-      { name: 'Training & Education', href: '#' }
-    ]
-  },
-  {
-    title: 'About',
-    link: '/about',
-    links: [
-      { name: 'Who We Are', href: '/who-we-are' },
-      { name: 'Why White Horse Labs?', href: '#' },
-      { name: 'Join Our Team', href: '#' },
-      { name: 'Our Locations', href: '#' }
-    ]
-  },
-  {
-    title: 'Case Studies',
-    link: '/case-studies',
-    links: [
-      { name: 'Boeing', href: '/boeing' },
-      { name: 'Tesla', href: '/tesla' },
-      { name: 'General Motors', href: '/general-moters' },
-      { name: 'NASA', href: '/nasa' }
-    ]
-  },
-  {
-    title: 'Resources',
-    link: '/resources',
-    links: [
-      { name: 'News & Insights', href: '/news-insights' },
-      { name: 'Terminology', href: '/terminology' },
-      { name: 'Global Calendar', href: '/global-calendar' },
-      { name: 'Free Downloads', href: '/downloads' }
-    ]
-  }
-]
+import FooterLinks from '@/constants/footerlinks.constants';
 
 const socialLinks = [
   { name: 'linkedin', href: '#', title: 'linkedin', icon: LinkedinIcon },
