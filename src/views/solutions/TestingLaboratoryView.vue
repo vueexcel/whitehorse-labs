@@ -11,34 +11,49 @@
       Reliability and Safety <br />
       <span class="font-Tiempos-Headline">Through Expert Testing</span>
     </HeroSection>
-    <InfoSection />
-    <ServicesSection
-      cta="Request a Sample Report"
-      title="test lab services"
-      :items="SERVICES_LIST"
-    />
+    <SectionHeader title="Testing Laboratory" subtitle="Safeguarding Your Products' Integrity"
+      class="text-white bg-black py-36" textClass="text-white">
+      <template #top>
+        <p class="pr-5 font-roboto">
+          We’re dedicated to ensuring the reliability and safety of your electronic components. Our
+          state-of-the-art testing laboratory leverages advanced engineering expertise and
+          cutting-edge technology to provide comprehensive solutions, including counterfeit detection
+          and failure analysis. We uphold the highest standards of quality assurance, giving you peace
+          of mind and confidence in your products.
+        </p>
+        <p class="pr-5 font-roboto">
+          More than just a testing laboratory, White Horse Labs is your partner in quality assurance.
+          Our rigorous electrical, mechanical, and environmental testing ensures your products meet
+          stringent industry standards. Trust us to safeguard your supply chain with our unwavering
+          commitment to excellence, precision, integrity, and innovation in every service we provide.
+        </p>
+      </template>
+      <template #topBottom>
+        <BaseButton title="Request a Sample Report" />
+      </template>
+    </SectionHeader>
+    <ServicesSection cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
     <TestingSection />
     <CaseStudySection />
     <TestimonialsSection />
-    <SolutionsSection />
+    <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
     <JoinusSection />
     <FooterSection />
   </main>
 </template>
 
 <script setup lang="ts">
-import HeroSection from '@/components/pages/common/HeroSection.vue'
-import InfoSection from '@/components/pages/solutions/testing-laboratory/InfoSection.vue'
-import ServicesSection from '@/components/pages/common/ServicesSection.vue'
-import TestingSection from '@/components/pages/solutions/testing-laboratory/TestingSection.vue'
+import TestingSection from '@/components/pages/solutions/TestingSection.vue'
 import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
-import SolutionsSection from '@/components/pages/solutions/testing-laboratory/SolutionsSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
+import ServicesSection from '@/components/pages/common/ServicesSection.vue'
+import HeroSection from '@/components/pages/common/HeroSection.vue'
+import SectionHeader from '@/components/layout/SectionHeader.vue'
+import BaseButton from '@/components/common/BaseButton.vue'
 
 import HeroImage from '@/assets/images/solutions/testing-laboratory/hero.png'
-
 import Service1Image from '@/assets/images/solutions/testing-laboratory/service-1.png'
 import Service2Image from '@/assets/images/solutions/testing-laboratory/service-2.png'
 import Service3Image from '@/assets/images/solutions/testing-laboratory/service-3.png'
@@ -47,6 +62,10 @@ import Service5Image from '@/assets/images/solutions/testing-laboratory/service-
 import Service6Image from '@/assets/images/solutions/testing-laboratory/service-6.png'
 import Service7Image from '@/assets/images/solutions/testing-laboratory/service-7.png'
 import Service8Image from '@/assets/images/solutions/testing-laboratory/service-8.png'
+
+import SolutionsImage1 from '@/assets/images/solutions/testing-laboratory/solution-1.png'
+import SolutionsImage2 from '@/assets/images/solutions/testing-laboratory/solution-2.png'
+import SolutionsImage3 from '@/assets/images/solutions/testing-laboratory/solution-3.png'
 
 const SERVICES_LIST = [
   {
@@ -115,6 +134,27 @@ const SERVICES_LIST = [
       'Mechanical Stress Testing'
     ],
     images: [Service7Image, Service8Image]
+  }
+]
+
+const SOLUTIONS_LIST = [
+  {
+    title: 'Factory Auditing',
+    description: 'We provide meticulous factory auditing services to ensure compliance, quality, and efficiency in manufacturing processes.',
+    link: '#',
+    image: SolutionsImage1
+  },
+  {
+    title: 'Programming, Packaging & Logistics',
+    description: 'Integrated packaging and logistics solutions designed to optimize efficiency and ensure the secure delivery of your products. ',
+    link: '#',
+    image: SolutionsImage2
+  },
+  {
+    title: 'Training & Education',
+    description: 'Comprehensive training and education programs to enhance your team\'s expertise and uphold industry standards.',
+    link: '#',
+    image: SolutionsImage3
   }
 ]
 </script>

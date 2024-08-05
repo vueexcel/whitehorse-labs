@@ -31,7 +31,7 @@ const router = createRouter({
         {
           path: solutions.factoryAuditing.path,
           name: solutions.factoryAuditing.name,
-          component: () => import('../views/solutions/TestingLaboratoryView.vue')
+          component: () => import('../views/solutions/FactoryAuditingView.vue')
         },
         {
           path: solutions.programmingPackaging.path,

@@ -33,4 +33,43 @@
 <script setup lang="ts">
 import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
+
+const TESTING_LIST = [
+  {
+    title: 'Quotation & Test Plan',
+    description: 'You’ll receive a quote from White Horse Laboratories as well as our comprehensive testing plan for your item.',
+  },
+  {
+    title: 'Purchase Order',
+    description: 'Step 2 : text here changes for each step… ',
+  },
+  {
+    title: 'Delivery',
+    description: 'Step 3 : text here changes for each step… ',
+  },
+  {
+    title: 'Testing',
+    description: 'Step 4 : text here changes for each step… '
+  },
+  {
+    title: 'Reporting',
+    description: 'Step 5 : text here changes for each step… '
+  },
+  {
+    title: 'Product Acceptance',
+    description: 'Step 5 : text here changes for each step… '
+  },
+  {
+    title: 'Repackaging',
+    description: 'Step 5 : text here changes for each step… '
+  },
+  {
+    title: 'Final Shipment',
+    description: 'Step 5 : text here changes for each step… '
+  },
+  {
+    title: 'Buyer Receives Product',
+    description: 'Step 5 : text here changes for each step… '
+  },
+]
 </script>
