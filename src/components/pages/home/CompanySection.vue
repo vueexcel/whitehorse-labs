@@ -1,5 +1,5 @@
 <template>
-  <SectionHeader title="CONNECTED AND COMPLIANT" subtitle="" class="pb-0">
+  <SectionHeader title="CONNECTED AND COMPLIANT" subtitle="" class="pb-0 bg-white">
     <template #topBottom>
       <ul class="grid w-full grid-cols-2 gap-8 -translate-y-8 md:grid-cols-3 lg:grid-cols-6">
         <li

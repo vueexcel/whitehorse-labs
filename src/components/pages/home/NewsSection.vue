@@ -4,7 +4,7 @@
     subtitle="News & Insights"
     cta="VIEW ALL NEWS AND INSIGHTS"
     cta-link="#"
-    class="pt-0 sm:pt-8"
+    class="pt-0 sm:pt-8 bg-white"
   >
     <ul class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
       <li

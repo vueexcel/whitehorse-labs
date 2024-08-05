@@ -1,5 +1,5 @@
 <template>
-  <SectionHeader title="Who we are" subtitle="About Us">
+  <SectionHeader title="Who we are" subtitle="About Us" class="bg-white">
     <template #top>
       <p class="pr-5 font-roboto text-[#828282]">
         White Horse Labs was established to create a world where electronics are always reliable and

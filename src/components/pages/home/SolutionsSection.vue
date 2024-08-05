@@ -1,7 +1,7 @@
 <template>
-  <SectionHeader title="What We Do" subtitle="Our Solutions" class="pb-0" ref="sectionRef" />
+  <SectionHeader title="What We Do" subtitle="Our Solutions" class="pb-0 bg-white" ref="sectionRef" />
 
-  <div class="w-full px-4 sm:px-8 md:px-12 sm:top-0">
+  <div class="bg-white w-full px-4 sm:px-8 md:px-12 sm:top-0">
     <div class="max-w-4xl rounded-lg lg:ml-60 aspect-[3/4] sm:aspect-video mb-8 sticky" v-for="(item, index) in list"
       :key="item.id" ref="cards" :style="`top: ${(index * 12) + (120 + (width < 768 ? 35 : 0))}px`">
       <img :src="item.image" alt="images" class="object-cover w-full h-full rounded-lg" />

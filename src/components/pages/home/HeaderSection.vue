@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full h-[300vh] bg-black relative" ref="heroSection">
+    <section class="w-full h-[300vh] bg-black sticky top-[-200vh] z-[-1]" ref="heroSection" :class="{ 'opacity-0': scrollY > (windowHeight * 3)}">
         <div class="h-screen w-full">
             <div class="flex flex-end flex-col w-full h-full bg-center bg-no-repeat bg-cover z-20"
                 :style="{ backgroundImage: `url(${heroImage})` }" ref="heroImage" />

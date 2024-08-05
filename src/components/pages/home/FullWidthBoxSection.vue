@@ -1,5 +1,5 @@
 <template>
-  <FullWidthBox :background-image="BackgroundImage" :link="'#'" :link-text="'Learn More About Us'">
+  <FullWidthBox :background-image="BackgroundImage" :link="'#'" :link-text="'Learn More About Us'" class="bg-white">
     <template #title>
       More than peace of mind.<br />
       It’s our promise to you.
