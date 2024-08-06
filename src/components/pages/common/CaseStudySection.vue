@@ -4,7 +4,7 @@
     title="How we do it"
     cta="View All Case Studies"
     cta-link="#"
-    class="sm:py-32 bg-white"
+    class="sm:py-20 bg-white"
   >
     <div class="grid w-full grid-cols-1 gap-8 mt-8 sm:grid-cols-2">
       <div class="w-full pointer-events-none" v-for="(data, index) in DUMMY_DATA" :key="data.id">

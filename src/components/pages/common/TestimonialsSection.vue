@@ -1,5 +1,5 @@
 <template>
-  <SectionHeader title="Testimonials" subtitle="" class="pt-8 bg-white">
+  <SectionHeader title="Testimonials" subtitle="" class="py-8 bg-white">
     <template #cta>
       <div
         class="flex items-center mt-4 ml-auto text-sm uppercase font-roboto-mono sm:mb-2 sm:mt-0 sm:ml-auto"

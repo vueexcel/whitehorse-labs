@@ -1,5 +1,6 @@
 <template>
-  <section class="w-full px-6 pt-20 pb-32 mt-12 text-white bg-black sm:px-12">
+  <section class="w-full h-12 bg-white" />
+  <section class="w-full px-6 pt-20 pb-32 text-white bg-black sm:px-12">
     <div class="flex flex-col items-center w-full md:flex-row">
       <div class="flex flex-col items-start w-full mb-20 mr-2 sm:w-auto sm:flex-row md:mb-0">
         <RedTitle title="Testing process" class="mt-2 sm:w-64" />
