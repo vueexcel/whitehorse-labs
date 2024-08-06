@@ -1,7 +1,7 @@
 <template>
   <main>
     <EmptyHeaderSection title="Global Calendar" />
-    <SectionHeader title="Global Calendar" subtitle="At Your Service">
+    <SectionHeader title="Global Calendar" subtitle="At Your Service" class="bg-white">
       <template #top>
         <p class="text-[#828282] font-roboto">
           Trust White Horse Labs for swift, reliable service to maintain a resilient supply chain. Streamline your order
@@ -9,8 +9,8 @@
         </p>
       </template>
     </SectionHeader>
-    <section class="w-full max-w-6xl px-6 mx-auto my-12 mb-20">
-      <iframe :src="calendarUrl" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    <section class="w-full px-6 mx-auto bg-white pt-12 pb-20 flex items-center justify-center">
+      <iframe class="w-full max-w-6xl" :src="calendarUrl" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
     </section>
     <JoinusSection />
     <FooterSection />

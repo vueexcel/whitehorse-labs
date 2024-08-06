@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full px-4 md:px-12">
+  <section class="w-full px-4 md:px-12 bg-white">
     <!-- Wrapping the table in a div with overflow-x-auto for responsiveness -->
     <div class="overflow-x-auto">
       <table class="w-full mt-8 mb-8 md:mt-12 md:mb-32">

@@ -1,5 +1,5 @@
 <template>
-    <SectionHeader title="News & Insights" subtitle="Explore More" cta="View All Stories" cta-link="#">
+    <SectionHeader title="News & Insights" subtitle="Explore More" cta="View All Stories" cta-link="#" class="bg-white">
         <ul class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
             <li v-for="({ title, image }, index) in DUMMY_DATA" :key="index"
                 class="w-full transition-transform hover:scale-95">

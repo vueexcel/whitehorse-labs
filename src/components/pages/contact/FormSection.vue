@@ -1,5 +1,5 @@
 <template>
-    <SectionHeader title="Contact Us" subtitle="Send us a message" class="pt-6 my-2">
+    <SectionHeader title="Contact Us" subtitle="Send us a message" class="pt-8 bg-white">
         <template #top>
             <p class="text-[#828282] font-roboto -translate-y-4">
                 Have questions? Answers are just a message away.

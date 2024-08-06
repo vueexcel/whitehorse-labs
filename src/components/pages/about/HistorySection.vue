@@ -4,7 +4,7 @@
     cta-link="#"
     cta="Let's talk"
     subtitle="A history of leadership and innovation"
-    class="pb-2"
+    class="pb-2 bg-white"
   >
     <template #top>
       <p class="text-[#828282] font-roboto">

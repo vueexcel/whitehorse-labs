@@ -1,7 +1,7 @@
 <template>
   <main>
     <EmptyHeaderSection title="Free Downloads" />
-    <SectionHeader title="Free Downloads" subtitle="Resources for your success">
+    <SectionHeader title="Free Downloads" subtitle="Resources for your success" class="bg-white">
       <template #top>
         <p class="text-[#828282] font-roboto">
           Explore our free downloadable content for valuable industry insights and resources.

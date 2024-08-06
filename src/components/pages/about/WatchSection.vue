@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full px-6 py-24 sm:px-12">
+  <section class="w-full px-6 py-24 sm:px-12 bg-white">
     <h3 class="max-w-3xl text-2xl sm:text-3xl">
       For over 20 years we’ve been the global leaders of ensuring electronic reliability and safety
       for businesses around the world.

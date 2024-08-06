@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full px-6 sm:px-12">
+  <section class="w-full px-6 sm:px-12 bg-white">
     <div class="overflow-x-auto">
       <table class="w-full mt-12 mb-32">
         <thead>

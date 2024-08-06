@@ -1,6 +1,6 @@
 <template>
   <SectionHeader v-for="{ title: title1, description, list, link, images } in items" :key="title1" :title="title"
-    :subtitle="title1" :cta="cta" :ctaLink="link" class="pb-8">
+    :subtitle="title1" :cta="cta" :ctaLink="link" class="pb-8 bg-white">
     <template #top>
       <p v-if="!Array.isArray(description)" class="text-[#828282] font-roboto">
         {{ description }}

@@ -1,12 +1,12 @@
 <template>
-    <section class="sm:px-12 px-6 w-full sm:pt-28 pt-24">
+    <section class="sm:px-12 px-6 w-full sm:pt-28 pt-24 bg-white">
         <img :src="NewsImage" alt="News Image" class="w-full max-w-4xl mx-auto aspect-video pointer-events-none">
 
         <h2 class="sm:mt-16 mt-10 text-3xl sm:text-4xl font-roboto max-w-2xl">
             Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe
         </h2>
     </section>
-    <SectionHeader subtitle="">
+    <SectionHeader subtitle="" class="bg-white">
         <template #title>
             <span class="text-sm font-roboto-mono text-neutral-500">
                 February 26th, 2024 <br /> Company news <br /> Munich</span>

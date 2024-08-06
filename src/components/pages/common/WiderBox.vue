@@ -1,6 +1,7 @@
 <template>
+  <section class="w-full h-20 bg-white" />
   <section
-    class="relative flex items-center w-full h-screen my-20 bg-no-repeat bg-cover full-page-box"
+    class="relative flex items-center w-full h-screen bg-no-repeat bg-cover full-page-box"
     :style="{ backgroundImage: `url(${backgroundImage})`, backgroundPosition: 'center' }"
   >
     <div class="absolute w-full h-full" />
@@ -27,6 +28,7 @@
       </router-link>
     </div>
   </section>
+  <section class="w-full h-20 bg-white" />
 </template>
 
 <script setup lang="ts">

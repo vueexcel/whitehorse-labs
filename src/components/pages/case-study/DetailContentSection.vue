@@ -1,5 +1,5 @@
 <template>
-    <SectionHeader class="pb-4" :title="item.title" :subtitle="item.subtitle" v-for="item in DUMMY_DATA" :key="item.title">
+    <SectionHeader class="pb-4 bg-white" :title="item.title" :subtitle="item.subtitle" v-for="item in DUMMY_DATA" :key="item.title">
         <template #topBottom>
             <p>{{ item.description }}</p>
         </template>

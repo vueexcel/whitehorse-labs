@@ -1,5 +1,5 @@
 <template>
-    <SectionHeader title="The latest" subtitle="News & Insights">
+    <SectionHeader title="The latest" subtitle="News & Insights" class="bg-white">
         <template #cta>
             <select name="Category" id="category" class="text-black ml-auto outline-none border-b-2 py-2 px-12">
                 <option value="" selected>View all categories</option>
