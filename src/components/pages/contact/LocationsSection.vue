@@ -2,10 +2,16 @@
     <SectionHeader title="Our locations" subtitle="Global Reach with Local Expertise" class="text-black bg-white">
         <template #top>
             <p class="text-[#828282] font-roboto">
-                White Horse Labs operates from key locations across Asia, Europe, and the Americas, ensuring seamless support for your global supply chain needs. Our headquarters in Hong Kong, with additional facilities in Shenzhen and the Futian Free Trade Zone, offer direct access to major testing labs and logistical hubs, saving you time and money.
+                White Horse Labs operates from key locations across Asia, Europe, and the Americas, ensuring seamless
+                support for your global supply chain needs. Our headquarters in Hong Kong, with additional facilities in
+                Shenzhen and the Futian Free Trade Zone, offer direct access to major testing labs and logistical hubs,
+                saving you time and money.
             </p>
             <p class="text-[#828282] font-roboto">
-                With offices and partners in Germany, the United States, and beyond, we combine global reach with local expertise. This strategic presence enables us to deliver the highest quality services and support, wherever you are. Trust White Horse Labs to be your reliable partner in maintaining the integrity and efficiency of your supply chain.
+                With offices and partners in Germany, the United States, and beyond, we combine global reach with local
+                expertise. This strategic presence enables us to deliver the highest quality services and support,
+                wherever you are. Trust White Horse Labs to be your reliable partner in maintaining the integrity and
+                efficiency of your supply chain.
             </p>
         </template>
 
@@ -15,8 +21,12 @@
                     <h6 class="mb-4 text-2xl font-roboto font-normal">{{ item.location }}</h6>
                     <p class="text-[#828282] font-roboto text-sm max-w-sm">{{ item.address }}</p>
                     <p class="text-[#828282] font-roboto text-sm">{{ item.phone }}</p>
-                    <router-link to="" target="_blank" class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3">{{ item.email }}</router-link>
-                    <router-link to="" target="_blank" class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3 underline">{{ item.website }}</router-link>
+                    <router-link to="" target="_blank"
+                        class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3">{{ item.email
+                        }}</router-link>
+                    <router-link to="" target="_blank"
+                        class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3 underline">{{ item.website
+                        }}</router-link>
                 </div>
             </div>
 

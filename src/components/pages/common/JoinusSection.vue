@@ -1,15 +1,11 @@
 <template>
   <section
-    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]"
-  >
+    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]">
     <RedTitle title="Join Us" class="mt-2 mb-8 md:mb-0 md:w-56" />
     <div class="w-full max-w-4xl">
       <h5 class="text-3xl md:text-5xl font-roboto">
         <span class="inline-block">Discover a world</span><br />
-        <span
-          class="inline-block mt-2 text-4xl italic font-normal md:text-6xl"
-          style="font-family: 'Tiempos Headline'"
-        >
+        <span class="inline-block mt-2 text-4xl italic font-normal md:text-6xl" style="font-family: 'Tiempos Headline'">
           where technology is <br />
           synonymous with trust
         </span>
@@ -21,12 +17,12 @@
       </p>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <InputView v-model="formValues.firstName" type="text" required placeholder="First Name" />
-        <InputView v-model="formValues.lastName" type="text" required placeholder="Last Name" />
-        <InputView v-model="formValues.jobTitle" type="text" placeholder="Job Title" />
-        <InputView v-model="formValues.companyName" type="text" placeholder="Company Name" />
-        <InputView v-model="formValues.email" type="email" required placeholder="Email" />
-        <InputView v-model="formValues.phoneNumber" type="text" placeholder="Phone Number" />
+        <InputView v-model="values.firstName" type="text" required placeholder="First Name" />
+        <InputView v-model="values.lastName" type="text" required placeholder="Last Name" />
+        <InputView v-model="values.jobTitle" type="text" placeholder="Job Title" />
+        <InputView v-model="values.companyName" type="text" placeholder="Company Name" />
+        <InputView v-model="values.email" type="email" required placeholder="Email" />
+        <InputView v-model="values.phoneNumber" type="text" placeholder="Phone Number" />
       </div>
 
       <p class="flex items-center mt-6 text-sm md:mt-8 md:text-base">
@@ -36,48 +32,32 @@
 
       <div class="flex flex-wrap max-w-4xl mt-2">
         <span></span>
-        <CheckboxInput v-model="formValues.interests.companyNews" label="Company News" />
-        <CheckboxInput
-          v-model="formValues.interests.counterfeitDetection"
-          label="Counterfeit Detection"
-        />
-        <CheckboxInput v-model="formValues.interests.failureAnalysis" label="Failure Analysis" />
-        <CheckboxInput v-model="formValues.interests.lifecycle" label="Lifecycle & Reliability" />
-        <CheckboxInput v-model="formValues.interests.logistics" label="Logistics" />
-        <CheckboxInput v-model="formValues.interests.programming" label="Programming" />
-        <CheckboxInput v-model="formValues.interests.factoryAuditing" label="Factory Auditing" />
-        <CheckboxInput v-model="formValues.interests.training" label="Training" />
+        <CheckboxInput v-model="values.interests.companyNews" label="Company News" />
+        <CheckboxInput v-model="values.interests.counterfeitDetection" label="Counterfeit Detection" />
+        <CheckboxInput v-model="values.interests.failureAnalysis" label="Failure Analysis" />
+        <CheckboxInput v-model="values.interests.lifecycle" label="Lifecycle & Reliability" />
+        <CheckboxInput v-model="values.interests.logistics" label="Logistics" />
+        <CheckboxInput v-model="values.interests.programming" label="Programming" />
+        <CheckboxInput v-model="values.interests.factoryAuditing" label="Factory Auditing" />
+        <CheckboxInput v-model="values.interests.training" label="Training" />
       </div>
 
-      <BaseButton title="Submit" class="mt-5" />
+      <BaseButton :disabled="disabled" @click="handleSubmit" title="Submit" class="mt-5" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import CheckboxInput from '@/components/common/CheckboxInput.vue'
 import InputView from '@/components/common/InputView.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 
-const formValues = ref({
-  firstName: '',
-  lastName: '',
-  jobTitle: '',
-  companyName: '',
-  email: '',
-  phoneNumber: '',
-  interests: {
-    companyNews: false,
-    newsletter: false,
-    counterfeitDetection: false,
-    failureAnalysis: false,
-    lifecycle: false,
-    logistics: false,
-    programming: false,
-    factoryAuditing: false,
-    training: false
-  }
+import { useContactForm } from '@/hooks/useContactForm'
+
+const { values, disabled, handleSubmit } = useContactForm((values) => {
+  const { email, interests, firstName, lastName } = values;
+
+  return !!(firstName.trim() && lastName.trim() && email.trim() && Object.values(interests).filter(value => value).length > 0);
 })
 </script>
