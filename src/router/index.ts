@@ -13,6 +13,7 @@ const {
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // Landing Page
     {
       path: landingpage.path,
       name: landingpage.name,
@@ -41,12 +42,12 @@ const router = createRouter({
         {
           path: solutions.trainingEducation.path,
           name: solutions.trainingEducation.name,
-          component: () => import('../views/solutions/TestingLaboratoryView.vue')
+          component: () => import('../views/solutions/TrainingEducationView.vue')
         }
       ]
     },
 
-    // case study
+    // CaseStudy
     {
       path: caseStudies.path,
       children: [
@@ -63,7 +64,7 @@ const router = createRouter({
       ]
     },
 
-     // ABout
+     // About
     {
       path: about.path,
       children: [
@@ -122,7 +123,7 @@ const router = createRouter({
       ]
     },
 
-    // contact
+    // Contact
     {
       path: contact.path,
       name: contact.name,
