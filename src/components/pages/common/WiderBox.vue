@@ -1,7 +1,7 @@
 <template>
   <section class="w-full h-20 bg-white" />
   <section
-    class="relative flex items-center w-full h-screen bg-no-repeat bg-cover full-page-box"
+    class="relative flex items-center w-full h-screen bg-no-repeat bg-cover full-page-box bg-white"
     :style="{ backgroundImage: `url(${backgroundImage})`, backgroundPosition: 'center' }"
   >
     <div class="absolute w-full h-full" />

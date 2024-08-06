@@ -4,7 +4,7 @@
     <SolutionsSection />
     <AboutSection />
     <CompanySection />
-    <WiderBox :background-image="BackgroundImage" :link="'#'" :link-text="'Learn More About Us'" class="bg-white">
+    <WiderBox :background-image="BackgroundImage" :link="'#'" :link-text="'Learn More About Us'">
       <template #title>
         More than peace of mind.<br />
         It’s our promise to you.
@@ -15,7 +15,6 @@
       analysis. Leading with transparency, rigor, and integrity, we ensure your products are reliable
       and safe, delivering peace of mind and trust in every transaction.
     </WiderBox>
-    <FullWidthBoxSection />
     <CaseStudySection />
     <TestimonialsSection />
     <NewsSection />

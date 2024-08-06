@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative selection:bg-[#FF544F5B]">
     <NavBar />
     <router-view v-slot="{ Component }">
       <transition name="fade">
