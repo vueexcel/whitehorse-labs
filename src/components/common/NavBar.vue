@@ -11,7 +11,7 @@
 
         <ul class="flex items-center ml-12">
           <li v-for="link in NavbarLinks" :key="link.label" @mouseenter="currentActive = link.label">
-            <router-link :role="!link.sublinks ? 'button' : 'anchor'" :to="link.sublinks ? '#' : link.link"
+            <router-link :role="!link.sublinks ? 'button' : 'anchor'" :to="link.sublinks ? '' : link.link"
               class="p-2 mx-1 text-sm text-white hover:opacity-80 whitespace-nowrap">
               {{ link.label }}
             </router-link>
