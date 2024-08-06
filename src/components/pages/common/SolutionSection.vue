@@ -1,5 +1,5 @@
 <template>
-  <SectionHeader :title="title" subtitle="" class="pb-10 bg-white" />
+  <SectionHeader :title="title" subtitle="" class="pb-10 pt-12 bg-white" />
   <ul class="w-full pb-24 bg-white">
     <li class="w-full h-auto" v-for="(item, index) in items" :key="item.title">
       <div class="w-full px-4 sm:px-12">
