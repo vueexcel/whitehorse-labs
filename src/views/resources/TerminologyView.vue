@@ -1,6 +1,6 @@
 <template>
-  <main class="w-full min-h-screen">
-    <HeaderSection />
+  <main>
+    <EmptyHeaderSection title="Industry Terminology" />
     <ContentSection />
     <JoinusSection />
     <FooterSection />
@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import HeaderSection from '@/components/pages/resources/terminology/HeaderSection.vue'
-import ContentSection from '@/components/pages/resources/terminology/ContentSection.vue'
+import EmptyHeaderSection from '@/components/pages/common/EmptyHeaderSection.vue';
+import ContentSection from '@/components/pages/resources/TerminologyContentSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 </script>

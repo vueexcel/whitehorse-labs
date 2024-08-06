@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import Image1 from '@/assets/images/downloads/bulk.png'
+import Image1 from '@/assets/images/resources/bulk.png'
 
 const tableData = [
   {
