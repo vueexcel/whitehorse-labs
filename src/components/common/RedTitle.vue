@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center w-full h-auto">
-    <span class="block bg-[#FF544F] size-3 sm:size-4"></span>
-    <span class="ml-2 text-xs uppercase font-roboto-mono whitespace-nowrap" :class="textClass">
+    <span class="block bg-[#FF544F] w-3 h-3 min-w-3"></span>
+    <span class="ml-2 text-xs uppercase font-roboto-mono" :class="textClass">
       {{ title }}
     </span>
   </div>

@@ -36,7 +36,7 @@ const router = createRouter({
         {
           path: solutions.programmingPackaging.path,
           name: solutions.programmingPackaging.name,
-          component: () => import('../views/solutions/TestingLaboratoryView.vue')
+          component: () => import('../views/solutions/ProgrammingPackagingView.vue')
         },
         {
           path: solutions.trainingEducation.path,

@@ -1,8 +1,9 @@
 <template>
   <section
-    class="relative flex items-center w-full h-screen my-20 bg-no-repeat bg-cover"
+    class="relative flex items-center w-full h-screen my-20 bg-no-repeat bg-cover full-page-box"
     :style="{ backgroundImage: `url(${backgroundImage})`, backgroundPosition: 'center' }"
   >
+    <div class="absolute w-full h-full" />
     <div
       class="flex flex-col w-full p-6 md:px-12 max-w-full md:max-w-[35rem] text-white justify-center"
     >
@@ -37,3 +38,13 @@ defineProps<{
   linkText: string
 }>()
 </script>
+
+<style scoped>
+.full-page-box div:nth-child(1) {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
+}
+.full-page-box div:nth-child(2) {
+  z-index: 2;
+}
+</style>

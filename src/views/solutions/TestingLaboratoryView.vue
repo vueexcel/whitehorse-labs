@@ -63,9 +63,9 @@ import Service6Image from '@/assets/images/solutions/testing-laboratory/service-
 import Service7Image from '@/assets/images/solutions/testing-laboratory/service-7.png'
 import Service8Image from '@/assets/images/solutions/testing-laboratory/service-8.png'
 
-import SolutionsImage1 from '@/assets/images/solutions/testing-laboratory/solution-1.png'
-import SolutionsImage2 from '@/assets/images/solutions/testing-laboratory/solution-2.png'
-import SolutionsImage3 from '@/assets/images/solutions/testing-laboratory/solution-3.png'
+import SolutionsImage1 from '@/assets/images/solutions/solution-4.png'
+import SolutionsImage2 from '@/assets/images/solutions/solution-2.png'
+import SolutionsImage3 from '@/assets/images/solutions/solution-3.png'
 
 const SERVICES_LIST = [
   {

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import FullWidthBox from '@/components/pages/common/FullWIdthBox.vue'
+import FullWidthBox from '@/components/pages/common/FullWidthBox.vue'
 
 import BackgroundImage from '@/assets/images/home/hero-2.png'
 </script>
