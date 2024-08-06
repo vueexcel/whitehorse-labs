@@ -9,7 +9,7 @@
 import gsap from 'gsap'
 import Lenis from 'lenis'
 import { RouterView } from 'vue-router'
-import NavBar from '@/components/navbar/NavBar.vue'
+import NavBar from '@/components/common/NavBar.vue'
 
 import 'lenis/dist/lenis.css'
 import ScrollTrigger from 'gsap/ScrollTrigger'
