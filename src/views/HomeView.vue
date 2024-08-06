@@ -1,8 +1,5 @@
 <template>
   <main>
-    <!-- <HeroSection /> -->
-    <!-- <FeatureSection /> -->
-    <!-- <TestSection /> -->
     <HeaderSection />
     <SolutionsSection />
     <AboutSection />
@@ -17,12 +14,9 @@
 </template>
 
 <script setup lang="ts">
-// import TestSection from '@/components/pages/home/TestSection.vue'
-// import HeroSection from '@/components/pages/home/HeroSection.vue'
 import HeaderSection from '@/components/pages/home/HeaderSection.vue'
 import NewsSection from '@/components/pages/home/NewsSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
-// import FeatureSection from '@/components/pages/home/FeatureSection.vue'
 import SolutionsSection from '@/components/pages/home/SolutionsSection.vue'
 import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
 import FullWidthBoxSection from '@/components/pages/home/FullWidthBoxSection.vue'
