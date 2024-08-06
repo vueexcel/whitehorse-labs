@@ -7,12 +7,14 @@
         </slot>
       </div>
       <div class="flex flex-col w-full">
-        <div class="flex flex-col items-start w-full mb-8 lg:flex-row max-h-max">
+        <div class="flex flex-col items-start lg:items-end w-full mb-8 lg:flex-row max-h-max">
           <h4
             class="max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
-            :class="textClass"
+            :class="[textClass, headingClass]"
           >
-            {{ subtitle }}
+            <slot name="subtitle">
+              {{ subtitle }}
+            </slot>
           </h4>
           <slot name="cta">
             <router-link
@@ -52,8 +54,9 @@ defineProps<{
   title?: string
   cta?: string
   ctaLink?: string
-  subtitle: string
+  subtitle?: string
   textClass?: string
+  headingClass?: string
 }>()
 
 const section = ref<HTMLElement | null>(null)

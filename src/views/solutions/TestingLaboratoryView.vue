@@ -11,8 +11,11 @@
       Reliability and Safety <br />
       <span class="font-Tiempos-Headline">Through Expert Testing</span>
     </HeroSection>
-    <SectionHeader title="Testing Laboratory" subtitle="Safeguarding Your Products' Integrity"
-      class="text-white bg-black py-36" textClass="text-white">
+    <SectionHeader title="Testing Laboratory" class="text-white bg-black py-32" textClass="text-white"
+      heading-class="sm:heading-xl !max-w-md">
+      <template #subtitle>
+        Safeguarding Your <br class="hidden md:block"> Products' Integrity
+      </template>
       <template #top>
         <p class="pr-5 font-roboto">
           We’re dedicated to ensuring the reliability and safety of your electronic components. Our

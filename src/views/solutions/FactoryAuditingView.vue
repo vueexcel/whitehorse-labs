@@ -9,8 +9,11 @@
                 technology, ensuring accurate and reliable evaluations.
             </template>
         </HeroSection>
-        <SectionHeader title="Factory Auditing" subtitle="Ensuring Excellence from the Source"
-            class="text-white bg-black py-36" textClass="text-white">
+        <SectionHeader title="Factory Auditing"
+            class="text-white bg-black py-32" textClass="text-white" headingClass="sm:heading-xl !max-w-md">
+            <template #subtitle>
+                Ensuring Excellence <br class="hidden md:block"> from the Source
+            </template>
             <template #top>
                 <p class="pr-5 font-roboto">
                     At White Horse Laboratories, we offer comprehensive factory auditing services to ensure your

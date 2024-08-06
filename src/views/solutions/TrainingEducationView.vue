@@ -9,8 +9,11 @@
                 team's skills and knowledge in the electronics industry.
             </template>
         </HeroSection>
-        <SectionHeader title="Training & Education" subtitle="Enhance Your Team’s Expertise "
-            class="text-white bg-black py-36" textClass="text-white">
+        <SectionHeader title="Training & Education"
+            class="text-white bg-black py-36" textClass="text-white" heading-class="sm:heading-xl !max-w-md">
+            <template #subtitle>
+                Enhance Your Team’s <br class="hidden md:block" /> Expertise
+            </template>
             <template #top>
                 <p class="pr-5 font-roboto">
                     Strengthen your team's capabilities with White Horse Labs’ specialized training and education

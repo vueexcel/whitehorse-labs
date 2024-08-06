@@ -10,7 +10,10 @@
         </template>
     </HeroSection>
     <SectionHeader title="Programming, Packaging & Logistics" subtitle="Elevating efficiency and reliability"
-        class="text-white bg-black py-36" textClass="text-white">
+        class="text-white bg-black py-36" textClass="text-white" heading-class="sm:heading-xl !max-w-md">
+        <template #subtitle>
+            Elevating efficiency <br class="hidden md:block" /> and reliability
+        </template>
         <template #top>
             <p class="pr-5 font-roboto">
                 We deliver comprehensive programming, packaging, and logistics solutions tailored to
