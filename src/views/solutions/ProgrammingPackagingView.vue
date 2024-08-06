@@ -60,7 +60,7 @@ import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import ServicesSection from '@/components/pages/common/ServicesSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
-import FullWidthBox from '@/components/pages/common/FullWidthBox.vue'
+import FullWidthBox from '@/components/pages/common/WiderBox.vue'
 
 import HeroImage from '@/assets/images/solutions/programming-packaging/hero.png'
 import BackgroundImage from '@/assets/images/solutions/programming-packaging/full-width.png'

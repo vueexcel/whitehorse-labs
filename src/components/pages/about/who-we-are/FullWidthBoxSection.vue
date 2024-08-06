@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import FullWIdthBox from '@/components/pages/common/FullWidthBox.vue'
+import FullWIdthBox from '@/components/pages/common/WiderBox.vue'
 
 import BackgroundImage from '@/assets/images/about/who-we-are/hero-2.png'
 </script>
