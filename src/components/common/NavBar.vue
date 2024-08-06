@@ -36,22 +36,24 @@
           </button>
         </div>
       </div>
-      <div v-if="currentActive && subMenuItems?.length" class="flex items-center w-full max-w-[1350px] mx-auto">
-        <ul class="flex items-start py-10 pb-4">
-          <li v-for="link in subMenuItems" :key="link.label" class="mx-4">
-            <h5 v-if="!link.link" class="block p-4 px-6 text-lg font-bold text-white max-w-[18rem]">
-              {{ link.label }}
-            </h5>
-            <router-link v-else :to="link.link" active-class="bg-[#161616] border-[#4F4F4F]"
-              class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg" :class="[
-                !link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80'
-              ]">
-              <h5 class="mb-1 text-lg font-bold">{{ link.label }}</h5>
-              <p class="">{{ link.sublabel }}</p>
-            </router-link>
-          </li>
-        </ul>
-      </div>
+      <transition name="fade" mode="out-in">
+        <div v-if="currentActive && subMenuItems?.length" class="flex items-center w-full max-w-[1350px] mx-auto">
+          <ul class="flex items-start py-10 pb-4">
+            <li v-for="link in subMenuItems" :key="link.label" class="mx-4">
+              <h5 v-if="!link.link" class="block p-4 px-6 text-lg font-bold text-white max-w-[18rem]">
+                {{ link.label }}
+              </h5>
+              <router-link v-else :to="link.link" active-class="bg-[#161616] border-[#4F4F4F]"
+                class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg" :class="[
+                  !link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80'
+                ]">
+                <h5 class="mb-1 text-lg font-bold">{{ link.label }}</h5>
+                <p class="">{{ link.sublabel }}</p>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </transition>
     </div>
   </header>
 </template>
@@ -95,3 +97,19 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: max-height 0.5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active in <2.1.8 */
+  {
+  max-height: 0;
+  overflow: hidden;
+}
+</style>

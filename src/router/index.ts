@@ -81,7 +81,7 @@ const router = createRouter({
         {
           path: about.joinOurTeam.path,
           name: about.joinOurTeam.name,
-          component: () => import('../views/about/WhoWeAreView.vue')
+          component: () => import('../views/about/JoinOurTeamView.vue')
         },
         {
           path: about.ourLocations.path,
