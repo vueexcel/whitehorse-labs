@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import constants from '@/constants/routes.constants'
+import constants, { getTitle } from '@/constants/routes.constants'
 
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -144,11 +144,12 @@ const router = createRouter({
 router.afterEach(() => {
   setTimeout(() => {
     ScrollTrigger.refresh();
-  }, 200)
+  }, 300)
 });
 
 router.beforeEach((_to, _from, next) => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  document.title = getTitle(_to.name as string);
   next();
 });
 
