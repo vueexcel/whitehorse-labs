@@ -1,4 +1,4 @@
-export const SITE_NAME = 'White Horse Labs'; // WHL
+export const SITE_NAME = 'White Horse Laboratories'; // WHL
 
 export const title = (name: string) => `${name} | ${SITE_NAME}`
 

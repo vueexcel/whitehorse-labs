@@ -2,7 +2,7 @@
   <header class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
     <div class="w-full p-4 py-3 mx-auto bg-black rounded-md">
-      <div class="flex items-center w-full max-w-[1350px] mx-auto">
+      <div class="flex items-center w-full max-w-[1350px] mx-auto z-40">
         <div class="w-auto block">
           <router-link to="/" class="flex">
             <img src="@/assets/images/nav-bar/logo.svg" alt="logo" class="h-8 min-h-6" />
@@ -36,24 +36,24 @@
           </button>
         </div>
       </div>
-      <transition name="fade" mode="out-in">
-        <div v-if="currentActive && subMenuItems?.length" class="flex items-center w-full max-w-[1350px] mx-auto">
-          <ul class="flex items-start py-10 pb-4">
-            <li v-for="link in subMenuItems" :key="link.label" class="mx-4">
-              <h5 v-if="!link.link" class="block p-4 px-6 text-lg font-bold text-white max-w-[18rem]">
-                {{ link.label }}
-              </h5>
-              <router-link v-else :to="link.link" active-class="bg-[#161616] border-[#4F4F4F]"
-                class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg" :class="[
-                  !link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80'
-                ]">
-                <h5 class="mb-1 text-lg font-bold">{{ link.label }}</h5>
-                <p class="">{{ link.sublabel }}</p>
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </transition>
+      <div class="flex items-center w-full max-w-[1350px] mx-auto z-30"
+        :style="{ height: subMenuItems.length ? '200px' : '0', transition: `height ${subMenuItems.length ? 250 : 50}ms ease` }">
+        <ul class="flex items-start py-10 pb-4" v-show="showSubmenuItems.length">
+          <li v-for="link in subMenuItems" :key="link.label" class="mx-4">
+            <h5 v-if="!link.link" class="block p-4 px-6 text-lg font-bold text-white max-w-[18rem]">
+              {{ link.label }}
+            </h5>
+            <router-link v-else :to="link.link" active-class="bg-[#161616] border-[#4F4F4F]"
+              class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg" :class="[
+                !link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80'
+              ]">
+              <h5 class="mb-1 text-lg font-bold">{{ link.label }}</h5>
+              <p class="">{{ link.sublabel }}</p>
+            </router-link>
+          </li>
+        </ul>
+        <div class="size-44"></div>
+      </div>
     </div>
   </header>
 </template>
@@ -61,6 +61,7 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import NavbarLinks, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants'
+import { useDebounce } from '@/hooks/useDeboune';
 
 const currentActive = ref<string | null>(null)
 const subMenuItems = computed(() => {
@@ -71,8 +72,10 @@ const subMenuItems = computed(() => {
       return prev
     }, {}) as any),
     languages: LanguagesLinks
-  }[currentActive.value as string]
+  }[currentActive.value as string] || []
 })
+
+const showSubmenuItems = useDebounce(subMenuItems, [150, 10]);
 
 const isNavbarVisible = ref(true);
 const lastScrollTop = ref(0);
@@ -97,19 +100,3 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: max-height 0.5s ease-in-out;
-}
-
-.fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active in <2.1.8 */
-  {
-  max-height: 0;
-  overflow: hidden;
-}
-</style>

@@ -12,7 +12,7 @@
         <div
           class="absolute flex items-center cursor-pointer bottom-4 sm:bottom-12 left-4 sm:left-12 hover:opacity-75"
         >
-          <img alt="play" class="pointer-events-none" :src="PlayButton" />
+          <img alt="play" class="pointer-events-none size-8 sm:size-10 md:size-12 lg:size-[3.5rem]" :src="PlayButton" />
           <span class="ml-4 text-2xl text-white pointer-events-none sm:ml-6 sm:text-4xl"
             >Watch</span
           >

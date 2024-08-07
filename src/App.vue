@@ -1,18 +1,18 @@
 <template>
   <div class="relative selection:bg-[#FF544F5B]">
     <NavBar />
-    <router-view v-slot="{ Component }">
+    <!-- <router-view v-slot="{ Component }">
       <transition name="fade">
         <component :is="Component" />
       </transition>
-    </router-view>
+    </router-view> -->
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
 import gsap from 'gsap'
 import Lenis from 'lenis'
-import { RouterView } from 'vue-router'
 import NavBar from '@/components/common/NavBar.vue'
 
 import 'lenis/dist/lenis.css'
