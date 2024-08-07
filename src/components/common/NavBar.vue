@@ -75,7 +75,7 @@ const subMenuItems = computed(() => {
   }[currentActive.value as string] || []
 })
 
-const showSubmenuItems = useDebounce(subMenuItems, [150, 10]);
+const showSubmenuItems = useDebounce(subMenuItems, 150);
 
 const isNavbarVisible = ref(true);
 const lastScrollTop = ref(0);
