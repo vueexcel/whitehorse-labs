@@ -39,7 +39,7 @@
       </ul>
       <div class="relative w-full ml-12">
         <div class="flex flex-col w-full" v-if="activeIndex != -1"
-          :style="{ transform: 'translateY(' + (activeIndex * 41.6 - 30) + 'px)', transition: 'transform 0.5s' }">
+          :style="{ transform: 'translateY(' + (activeIndex * 40 - 30) + 'px)', transition: 'transform 0.5s' }">
           <span class="inline-block pl-2 mb-2 text-2xl sm:pl-24">{{ HISTORY_DATA[activeIndex].year }}</span>
           <div
             class="border-t border-[#D5D5D5] flex flex-col sm:flex-row pl-2 sm:pl-24 py-4 items-start justify-between">

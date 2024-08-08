@@ -7,15 +7,12 @@
 
     <div class="w-full mt-12 sm:mt-24">
       <div class="relative flex h-full ml-auto max-h-[30rem] aspect-video">
-        <video class="w-full aspect-video" src="" :poster="PosterImage"></video>
+        <video class="w-full aspect-video border" src="" :poster="PosterImage"></video>
 
-        <div
-          class="absolute flex items-center cursor-pointer bottom-4 sm:bottom-12 left-4 sm:left-12 hover:opacity-75"
-        >
+        <ParallaxBackground :src="PosterImage" alt="video-thumbnail" class="h-full w-full absolute top-0 left-0" />
+        <div class="absolute flex items-center cursor-pointer bottom-4 sm:bottom-12 left-4 sm:left-12 hover:opacity-75">
           <img alt="play" class="pointer-events-none size-8 sm:size-10 md:size-12 lg:size-[3.5rem]" :src="PlayButton" />
-          <span class="ml-4 text-2xl text-white pointer-events-none sm:ml-6 sm:text-4xl"
-            >Watch</span
-          >
+          <span class="ml-4 text-2xl text-white pointer-events-none sm:ml-6 sm:text-4xl">Watch</span>
         </div>
       </div>
     </div>
@@ -23,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 import PosterImage from '@/assets/images/about/who-we-are/thumbnail.png'
 import PlayButton from '@/assets/images/about/who-we-are/play.svg'
 </script>

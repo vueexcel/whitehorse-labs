@@ -23,15 +23,15 @@
     </template>
 
     <div :class="['w-full mt-5', images.length == 1 ? '' : 'grid w-full grid-cols-1 gap-8 sm:grid-cols-2']">
-      <div class="w-full pointer-events-none" v-for="(image, index) in images" :key="index">
-        <img :src="image" :alt="'service-' + index" class="w-full object-cover" />
-      </div>
+      <ParallaxBackground class="w-full h-full" v-for="(image, index) in images" :key="index" :src="image"
+        :alt="'service-' + index" />
     </div>
   </SectionHeader>
 </template>
 
 <script setup lang="ts">
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 
 interface ServicesList {
   title: string

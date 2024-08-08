@@ -4,27 +4,19 @@
       <table class="w-full mt-12 mb-32">
         <thead>
           <tr class="border-b border-[#D8D8D8] px-12">
-            <th
-              class="p-2 px-2 pl-6 text-sm uppercase sm:px-4 sm:pl-12 md:pl-20 font-roboto-mono text-start"
-            >
+            <th class="p-2 px-2 pl-6 text-sm uppercase sm:px-4 sm:pl-12 md:pl-20 font-roboto-mono text-start">
               Word
             </th>
             <th class="p-2 px-2 text-sm uppercase sm:px-4 font-roboto-mono text-start">
               Definition
             </th>
-            <th
-              class="p-2 px-2 pr-6 text-sm uppercase sm:px-4 sm:pr-12 md:pr-20 font-roboto-mono text-start"
-            >
+            <th class="p-2 px-2 pr-6 text-sm uppercase sm:px-4 sm:pr-12 md:pr-20 font-roboto-mono text-start">
               Example
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr
-            class="border-b last:border-0 border-[#D8D8D8] px-12"
-            v-for="(item, index) in tableData"
-            :key="index"
-          >
+          <tr class="border-b last:border-0 border-[#D8D8D8] px-12" v-for="(item, index) in tableData" :key="index">
             <td class="px-2 py-5 pl-6 text-lg align-top sm:px-4 sm:pl-12 md:pl-20 font-roboto">
               {{ item.word }}
             </td>
@@ -32,12 +24,8 @@
               {{ item.definition }}
             </td>
             <td class="px-2 py-5 pr-6 align-top pointer-events-none sm:px-4 sm:pr-12 md:pr-20">
-              <img
-                v-if="item.example"
-                :src="item.example"
-                alt="images"
-                class="w-full mx-auto max-w-32 md:max-w-40 lg:max-w-44"
-              />
+              <ParallaxBackground v-if="item.example" :src="item.example" alt="images"
+                class="w-full mx-auto max-w-32 md:max-w-40 lg:max-w-44" />
             </td>
           </tr>
         </tbody>
@@ -47,6 +35,8 @@
 </template>
 
 <script setup lang="ts">
+import ParallaxBackground from '@/components/common/ParallaxBackground.vue'
+
 import Image1 from '@/assets/images/terminology/bulk-1.png'
 import Image2 from '@/assets/images/terminology/bulk-2.png'
 import Image3 from '@/assets/images/terminology/bulk-3.png'
