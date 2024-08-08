@@ -86,8 +86,6 @@ export default {
       const cardHeight = cards[0].offsetHeight + 30;
       const totalHeight = (cards.length - 1) * cardHeight;
 
-      // ScrollTrigger.clearAll();
-
       gsap.to(section, {
         scrollTrigger: {
           pin: true,
@@ -119,10 +117,6 @@ export default {
   },
   mounted() {
     this.updateGsap();
-    window.addEventListener('resize', this.updateGsap);
-  },
-  unmounted() {
-    window.removeEventListener('resize', this.updateGsap);
   }
 };
 </script>

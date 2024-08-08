@@ -196,12 +196,10 @@ export default {
         }
     },
     unmounted() {
-        // window.removeEventListener('resize', this.addEffect);
         window.removeEventListener('scroll', this.onScroll);
     },
     mounted() {
         this.addEffect(); // for the first time
-        // window.addEventListener('resize', this.addEffect);
         window.addEventListener('scroll', this.onScroll);
     }
 };
