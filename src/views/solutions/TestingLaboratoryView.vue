@@ -55,6 +55,7 @@ import ServicesSection from '@/components/pages/common/ServicesSection.vue'
 import HeroSection from '@/components/pages/common/HeroSection.vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
+import SolutionSection from '@/components/pages/common/SolutionSection.vue'
 
 import HeroImage from '@/assets/images/solutions/testing-laboratory/hero.png'
 import Service1Image from '@/assets/images/solutions/testing-laboratory/service-1.png'

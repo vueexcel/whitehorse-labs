@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]">
+    class="relative flex flex-col items-start w-full px-6 py-12 text-white bg-black md:flex-row md:px-12 md:py-24 font-roboto translate-y-[1px]">
     <RedTitle title="Join Us" class="mt-2 mb-8 md:mb-0 md:w-56" />
     <div class="w-full max-w-4xl">
       <h5 class="text-3xl md:text-5xl font-roboto">
@@ -44,6 +44,8 @@
 
       <BaseButton :disabled="disabled" @click="handleSubmit" title="Submit" class="mt-5" />
     </div>
+
+    <div class="w-full h-[2px] bg-black absolute top-[-1px] left-0"></div>
   </section>
 </template>
 
