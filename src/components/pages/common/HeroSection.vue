@@ -48,7 +48,7 @@ const innerContent = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   gsap.to(heroSection.value, {
-    y: -100,
+    y: -(window.innerHeight * 0.2),
     scrollTrigger: {
       trigger: triggerBox.value,
       start: 'top bottom',
@@ -58,11 +58,12 @@ onMounted(() => {
   })
 
   gsap.to(innerContent.value, {
-    y: -130,
+    y: -window.innerHeight * 0.25,
+    ease: 'power1.out',
     scrollTrigger: {
       trigger: triggerBox.value,
       start: 'top bottom',
-      end: 'bottom top',
+      end: '+=' + (window.innerHeight * 0.8),
       scrub: true
     }
   })

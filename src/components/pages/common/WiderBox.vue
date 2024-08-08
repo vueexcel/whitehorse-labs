@@ -1,8 +1,8 @@
 <template>
   <section class="w-full h-20 bg-white" />
   <section class="relative flex items-center w-full h-screen bg-white overflow-hidden" ref="container">
-    <div :style="{ backgroundImage: `url(${backgroundImage})`, zIndex: 1, height: 'calc(100vh + 140px' }"
-      class="absolute top-[-70px] left-0 h-full w-full pointer-events-none bg-no-repeat bg-center bg-cover" ref="background" />
+    <div :style="{ backgroundImage: `url(${backgroundImage})`, zIndex: 1 }"
+      class="absolute top-0 left-0 h-full w-full pointer-events-none bg-no-repeat bg-center bg-cover" ref="background" />
     <div class="absolute w-full h-full back-shadow" style="z-index: 2;" />
     <div ref="textContent"
       class="flex flex-col w-full p-6 md:px-12 max-w-full md:max-w-[35rem] text-white justify-center box-text"
@@ -51,17 +51,19 @@ onMounted(() => {
     }
   })
 
-  gsap.fromTo(background.value, {
-    y: -70
-  }, {
-    y: 70,
-    scrollTrigger: {
-      trigger: container.value,
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
+  gsap.fromTo(
+    background.value,
+    { y: -(window.innerHeight * 0.6) },
+    {
+      y: window.innerHeight,
+      scrollTrigger: {
+        trigger: container.value,
+        start: 'top bottom',
+        end: '+=' + (window.innerHeight * 4.8),
+        scrub: true
+      }
     }
-  })
+  );
 })
 </script>
 
