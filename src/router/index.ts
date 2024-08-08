@@ -144,7 +144,7 @@ const router = createRouter({
 router.afterEach(() => {
   setTimeout(() => {
     ScrollTrigger.refresh();
-  }, 10)
+  }, 50)
 });
 
 router.beforeEach((_to, _from, next) => {

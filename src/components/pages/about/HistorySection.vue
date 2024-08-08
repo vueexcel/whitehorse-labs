@@ -1,11 +1,6 @@
 <template>
-  <SectionHeader
-    title="Our History"
-    cta-link="#"
-    cta="Let's talk"
-    subtitle="A history of leadership and innovation"
-    class="pb-2 bg-white"
-  >
+  <SectionHeader title="Our History" cta-link="#" cta="Let's talk" subtitle="A history of leadership and innovation"
+    class="pb-0 bg-white">
     <template #top>
       <p class="text-[#828282] font-roboto">
         Imagine a world where electronics are always what they claim to be—no substandard, no
@@ -33,39 +28,26 @@
       </p>
     </template>
 
-    <div class="flex items-start w-full px-0 mt-16 sm:px-12 md:px-14 lg:px-16">
+    <div class="flex items-start w-full px-0 pt-16 sm:px-12 md:px-14 lg:px-16 h-screen overflow-hidden"
+      ref="container">
       <ul>
-        <li
-          v-for="({ year }, index) in HISTORY_DATA"
-          :key="year"
-          class="mb-5 font-roboto text-[#828282] cursor-pointer hover:opacity-60"
-          :class="{ 'text-black': index == activeIndex }"
-          @click="activeIndex = index"
-        >
+        <li v-for="({ year }, index) in HISTORY_DATA" :key="year"
+          class="h-10 font-roboto text-[#828282] cursor-pointer hover:opacity-60"
+          :class="{ 'text-black font-bold': index == activeIndex }" @click="activeIndex = index">
           {{ year }}
         </li>
       </ul>
       <div class="relative w-full ml-12">
-        <div
-          class="flex flex-col w-full transition-transform"
-          v-if="activeIndex != -1"
-          :style="{ transform: 'translateY(' + (activeIndex * 46 - 30) + 'px)' }"
-        >
-          <span class="inline-block pl-2 mb-2 text-2xl sm:pl-24">{{
-            HISTORY_DATA[activeIndex].year
-          }}</span>
+        <div class="flex flex-col w-full" v-if="activeIndex != -1"
+          :style="{ transform: 'translateY(' + (activeIndex * 40 - 30) + 'px)', transition: 'transform 0.5s' }">
+          <span class="inline-block pl-2 mb-2 text-2xl sm:pl-24">{{ HISTORY_DATA[activeIndex].year }}</span>
           <div
-            class="border-t border-[#D5D5D5] flex flex-col sm:flex-row pl-2 sm:pl-24 py-6 items-start justify-between"
-          >
+            class="border-t border-[#D5D5D5] flex flex-col sm:flex-row pl-2 sm:pl-24 py-4 items-start justify-between">
             <p class="w-full max-w-lg text-[#828282]">
               {{ HISTORY_DATA[activeIndex].description }}
             </p>
 
-            <img
-              :src="HISTORY_DATA[activeIndex].image"
-              alt="images"
-              class="object-cover mt-4 rounded-lg sm:mt-0"
-            />
+            <img :src="HISTORY_DATA[activeIndex].image" alt="images" class="object-cover mt-4 rounded-lg sm:mt-0" />
           </div>
         </div>
       </div>
@@ -74,7 +56,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
 
 import HistoryImage1 from '@/assets/images/about/who-we-are/history-1.png'
@@ -170,4 +153,29 @@ const HISTORY_DATA = [
 ]
 
 const activeIndex = ref(0)
+
+const container = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  const windowHeight = window.innerHeight
+
+  if (container.value) {
+    gsap.to(container.value, {
+      scrollTrigger: {
+        trigger: container.value,
+        start: 'top top',
+        end: () => `+=${windowHeight * 3}`,
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self) => {
+          const index = Math.round(self.progress * (HISTORY_DATA.length - 1)); // Round to nearest integer to avoid frequent updates
+          if (activeIndex.value !== index) {
+            activeIndex.value = index;
+          }
+        }
+      },
+    })
+  }
+})
 </script>
