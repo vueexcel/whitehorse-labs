@@ -1,9 +1,9 @@
 <template>
   <SectionHeader :title="title" subtitle="" class="pb-10 pt-12 bg-white" />
   <div class="h-screen w-full overflow-y-hidden relative" ref="container">
-    <div class="h-full w-full overflow-y-auto solution-container" ref="scrollContent">
+    <div class="h-full w-full overflow-y-auto solution-container pointer-events-none" ref="scrollContent">
       <template v-for="(item, index) in items" :key="item.title">
-        <div class="w-full h-20 sm:px-12 sticky bg-white"
+        <div class="w-full h-20 px-4 sm:px-12 sticky bg-white"
           :style="`top: ${index * 5}rem; bottom: ${(items.length - index - 1) * 5}rem; z-index: ${(items.length * 2) - index}`">
           <button type="button"
             class="flex justify-start items-center hover:bg-slate-50 w-full py-[1.8rem] border-t border-t-[#D8D8D8]">
