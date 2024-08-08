@@ -111,7 +111,7 @@ export default {
             this.scrollY = window.scrollY;
         },
         addEffect() {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
             const {
                 heroImage,
@@ -196,12 +196,12 @@ export default {
         }
     },
     unmounted() {
-        window.removeEventListener('resize', this.addEffect);
+        // window.removeEventListener('resize', this.addEffect);
         window.removeEventListener('scroll', this.onScroll);
     },
     mounted() {
         this.addEffect(); // for the first time
-        window.addEventListener('resize', this.addEffect);
+        // window.addEventListener('resize', this.addEffect);
         window.addEventListener('scroll', this.onScroll);
     }
 };

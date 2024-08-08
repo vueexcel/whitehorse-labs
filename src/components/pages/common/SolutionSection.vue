@@ -1,7 +1,7 @@
 <template>
   <SectionHeader :title="title" subtitle="" class="pb-10 pt-12 bg-white" />
   <div class="h-screen w-full overflow-y-hidden relative" ref="container">
-    <div class="h-full w-full overflow-y-auto solution-container pointer-events-none" ref="scrollContent">
+    <div class="h-full w-full overflow-y-auto hide-scrollbar" ref="scrollContent">
       <template v-for="(item, index) in items" :key="item.title">
         <div class="w-full h-20 px-4 sm:px-12 sticky bg-white"
           :style="`top: ${index * 5}rem; bottom: ${(items.length - index - 1) * 5}rem; z-index: ${(items.length * 2) - index}`">
@@ -14,7 +14,7 @@
             </router-link>
           </button>
         </div>
-        <div :class="`w-full sticky bg-no-repeat bg-center bg-cover`"
+        <div :class="`w-full sticky bg-no-repeat bg-center bg-cover pointer-events-none`"
           :style="`top: ${(index + 1) * 5}rem; height: calc(100vh - ${5 * items.length}rem); background-image: url(${item.image});z-index:${index + 1}`">
           <p v-if="item.description" class="absolute left-0 max-w-lg p-4 text-white top-12 font-roboto sm:ml-64">{{ item.description }}</p>
         </div>
@@ -86,15 +86,3 @@ export default {
   },
 };
 </script>
-
-<style>
-/* Hide the scrollbar for the container */
-.solution-container::-webkit-scrollbar {
-  display: none;
-}
-
-.solution-container {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-</style>
