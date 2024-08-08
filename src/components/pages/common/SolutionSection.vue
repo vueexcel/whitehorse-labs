@@ -30,8 +30,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 
-gsap.registerPlugin(ScrollTrigger);
-
 interface SolutionsList {
   title: string;
   link: string;
