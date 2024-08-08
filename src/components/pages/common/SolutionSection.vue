@@ -25,7 +25,6 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue';
