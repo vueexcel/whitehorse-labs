@@ -8,7 +8,7 @@
 
         <div class="grid w-full grid-cols-1 gap-8 mt-8 sm:grid-cols-2">
             <router-link to="/case-studies/1" class="w-full" v-for="(data, index) in DUMMY_DATA" :key="data.title">
-                <img :src="data.image" :alt="'service-' + index" class="w-full pointer-events-none" />
+                <ParallaxBackground :src="data.image" :alt="'service-' + index" class="w-full h-auto" />
 
                 <h5 class="max-w-xl mt-3 text-sm text-black font-roboto sm:text-md lg:text-lg">
                     {{ data.title }}
@@ -19,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 
 import NewsImage1 from '@/assets/images/common/case-study/case-study-1.png'
