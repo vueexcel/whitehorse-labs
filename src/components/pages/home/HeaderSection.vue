@@ -1,5 +1,6 @@
 <template>
-    <section class="w-full h-[300vh] bg-black sticky top-[-200vh] z-[-1]" ref="heroSection" :class="{ 'opacity-0': scrollY > (windowHeight * 3)}">
+    <section class="w-full h-[300vh] bg-black sticky top-[-200vh] z-[-1]" ref="heroSection"
+        :class="{ 'opacity-0': scrollY > (windowHeight * 3) }">
         <div class="h-screen w-full">
             <div class="flex flex-end flex-col w-full h-full bg-center bg-no-repeat bg-cover z-20"
                 :style="{ backgroundImage: `url(${heroImage})` }" ref="heroImage" />
@@ -49,6 +50,7 @@
 
 <script lang="ts">
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import RedTitle from '@/components/common/RedTitle.vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 import MainImage from '@/assets/images/home/landingImage.png';
@@ -92,206 +94,114 @@ export default {
             }
 
             return ``;
+        },
+        positions() {
+            return [
+                { fromX: '-100%', fromY: '-40%', toX: '0%', toY: '0%', transformOrigin: 'bottom right', end: this.windowHeight * 0.9 },
+                { fromX: '100%', fromY: '-40%', toX: '0%', toY: '0%', transformOrigin: 'bottom left', end: this.windowHeight * 0.9 },
+                { fromX: '-100%', fromY: '0%', toX: '0%', toY: '0%', transformOrigin: 'top center', end: this.windowHeight * 1.5 },
+                { fromX: '100%', fromY: '0%', toX: '0%', toY: '0%', transformOrigin: 'top center', end: this.windowHeight * 1.5 },
+                { fromX: '-220%', fromY: '90%', toX: '0%', toY: '0%', transformOrigin: 'top right', end: this.windowHeight * 2 },
+                { fromX: '220%', fromY: '90%', toX: '0%', toY: '0%', transformOrigin: 'top left', end: this.windowHeight * 2 }
+            ]
         }
     },
     methods: {
         onScroll() {
             this.scrollY = window.scrollY;
+        },
+        addEffect() {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+            const {
+                heroImage,
+                ctaTitle,
+                triggerBox,
+                heroTitle,
+                imageSection,
+                heroText
+            } = this.$refs as any;
+
+            const imgs = imageSection.querySelectorAll('img') as NodeListOf<HTMLImageElement>;
+
+            gsap.to(heroImage, {
+                scale: 0.25,
+                transformOrigin: 'top center',
+                scrollTrigger: {
+                    trigger: heroImage,
+                    scrub: true,
+                    pinSpacing: false,
+                    pin: true,
+                    end: `+=${this.windowHeight * 2}`,
+                    invalidateOnRefresh: true,
+                }
+            });
+
+            gsap.to(ctaTitle, {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: triggerBox,
+                    scrub: true,
+                    start: 'top bottom',
+                    end: `+=${this.windowHeight * 0.1}`,
+                    invalidateOnRefresh: true,
+                }
+            });
+
+            gsap.to(heroTitle, {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: triggerBox,
+                    scrub: true,
+                    start: 'top bottom',
+                    end: `+=${this.windowHeight * 0.4}`,
+                    invalidateOnRefresh: true,
+                }
+            });
+
+            this.positions.forEach((anim, index) => {
+                gsap.fromTo(
+                    imgs[index],
+                    { x: anim.fromX, y: anim.fromY || '0%', scale: 1 },
+                    {
+                        x: anim.toX,
+                        y: anim.toY,
+                        scale: 1.2,
+                        transformOrigin: anim.transformOrigin,
+                        scrollTrigger: {
+                            trigger: triggerBox,
+                            scrub: true,
+                            start: 'top bottom',
+                            end: `+=${anim.end}`,
+                            invalidateOnRefresh: true,
+                        }
+                    }
+                );
+            });
+
+            gsap.fromTo(heroText, {
+                opacity: 0,
+                y: 100
+            }, {
+                opacity: 1,
+                y: -100,
+                scrollTrigger: {
+                    trigger: triggerBox,
+                    scrub: true,
+                    start: `+=${this.windowHeight * 0.8} bottom`,
+                    end: `+=${this.windowHeight * 1.5}`,
+                    invalidateOnRefresh: true,
+                }
+            })
         }
     },
     unmounted() {
+        window.removeEventListener('resize', this.addEffect);
         window.removeEventListener('scroll', this.onScroll);
     },
     mounted() {
-        const {
-            heroImage,
-            ctaTitle,
-            triggerBox,
-            heroTitle,
-            imageSection,
-            heroText
-        } = this.$refs as any;
-
-        const imgs = imageSection.querySelectorAll('img') as NodeListOf<HTMLImageElement>;
-
-        gsap.to(heroImage, {
-            scale: 0.25,
-            transformOrigin: 'top center',
-            scrollTrigger: {
-                trigger: heroImage,
-                scrub: true,
-                pinSpacing: false,
-                pin: true,
-                end: '+=1460px',
-                invalidateOnRefresh: true,
-            }
-        });
-
-        gsap.to(ctaTitle, {
-            opacity: 0,
-            scrollTrigger: {
-                trigger: triggerBox,
-                scrub: true,
-                start: 'top bottom',
-                end: '+=60',
-                invalidateOnRefresh: true,
-            }
-        });
-
-        gsap.to(heroTitle, {
-            opacity: 0,
-            scrollTrigger: {
-                trigger: triggerBox,
-                scrub: true,
-                start: 'top bottom',
-                end: '+=250',
-                invalidateOnRefresh: true,
-            }
-        });
-
-        // image 1
-        gsap.fromTo(imgs[0],
-            {
-                x: "-100%",
-                y: "-40%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                y: "0%",
-                scale: 1.2,
-                transformOrigin: 'bottom right',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=600',
-                    invalidateOnRefresh: true,
-                }
-            }
-        );
-
-        // image 2
-        gsap.fromTo(imgs[1],
-            {
-                x: "100%",
-                y: "-40%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                y: "0%",
-                scale: 1.2,
-                transformOrigin: 'bottom left',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=600',
-                    invalidateOnRefresh: true,
-                }
-            }
-        );
-
-        // image 5
-        gsap.fromTo(imgs[2],
-            {
-                x: "-100%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                scale: 1.2,
-                transformOrigin: 'top center',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=1000',
-                    invalidateOnRefresh: true,
-                }
-            }
-        );
-
-        // image 5
-        gsap.fromTo(imgs[3],
-            {
-                x: "100%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                scale: 1.2,
-                transformOrigin: 'top center',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=1000',
-                    invalidateOnRefresh: true,
-                }
-            }
-        )
-
-        // image 5
-        gsap.fromTo(imgs[4],
-            {
-                x: "-220%",
-                y: "90%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                y: "0%",
-                scale: 1.2,
-                transformOrigin: 'top right',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=1460',
-                    invalidateOnRefresh: true,
-                }
-            }
-        );
-
-        // image 5
-        gsap.fromTo(imgs[5],
-            {
-                x: "220%",
-                y: "90%",
-                scale: 1
-            },
-            {
-                x: "0%",
-                y: "0%",
-                scale: 1.2,
-                transformOrigin: 'top left',
-                scrollTrigger: {
-                    trigger: triggerBox,
-                    scrub: true,
-                    start: 'top bottom',
-                    end: '+=1660',
-                    invalidateOnRefresh: true,
-                }
-            }
-        );
-
-        gsap.fromTo(heroText, {
-            opacity: 0,
-            y: 100
-        }, {
-            opacity: 1,
-            y: -100,
-            scrollTrigger: {
-                trigger: triggerBox,
-                scrub: true,
-                start: '+=500px bottom',
-                end: '+=1200px',
-                invalidateOnRefresh: true,
-            }
-        })
-
+        this.addEffect(); // for the first time
+        window.addEventListener('resize', this.addEffect);
         window.addEventListener('scroll', this.onScroll);
     }
 };
