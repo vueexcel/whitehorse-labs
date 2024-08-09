@@ -28,8 +28,7 @@
       </p>
     </template>
 
-    <div class="flex items-start w-full px-0 pt-16 sm:px-12 md:px-14 lg:px-16 h-screen overflow-hidden"
-      ref="container">
+    <div class="flex items-start w-full px-0 pt-16 sm:px-12 md:px-14 lg:px-16 h-screen overflow-hidden" ref="container">
       <ul>
         <li v-for="({ year }, index) in HISTORY_DATA" :key="year"
           class="h-[2.6rem] font-roboto text-[#828282] cursor-pointer hover:opacity-60"
@@ -39,7 +38,7 @@
       </ul>
       <div class="relative w-full ml-12">
         <div class="flex flex-col w-full" v-if="activeIndex != -1"
-          :style="{ transform: 'translateY(' + (activeIndex * 40 - 30) + 'px)', transition: 'transform 0.5s' }">
+          :style="{ transform: 'translateY(' + (activeIndex * 41.6 - 30) + 'px)', transition: 'transform 0.5s' }">
           <span class="inline-block pl-2 mb-2 text-2xl sm:pl-24">{{ HISTORY_DATA[activeIndex].year }}</span>
           <div
             class="border-t border-[#D5D5D5] flex flex-col sm:flex-row pl-2 sm:pl-24 py-4 items-start justify-between">
@@ -169,10 +168,9 @@ onMounted(() => {
         pin: true,
         pinSpacing: true,
         onUpdate: (self) => {
-          const index = Math.round(self.progress * (HISTORY_DATA.length - 1)); // Round to nearest integer to avoid frequent updates
-          if (activeIndex.value !== index) {
-            activeIndex.value = index;
-          }
+          const index = Math.round(self.progress * (HISTORY_DATA.length - 1));
+          activeIndex.value = self.progress <= 0 && activeIndex.value !== 0
+            ? 0 : index;
         }
       },
     })
