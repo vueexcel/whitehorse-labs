@@ -144,14 +144,8 @@ const router = createRouter({
 
 router.afterEach(() => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-  // @ts-ignore
-  if (window.__LENIS) {
-    // @ts-ignore
-    window.__LENIS.scrollTo(0)
-  }
-
   ScrollTrigger.refresh();
+  
   setTimeout(() => {
     ScrollTrigger.refresh();
   }, 40)
@@ -162,7 +156,7 @@ router.afterEach(() => {
 });
 
 router.beforeEach((_to, _from, next) => {
-  // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   document.title = getTitle(_to.name as string);
   next();
 });
