@@ -78,7 +78,7 @@ const router = createRouter({
         {
           path: about.whyWhiteHorseLabs.path,
           name: about.whyWhiteHorseLabs.name,
-          component: () => import('../views/about/WhoWeAreView.vue')
+          component: () => import('../views/about/WhyWHLView.vue')
         },
         {
           path: about.joinOurTeam.path,
