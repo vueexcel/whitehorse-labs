@@ -21,7 +21,7 @@
                         class="mb-5 ml-0 w-max" />
                     <p
                         class="flex items-center text-xs text-white cursor-pointer w-max hover:opacity-75 font-roboto-mono">
-                        scroll to explores
+                        scroll to explore
                         <ArrowIcon class-name="ml-1 size-4 ml-2" type="down" path-class="stroke-white" />
                     </p>
                 </div>
