@@ -18,7 +18,7 @@ export default [
                 link: `${solutions.path}/${solutions.factoryAuditing.path}`
             },
             {
-                label: 'Programming, Packaging &istics',
+                label: 'Programming, Packaging & Logistics',
                 sublabel:
                     'Integrated solutions designed to optimize efficiency and ensure secure delivery.',
                 link: `${solutions.path}/${solutions.programmingPackaging.path}`

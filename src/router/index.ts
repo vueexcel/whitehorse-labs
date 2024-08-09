@@ -133,17 +133,18 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue')
     }
   ],
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     return savedPosition
-  //   } else {
-  //     return { top: 0 }
-  //   }
-  // }
 });
 
 router.afterEach(() => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  // @ts-ignore
+  if (window.__LENIS) {
+    // @ts-ignore
+    (window.__LENIS as Lenis).scrollTo(0, 0, {
+      immediate: true,
+      duration: 0
+    })
+  }
   ScrollTrigger.refresh();
   
   setTimeout(() => {
