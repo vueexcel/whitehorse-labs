@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import constants, { getTitle } from '@/constants/routes.constants'
 
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 
 const {
   landingpage,
@@ -132,25 +133,32 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue')
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
+  // scrollBehavior(to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     return savedPosition
+  //   } else {
+  //     return { top: 0 }
+  //   }
+  // }
 });
 
 router.afterEach(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+  // @ts-ignore
+  if (window.__LENIS) {
+    // @ts-ignore
+    window.__LENIS.scrollTo(0)
+  }
+
+  ScrollTrigger.refresh();
   setTimeout(() => {
     ScrollTrigger.refresh();
   }, 40)
+
   setTimeout(() => {
     ScrollTrigger.refresh();
-  }, 80)
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 120)
+  }, 200)
 });
 
 router.beforeEach((_to, _from, next) => {

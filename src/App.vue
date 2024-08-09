@@ -19,7 +19,8 @@ import 'lenis/dist/lenis.css'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { onMounted, onUnmounted } from 'vue'
 
-const lenis = new Lenis({
+// @ts-ignore
+const lenis = window.__LENIS = new Lenis({
   lerp: 0.04
 })
 
