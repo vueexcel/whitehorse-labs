@@ -22,9 +22,10 @@
               <span class="mt-4 text-2xl text-center text-black max-w-32 font-roboto">{{ item.title }}</span>
             </div>
           </div>
-          <div class="mt-10 w-full pointer-events-none overflow-x-auto flex border-t border-t-[#979797] items-center hide-scrollbar" ref="paragraphContent">
-            <p class="text-sm text-white pt-2 w-full shrink-0"
-              v-for="(item, index) in TESTING_LIST" :key="index">
+          <div
+            class="mt-10 w-full pointer-events-none overflow-x-auto flex border-t border-t-[#979797] items-center hide-scrollbar"
+            ref="paragraphContent">
+            <p class="text-sm text-white pt-2 w-full shrink-0" v-for="(item, index) in TESTING_LIST" :key="index">
               {{ item.description }}
             </p>
           </div>
@@ -35,8 +36,9 @@
 </template>
 
 <script setup lang="ts">
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 
@@ -92,18 +94,25 @@ onMounted(() => {
     const circle = circleContent.value;
     const paragraph = paragraphContent.value;
 
-    ScrollTrigger.create({
-      trigger: container.value,
-      start: 'top top',
-      end: () => `+=${circle!.scrollWidth}`,
-      pin: true,
-      scrub: 1,
-      onUpdate: (self) => {
-        const index = Math.floor(self.progress * 9);
-        circle!.scrollTo({ left: index * circle!.offsetWidth, top: 0, behavior: 'smooth' });
-        paragraph!.scrollTo({ left: index * paragraph!.offsetWidth, top: 0, behavior: 'smooth' });
+
+    gsap.to(container.value, {
+      scrollTrigger: {
+        trigger: container.value,
+        start: 'top top',
+        end: () => `+=${circle!.scrollWidth}`,
+        pin: true,
+        scrub: 1,
+        onUpdate: (self) => {
+          const index = Math.floor(self.progress * 9);
+          circle!.scrollTo({ left: index * circle!.offsetWidth, top: 0, behavior: 'smooth' });
+          paragraph!.scrollTo({ left: index * paragraph!.offsetWidth, top: 0, behavior: 'smooth' });
+        },
       },
-    });
+    })
   }
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
