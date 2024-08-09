@@ -1,7 +1,7 @@
 <template>
   <header class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
-    <div class="w-full p-4 py-3 mx-auto bg-black rounded-md">
+    <div class="w-full p-4 mx-auto bg-black rounded-md">
       <div class="flex items-center w-full max-w-[1350px] mx-auto z-40">
         <div class="w-auto block">
           <router-link to="/" class="flex">
