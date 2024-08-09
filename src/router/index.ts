@@ -88,7 +88,7 @@ const router = createRouter({
         {
           path: about.ourLocations.path,
           name: about.ourLocations.name,
-          component: () => import('../views/about/WhoWeAreView.vue')
+          component: () => import('../views/about/OurLocationView.vue')
         }
       ]
     },
