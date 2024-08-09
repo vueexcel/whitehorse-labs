@@ -50,6 +50,7 @@
 
 <script lang="ts">
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import RedTitle from '@/components/common/RedTitle.vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 import MainImage from '@/assets/images/home/landingImage.png';
@@ -196,6 +197,7 @@ export default {
     },
     unmounted() {
         window.removeEventListener('scroll', this.onScroll);
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     },
     mounted() {
         this.addEffect(); // for the first time

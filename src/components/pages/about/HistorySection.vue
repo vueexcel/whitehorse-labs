@@ -56,7 +56,8 @@
 
 <script setup lang="ts">
 import gsap from 'gsap'
-import { onMounted, ref } from 'vue'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, onUnmounted, ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
 
 import HistoryImage1 from '@/assets/images/about/who-we-are/history-1.png'
@@ -175,5 +176,9 @@ onMounted(() => {
       },
     })
   }
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>

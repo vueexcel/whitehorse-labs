@@ -33,7 +33,8 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
-import { onMounted, ref } from 'vue';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { onMounted, onUnmounted, ref } from 'vue';
 import RedTitle from '@/components/common/RedTitle.vue'
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 
@@ -67,5 +68,9 @@ onMounted(() => {
       scrub: true
     }
   })
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>

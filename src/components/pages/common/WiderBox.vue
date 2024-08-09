@@ -25,7 +25,8 @@
 
 <script setup lang="ts">
 import gsap from 'gsap'
-import { onMounted, ref } from 'vue';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, onUnmounted, ref } from 'vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 
 defineProps<{
@@ -64,6 +65,10 @@ onMounted(() => {
       }
     }
   );
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
 

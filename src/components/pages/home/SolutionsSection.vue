@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger'; 
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 import BaseButton from '@/components/common/BaseButton.vue';
 
@@ -117,6 +118,9 @@ export default {
   },
   mounted() {
     this.updateGsap();
+  },
+  unmounted() {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }
 };
 </script>
