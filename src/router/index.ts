@@ -144,11 +144,17 @@ const router = createRouter({
 router.afterEach(() => {
   setTimeout(() => {
     ScrollTrigger.refresh();
+  }, 40)
+  setTimeout(() => {
+    ScrollTrigger.refresh();
   }, 80)
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 120)
 });
 
 router.beforeEach((_to, _from, next) => {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   document.title = getTitle(_to.name as string);
   next();
 });
