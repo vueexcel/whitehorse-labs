@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import constants, { getTitle } from '@/constants/routes.constants'
 import { useAnimateStore } from '@/store/useAnimateStore';
 
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
 const {
   landingpage,
   resources,
@@ -136,24 +134,12 @@ const router = createRouter({
 });
 
 router.beforeEach((_to, _from, next) => {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   document.title = getTitle(_to.name as string);
   next();
 });
 
 router.afterEach(() => {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   useAnimateStore().lenis.scrollTo(0)
-
-  ScrollTrigger.refresh();
-
-  setTimeout(() => {
-    ScrollTrigger.refresh()
-  }, 50)
-
-  setTimeout(() => {
-    ScrollTrigger.refresh()
-  }, 100)
 });
 
 export default router;
