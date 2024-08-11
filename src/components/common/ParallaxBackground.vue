@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import gsap from 'gsap';
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const props = defineProps<{
     src: string;
@@ -22,6 +22,14 @@ const props = defineProps<{
 const container = ref<HTMLElement | null>(null)
 const imageWrapper = ref<HTMLElement | null>(null)
 const image = ref<HTMLImageElement | null>(null)
+
+const onMouseEnter = () => {
+    gsap.to(imageWrapper.value, { scale: 1.05, duration: 0.7, ease: 'power2.out' });
+}
+
+const onMouseLeave = () => {
+    gsap.to(imageWrapper.value, { scale: 1, duration: 0.7, ease: 'power2.out' });
+}
 
 onMounted(() => {
     if (props.parallaxEffect) {
@@ -38,30 +46,12 @@ onMounted(() => {
         })
     }
 
-    // gsap.fromTo(
-    //     imageWrapper.value,
-    //     { scale: 1 },
-    //     {
-    //         scale: 1.05,
-    //         ease: 'power2.out',
-    //         duration: 0.7,
-    //         paused: true,
-    //         reversed: true,
-    //         onEnter: function () {
-    //             this.play();
-    //         },
-    //         onLeave: function () {
-    //             this.reverse();
-    //         }
-    //     }
-    // );
-
-    container.value?.addEventListener('mouseenter', () => {
-        gsap.to(imageWrapper.value, { scale: 1.05, duration: 0.7, ease: 'power2.out' });
-    });
-
-    container.value?.addEventListener('mouseleave', () => {
-        gsap.to(imageWrapper.value, { scale: 1, duration: 0.7, ease: 'power2.out' });
-    });
+    container.value?.addEventListener('mouseenter', onMouseEnter);
+    container.value?.addEventListener('mouseleave', onMouseLeave);
 });
+
+onUnmounted(() => {
+    container.value?.removeEventListener('mouseenter', onMouseEnter);
+    container.value?.removeEventListener('mouseleave', onMouseLeave);
+})
 </script>

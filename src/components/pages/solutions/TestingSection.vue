@@ -36,11 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { ref } from 'vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
+import { useAnimate } from '@/hooks/useAnimate';
 
 const addzero = (num: number) => {
   return num < 10 ? `0${num}` : num
@@ -89,14 +88,13 @@ const container = ref<HTMLDivElement | null>()
 const circleContent = ref<HTMLDivElement | null>()
 const paragraphContent = ref<HTMLDivElement | null>()
 
-onMounted(() => {
+useAnimate(({ to }) => {
   if (circleContent.value && paragraphContent.value && container.value) {
     const circle = circleContent.value;
     const paragraph = paragraphContent.value;
-    const circleScrollWidth = circle!.scrollWidth
+    const circleScrollWidth = circle!.scrollWidth;
 
-
-    gsap.to(container.value, {
+    to(container.value, {
       scrollTrigger: {
         trigger: container.value,
         start: 'top top',
@@ -104,19 +102,11 @@ onMounted(() => {
         pin: true,
         scrub: 1,
         onUpdate: (self) => {
-          // const index = Math.floor(self.progress * 9);
-          // circle!.scrollTo({ left: index * circle!.offsetWidth, top: 0, behavior: 'smooth' });
-          // paragraph!.scrollTo({ left: index * paragraph!.offsetWidth, top: 0, behavior: 'smooth' });
-
           circle!.scrollLeft = self.progress * circle!.scrollWidth;
           paragraph!.scrollLeft = self.progress * paragraph!.scrollWidth
-        },
-      },
+        }
+      }
     })
   }
-})
-
-onUnmounted(() => {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>

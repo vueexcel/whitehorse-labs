@@ -55,10 +55,10 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+
+import { useAnimate } from '@/hooks/useAnimate'
 
 import HistoryImage1 from '@/assets/images/about/who-we-are/history-1.png'
 import HistoryImage2 from '@/assets/images/about/who-we-are/history-2.png'
@@ -153,14 +153,13 @@ const HISTORY_DATA = [
 ]
 
 const activeIndex = ref(0)
-
 const container = ref<HTMLElement | null>(null)
 
-onMounted(() => {
+useAnimate(({ to }) => {
   const windowHeight = window.innerHeight
 
   if (container.value) {
-    gsap.to(container.value, {
+    to(container.value, {
       scrollTrigger: {
         trigger: container.value,
         start: 'top top',
@@ -176,9 +175,5 @@ onMounted(() => {
       },
     })
   }
-})
-
-onUnmounted(() => {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
