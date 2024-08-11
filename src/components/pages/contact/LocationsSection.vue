@@ -1,17 +1,18 @@
 <template>
-    <SectionHeader title="Our locations" subtitle="Global Reach with Local Expertise" class="text-black bg-white">
+    <SectionHeader ref="sectionRef" title="Our locations" subtitle="Global Reach with Local Expertise"
+        class="text-black bg-white">
         <template #top>
             <p class="text-[#828282] font-roboto">
-                White Horse Labs operates from key locations across Asia, Europe, and the Americas, ensuring seamless
-                support for your global supply chain needs. Our headquarters in Hong Kong, with additional facilities in
-                Shenzhen and the Futian Free Trade Zone, offer direct access to major testing labs and logistical hubs,
-                saving you time and money.
+                White Horse Labs operates from key locations across Asia, Europe, and the Americas, ensuring
+                seamless support for your global supply chain needs. Our headquarters in Hong Kong, with
+                additional facilities in Shenzhen and the Futian Free Trade Zone, offer direct access to
+                major testing labs and logistical hubs, saving you time and money.
             </p>
             <p class="text-[#828282] font-roboto">
-                With offices and partners in Germany, the United States, and beyond, we combine global reach with local
-                expertise. This strategic presence enables us to deliver the highest quality services and support,
-                wherever you are. Trust White Horse Labs to be your reliable partner in maintaining the integrity and
-                efficiency of your supply chain.
+                With offices and partners in Germany, the United States, and beyond, we combine global reach
+                with local expertise. This strategic presence enables us to deliver the highest quality
+                services and support, wherever you are. Trust White Horse Labs to be your reliable partner
+                in maintaining the integrity and efficiency of your supply chain.
             </p>
         </template>
 
@@ -36,9 +37,13 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+import { useAnimateStore } from '@/store/useAnimateStore'
 
 import WorldMapImage from '@/assets/images/contact/world-map.png'
+
+const sectionRef = ref<{ section: HTMLElement }>();
 
 const DUMMY_DATA = [
     {
@@ -50,7 +55,8 @@ const DUMMY_DATA = [
     },
     {
         location: 'Shenzhen',
-        address: '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
+        address:
+            '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
         phone: '+86 755 668 6688',
         email: 'Email',
         website: 'Visit website'
@@ -78,10 +84,20 @@ const DUMMY_DATA = [
     },
     {
         location: 'Bangalore',
-        address: '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
+        address:
+            '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
         phone: '+86 755 668 6688',
         email: 'Email',
         website: 'Visit website'
     }
 ]
+
+onMounted(() => {
+    setTimeout(() => {
+        const hash = window.location.hash
+        if (hash) {
+            useAnimateStore().lenis.scrollTo(sectionRef.value?.section as HTMLElement)
+        }
+    }, 400);
+})
 </script>

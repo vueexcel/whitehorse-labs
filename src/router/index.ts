@@ -130,16 +130,22 @@ const router = createRouter({
       name: contact.name,
       component: () => import('../views/ContactView.vue')
     }
-  ],
+  ]
 });
 
 router.beforeEach((_to, _from, next) => {
+  if (_to.name === about.ourLocations.name) {
+    document.title = getTitle(_to.name as string);
+    next({ name: contact.name, hash: '#locations' });
+    return;
+  }
+
   document.title = getTitle(_to.name as string);
   next();
 });
 
 router.afterEach(() => {
-  useAnimateStore().lenis.scrollTo(0)
+  useAnimateStore().scrollToTop()
 });
 
 export default router;

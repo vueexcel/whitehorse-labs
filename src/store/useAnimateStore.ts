@@ -20,18 +20,30 @@ export const useAnimateStore = defineStore('animate', () => {
     gsap.registerPlugin(ScrollTrigger)
     requestAnimationFrame(raf)
 
-    const scrollToTop = () => {
-        lenis.stop()
-        lenis.scrollTo(0, { duration: 0 }) // scroll without animation
-        lenis.start()
+    const scrollToTop = (transition = false) => {
+        if (transition) {
+            lenis.stop()
+            lenis.scrollTo(0, { duration: 0 }) // scroll without animation
+            lenis.start()
+        } else {
+            lenis.scrollTo(0)
+        }
+    }
+
+    const scrollToHash = (hash: string) => {
+        const element = document.getElementById(hash.slice(1));
+        if (element) {
+            lenis.scrollTo(element)
+        }
     }
 
     window.addEventListener('resize', () => {
         ScrollTrigger.refresh()
     })
-    
+
     return {
         lenis,
-        scrollToTop
+        scrollToTop,
+        scrollToHash
     }
 })
