@@ -15,8 +15,8 @@
       </p>
     </template>
     <template #topBottom>
-      <router-link to="#" class="flex items-center text-sm hover:opacity-70">
-        <span>Learn More About Us</span>
+      <router-link :to="constants.about.path + '/' + constants.about.whoWeAre.path" class="flex items-center text-sm hover:opacity-70">
+        <span>Who We Are</span>
         <ArrowIcon type="top-right" class="ml-2 size-5" path-class="stroke-[#FF544F]" />
       </router-link>
     </template>
@@ -26,4 +26,5 @@
 <script setup lang="ts">
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+import constants from '@/constants/routes.constants'
 </script>

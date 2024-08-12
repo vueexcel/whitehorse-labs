@@ -4,7 +4,7 @@
     <SolutionsSection />
     <AboutSection />
     <CompanySection />
-    <WiderBox :background-image="BackgroundImage" :link="'#'" :link-text="'Learn More About Us'">
+    <WiderBox :background-image="BackgroundImage" :link="constants.about.path + '/' + constants.about.whyWhiteHorseLabs.path" :link-text="'Why White Horse Labs'">
       <template #title>
         More than peace of mind.<br />
         It’s our promise to you.
@@ -39,6 +39,8 @@ import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 import CompanySection from '@/components/pages/home/CompanySection.vue'
 import AboutSection from '@/components/pages/home/AboutSection.vue'
+
+import constants from '@/constants/routes.constants'
 
 import BackgroundImage from '@/assets/images/home/hero-2.png'
 
