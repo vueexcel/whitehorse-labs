@@ -88,6 +88,11 @@ const router = createRouter({
           path: about.ourLocations.path,
           name: about.ourLocations.name,
           component: () => import('../views/about/OurLocationView.vue')
+        },
+        {
+          path: about.joinOurTeamDetail.path,
+          name: about.joinOurTeamDetail.name,
+          component: () => import('../views/about/JoinOurTeamDetailView.vue')
         }
       ]
     },

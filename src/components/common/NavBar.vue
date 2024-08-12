@@ -74,7 +74,7 @@ const subMenuItems = computed(() => {
     languages: LanguagesLinks
   }[currentActive.value as string] || []
 })
-
+ 
 const showSubmenuItems = useDebounce(subMenuItems, 150);
 
 const isNavbarVisible = ref(true);

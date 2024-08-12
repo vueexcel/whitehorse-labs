@@ -82,6 +82,11 @@ const ROUTES = {
             name: 'join-our-team',
             title: title('Join Our Team')
         },
+        joinOurTeamDetail: {
+            path: 'join-our-team/:id',
+            name: 'join-our-team-detail',
+            title: title('Join Our Team')
+        },
         ourLocations: {
             path: 'our-locations',
             name: 'our-locations',

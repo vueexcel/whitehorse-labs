@@ -9,6 +9,7 @@
           where technology is <br />
           synonymous with trust
         </span>
+        
       </h5>
       <p class="my-6 text-sm md:my-12 md:text-base">
         Fill out the form below to receive our newsletter, important updates,

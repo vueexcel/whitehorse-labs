@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"> 
 import gsap from 'gsap';
 import { onMounted, onUnmounted, ref } from 'vue';
 

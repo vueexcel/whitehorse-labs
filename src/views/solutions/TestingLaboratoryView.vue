@@ -35,7 +35,7 @@
         <BaseButton title="Request a Sample Report" />
       </template>
     </SectionHeader>
-    <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
+    <ServicesSection cta-link="#" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
     <TestingSection />
     <CaseStudySection />
     <TestimonialsSection />

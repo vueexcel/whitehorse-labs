@@ -6,7 +6,7 @@
         class="w-full h-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border">
         <h5 class="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl leading-[1.2] text-white font-roboto text-center sm:text-left"
           style="line-height: 1.1;">
-          <slot></slot>
+          <slot></slot> 
         </h5>
 
         <div class="flex justify-center w-full my-10 md:my-20">
