@@ -1,5 +1,5 @@
 <template>
-    <SectionHeader :title="title || 'the latest'" :subtitle="subtitle" :cta="cta" :cta-link="ctaLink" class="bg-white">
+    <SectionHeader :title="title || 'the latest'" :subtitle="subtitle" :cta="cta" :cta-link="constants.resources.path + '/' + constants.resources.newsInsight.path" class="bg-white">
         <template #cta v-if="$slots.default">
             <slot></slot>
         </template>
@@ -21,6 +21,8 @@
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 
+import constants from '@/constants/routes.constants'
+
 interface Content {
     title: string;
     image: string;
@@ -32,6 +34,5 @@ defineProps<{
     items: Content[],
     subtitle: string,
     cta?: string;
-    ctaLink?: string;
 }>()
 </script>

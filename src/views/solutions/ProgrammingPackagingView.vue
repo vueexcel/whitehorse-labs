@@ -29,12 +29,12 @@
             </p>
         </template>
         <template #topBottom>
-            <BaseButton title="Contact a Quality Consultant" />
+            <BaseButton title="Contact a Quality Consultant" to="mailto:solutions@whitehorselabs.com" />
         </template>
     </SectionHeader>
-    <ServicesSection :items="SERVICES_LIST" title="Programming, Packaging & Logistics"
+    <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" :items="SERVICES_LIST" title="Programming, Packaging & Logistics"
         cta="Contact a Quality Consultant" />
-    <FullWidthBox :background-image="BackgroundImage" link="#" link-text="Contact us today">
+    <FullWidthBox :background-image="BackgroundImage" :link="constants.contact.path" link-text="Contact today">
         Trust White Horse Labs as your on-site 3PL and fulfillment center, simplifying and expediting your packaging,
         storage, and consolidated shipping needs. We ensure the integrity of your supply chain, providing a seamless
         connection between your suppliers and customers. Our comprehensive services guarantee efficiency and
@@ -65,6 +65,8 @@ import ServicesSection from '@/components/pages/common/ServicesSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 import FullWidthBox from '@/components/pages/common/WiderBox.vue'
 
+import constants from '@/constants/routes.constants'
+
 import HeroImage from '@/assets/images/solutions/programming-packaging/hero.png'
 import BackgroundImage from '@/assets/images/solutions/programming-packaging/full-width.png'
 
@@ -78,14 +80,13 @@ import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
 import SolutionSection from '@/components/pages/common/SolutionSection.vue'
 
-import SolutionsImage1 from '@/assets/images/solutions/solution-1.png'
-import SolutionsImage2 from '@/assets/images/solutions/solution-2.png'
-import SolutionsImage3 from '@/assets/images/solutions/solution-3.png'
+import SolutionsImage1 from '@/assets/images/solutions/testing-laboratory.png'
+import SolutionsImage2 from '@/assets/images/solutions/factory-auditing.png'
+import SolutionsImage3 from '@/assets/images/solutions/training-education.png'
 
 const SERVICES_LIST = [
     {
         title: 'Electronics Specialist 3PL Solutions',
-        link: '#',
         description:
             'We offer 3PL services tailored to electronics distributors and manufacturers. Our 1,100+ square meter Hong Kong facility, with direct access to Shenzhen and Futian Free Trade Zone test labs, streamlines your supply chain. This strategic setup saves time and money while ensuring top-tier quality at every stage. Partner with us for efficient and reliable logistics solutions designed specifically for the electronics industry.',
         list: [
@@ -101,7 +102,6 @@ const SERVICES_LIST = [
     },
     {
         title: 'Comprehensive Component Packaging',
-        link: '#',
         description: 'We ensure your electronics are meticulously handled and packaged to prevent damage. Our ESD-controlled facilities adhere to JEDEC and EIA standards, with products stored in climate-controlled warehouses and safeguarded with MSL and ESD protective packaging. Our commitment is to deliver your components to the production site in perfect condition, ready for immediate use. Trust us to maintain the integrity of your products with industry-leading care and expertise.',
         list: [
             'Tape and Reel',
@@ -117,7 +117,6 @@ const SERVICES_LIST = [
     },
     {
         title: 'Expert Programming Services',
-        link: '#',
         description:
             'Streamline your manufacturing with White Horse Labs\' programming services. By outsourcing your component programming to us, you eliminate complexity and save significant time during testing, boosting production efficiency and reducing costs. Our automated systems program, check co-planarity in 3D, mark, tape, and rewind up to 3,000 pieces per hour.',
         list: 'Enjoy faster delivery, lower costs, and higher productivity with our comprehensive programming services. Ensure you meet production deadlines while benefiting from a seamless, integrated supply chain solution designed to enhance your manufacturing process. Partner with White Horse Labs for unparalleled efficiency and reliability.',
@@ -129,19 +128,19 @@ const SOLUTIONS_LIST = [
     {
         title: 'Test Lab Services',
         description: 'Advanced testing services include counterfeit detection and failure analysis, maintain the highest quality standards.',
-        link: '#',
+        link: constants.solutions.path + '/' + constants.solutions.testingLaboratory.path,
         image: SolutionsImage1
     },
     {
-        title: 'Programming, Packaging & Logistics',
-        description: 'Integrated packaging and logistics solutions designed to optimize efficiency and ensure the secure delivery of your products.',
-        link: '#',
+        title: 'Factory Auditing',
+        description: 'We provide meticulous factory auditing services to ensure compliance, quality, and efficiency in manufacturing processes.',
+        link: constants.solutions.path + '/' + constants.solutions.factoryAuditing.path,
         image: SolutionsImage2
     },
     {
         title: 'Training & Education',
         description: 'Comprehensive training and education programs to enhance your team\'s expertise and uphold industry standards.',
-        link: '#',
+        link: constants.solutions.path + '/' + constants.solutions.trainingEducation.path,
         image: SolutionsImage3
     }
 ]

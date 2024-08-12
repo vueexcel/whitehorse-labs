@@ -9,7 +9,7 @@
         </HeroSection>
         <NewsSection subtitle="News & Insights" :items="DUMMY_DATA">
             <select name="Category" id="category" class="text-black ml-auto outline-none border-b-2 py-2 px-12">
-                <option value="" selected>View all categories</option>
+                <option v-for="category in CATEGORIES" :key="category.value">{{ category.label }}</option>
             </select>
         </NewsSection>
         <JoinusSection />
@@ -150,4 +150,27 @@ const DUMMY_DATA = [
         link: '#'
     }
 ];
+
+const CATEGORIES = [
+    {
+        label: 'All Categories',
+        value: ''
+    },
+    {
+        label: 'Testing Laboratory',
+        value: 'testing-laboratory'
+    },
+    {
+        label: 'Factory Auditing',
+        value: 'factory-auditing'
+    },
+    {
+        label: 'Programming, Packaging & Logistics',
+        value: 'programming-packaging-logistics'
+    },
+    {
+        label: 'Training & Education',
+        value: 'training-education'
+    }
+]
 </script>

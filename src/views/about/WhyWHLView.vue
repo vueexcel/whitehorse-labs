@@ -13,7 +13,7 @@
             open, trustworthy communication across all levels
         </TopHeading>
         <SectionHeader title="Why White Horse Labs" subtitle="We give you confidence to drive your vision"
-            cta="Why White Horse Labs" cta-link="#" class="bg-white">
+            cta="Let's talk" :cta-link="constants.contact.path" class="bg-white">
             <template #top>
                 <p class="text-[#828282] font-roboto">
                     Imagine a world where electronics are always what they claim to be—no substandard, no counterfeit.
@@ -82,8 +82,9 @@ import SolutionSection from '@/components/pages/common/SolutionSection.vue';
 import TopHeading from '@/components/pages/about/TopHeading.vue';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 
-import BackgroundImage from '@/assets/images/about/why-whl/hero.png';
+import constants from '@/constants/routes.constants'
 
+import BackgroundImage from '@/assets/images/about/why-whl/hero.png';
 
 import SolutionImage1 from '@/assets/images/about/why-whl/solution-1.png'
 import SolutionImage2 from '@/assets/images/about/why-whl/solution-2.png'
@@ -92,21 +93,21 @@ import SolutionImage3 from '@/assets/images/about/why-whl/solution-3.png'
 const SOLUTIONS_LIST = [
   {
     title: 'Who We Are',
-    link: '#',
+    link: constants.about.path + '/' + constants.about.whoWeAre.path,
     image: SolutionImage1,
     description:
       'Explore our Purpose, Values, Mission and the Promise we keep to our clients around the globe.'
   },
   {
     title: 'Join Our Team',
-    link: '#',
+    link: constants.about.path + '/' + constants.about.joinOurTeam.path,
     image: SolutionImage2,
     description:
       'Join us in making an impact in ensuring the reliability and safety of electronics around the globe.'
   },
   {
     title: 'Our Locations',
-    link: '#',
+    link: constants.about.path + '/' + constants.about.ourLocations.path,
     image: SolutionImage3,
     description:
       'With over 160 employees in six countries, our global presence is the authority of technological integrity.'

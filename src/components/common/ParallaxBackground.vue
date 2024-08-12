@@ -1,8 +1,10 @@
 <template>
     <div class="size-44 group" ref="container">
         <div class="block overflow-hidden w-full">
-            <div ref="imageWrapper" class="w-full cursor-pointer">
-                <img :src="src" :alt="alt || 'Image'" class="w-full object-cover pointer-events-none" />
+            <div ref="imageWrapper" class="w-full">
+                <slot name="image">
+                    <img :src="src" :alt="alt || 'Image'" class="w-full object-cover pointer-events-none" />
+                </slot>
             </div>
         </div>
         <slot></slot>

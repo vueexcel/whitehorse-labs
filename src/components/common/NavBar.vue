@@ -36,7 +36,7 @@
           </button>
         </div>
       </div>
-      <div class="flex items-center w-full max-w-[1350px] mx-auto z-30"
+      <div class="flex items-center w-full max-w-[1350px] mx-auto z-30" v-if="currentActive"
         :style="{ height: subMenuItems.length ? '200px' : '0', transition: `height ${subMenuItems.length ? 250 : 50}ms ease` }">
         <ul class="flex items-start py-10 pb-4" v-show="showSubmenuItems.length">
           <li v-for="link in subMenuItems" :key="link.label" class="mx-4">

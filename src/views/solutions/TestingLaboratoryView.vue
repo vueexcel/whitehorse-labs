@@ -35,7 +35,7 @@
         <BaseButton title="Request a Sample Report" />
       </template>
     </SectionHeader>
-    <ServicesSection cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
+    <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
     <TestingSection />
     <CaseStudySection />
     <TestimonialsSection />
@@ -57,6 +57,8 @@ import SectionHeader from '@/components/layout/SectionHeader.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import SolutionSection from '@/components/pages/common/SolutionSection.vue'
 
+import constants from '@/constants/routes.constants'
+
 import HeroImage from '@/assets/images/solutions/testing-laboratory/hero.png'
 import Service1Image from '@/assets/images/solutions/testing-laboratory/service-1.png'
 import Service2Image from '@/assets/images/solutions/testing-laboratory/service-2.png'
@@ -67,14 +69,13 @@ import Service6Image from '@/assets/images/solutions/testing-laboratory/service-
 import Service7Image from '@/assets/images/solutions/testing-laboratory/service-7.png'
 import Service8Image from '@/assets/images/solutions/testing-laboratory/service-8.png'
 
-import SolutionsImage1 from '@/assets/images/solutions/solution-4.png'
-import SolutionsImage2 from '@/assets/images/solutions/solution-2.png'
-import SolutionsImage3 from '@/assets/images/solutions/solution-3.png'
+import SolutionsImage1 from '@/assets/images/solutions/factory-auditing.png'
+import SolutionsImage2 from '@/assets/images/solutions/programming-packaging.png'
+import SolutionsImage3 from '@/assets/images/solutions/training-education.png'
 
 const SERVICES_LIST = [
   {
     title: 'Substandard and Counterfeit Detection',
-    link: '#',
     description:
       'Early detection and prevention of counterfeits are crucial to maintaining the quality of the entire supply chain. At White Horse Labs, we develop customized risk mitigation plans tailored to your needs. Our services range from screening third-party samples to creating a comprehensive database of "known good parts," all performed to the highest inspection standards, including AS6081, AS6171, AS5553, CCAP-101, and IDEA-1010.',
     list: [
@@ -90,7 +91,6 @@ const SERVICES_LIST = [
   },
   {
     title: 'Failure Analysis',
-    link: '#',
     description:
       "Failure analysis of electronic parts and components provides crucial insights into why they don't meet performance expectations and their potential performance in their intended end use. Conducting an unbiased failure analysis through White Horse Labs, an independent testing laboratory, enables the production of higher quality products.",
     list: [
@@ -106,7 +106,6 @@ const SERVICES_LIST = [
   },
   {
     title: 'Lifecycle and Reliability Testing',
-    link: '#',
     description:
       "Lifecycle testing at White Horse Labs evaluates a product's longevity by analyzing its performance under normal use conditions. To ensure comprehensive reliability, we also conduct reliability testing, exposing products to extreme conditions that exceed normal operating requirements. This dual approach helps predict product durability and guarantees robust performance, ensuring your products meet the highest standards of quality and reliability.",
     list: [
@@ -124,7 +123,6 @@ const SERVICES_LIST = [
   },
   {
     title: 'Electrical Testing',
-    link: '#',
     description:
       'At White Horse Labs, our electrical testing services encompass six rigorous levels tailored to the device and customer requirements. We verify performance, speed, durability, and reliability of components, while also detecting defects and faults. Trust our expertise to ensure your components meet the highest standards of quality and functionality.',
     list: [
@@ -142,23 +140,23 @@ const SERVICES_LIST = [
 ]
 
 const SOLUTIONS_LIST = [
-  {
-    title: 'Factory Auditing',
-    description: 'We provide meticulous factory auditing services to ensure compliance, quality, and efficiency in manufacturing processes.',
-    link: '#',
-    image: SolutionsImage1
-  },
-  {
-    title: 'Programming, Packaging & Logistics',
-    description: 'Integrated packaging and logistics solutions designed to optimize efficiency and ensure the secure delivery of your products. ',
-    link: '#',
-    image: SolutionsImage2
-  },
-  {
-    title: 'Training & Education',
-    description: 'Comprehensive training and education programs to enhance your team\'s expertise and uphold industry standards.',
-    link: '#',
-    image: SolutionsImage3
-  }
+    {
+        title: 'Factory Auditing',
+        description: 'We provide meticulous factory auditing services to ensure compliance, quality, and efficiency in manufacturing processes.',
+        link: constants.solutions.path + '/' + constants.solutions.factoryAuditing.path,
+        image: SolutionsImage1
+    },
+    {
+        title: 'Programming, Packaging & Logistics',
+        description: 'Integrated packaging and logistics solutions designed to optimize efficiency and ensure the secure delivery of your products.',
+        link: constants.solutions.path + '/' + constants.solutions.programmingPackaging.path,
+        image: SolutionsImage2
+    },
+    {
+        title: 'Training & Education',
+        description: 'Comprehensive training and education programs to enhance your team\'s expertise and uphold industry standards.',
+        link: constants.solutions.path + '/' + constants.solutions.trainingEducation.path,
+        image: SolutionsImage3
+    }
 ]
 </script>

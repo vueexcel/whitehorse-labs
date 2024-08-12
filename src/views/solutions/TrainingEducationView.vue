@@ -28,10 +28,10 @@
                 </p>
             </template>
             <template #topBottom>
-                <BaseButton title="Contact a Quality Consultant" />
+                <BaseButton title="Contact a Quality Consultant" to="mailto:solutions@whitehorselabs.com" />
             </template>
         </SectionHeader>
-        <ServicesSection :items="SERVICES_LIST" title="Training & Education" cta="Contact a Quality Consultant" />
+        <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" :items="SERVICES_LIST" title="Training & Education" cta="Contact a Quality Consultant" />
         <CaseStudySection />
         <TestimonialsSection />
         <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
@@ -51,18 +51,19 @@ import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 import SolutionSection from '@/components/pages/common/SolutionSection.vue'
 
+import constants from '@/constants/routes.constants'
+
 import HeroImage from '@/assets/images/solutions/training-education/hero.png'
 import ServiceImage1 from '@/assets/images/solutions/training-education/service-1.png'
 import ServiceImage2 from '@/assets/images/solutions/training-education/service-2.png'
 
-import SolutionsImage1 from '@/assets/images/solutions/solution-1.png'
-import SolutionsImage2 from '@/assets/images/solutions/solution-2.png'
-import SolutionsImage3 from '@/assets/images/solutions/solution-3.png'
+import SolutionsImage1 from '@/assets/images/solutions/testing-laboratory.png'
+import SolutionsImage2 from '@/assets/images/solutions/factory-auditing.png'
+import SolutionsImage3 from '@/assets/images/solutions/programming-packaging.png'
 
 const SERVICES_LIST = [
     {
         title: 'Expert-Led Course Structure',
-        link: '#',
         description: [
             'Our training courses, crafted in collaboration with professional educators, are delivered by subject matter experts. We offer a wide range of specialized courses available regularly and online for your convenience. Additionally, we provide customized training tailored to your specific processes, products, and participant needs.',
             'Schedule an appointment to discuss your goals with our training staff. Together, we\'ll develop a program and schedule that meets your unique requirements. Invest in your team\'s growth with White Horse Labs\' expert training solutions.'
@@ -89,19 +90,19 @@ const SOLUTIONS_LIST = [
     {
         title: 'Test Lab Services',
         description: 'Advanced testing services include counterfeit detection and failure analysis, maintain the highest quality standards.',
-        link: '#',
+        link: constants.solutions.path + '/' + constants.solutions.testingLaboratory.path,
         image: SolutionsImage1
+    },
+    {
+        title: 'Factory Auditing',
+        description: 'We provide meticulous factory auditing services to ensure compliance, quality, and efficiency in manufacturing processes.',
+        link: constants.solutions.path + '/' + constants.solutions.factoryAuditing.path,
+        image: SolutionsImage2
     },
     {
         title: 'Programming, Packaging & Logistics',
         description: 'Integrated packaging and logistics solutions designed to optimize efficiency and ensure the secure delivery of your products.',
-        link: '#',
-        image: SolutionsImage2
-    },
-    {
-        title: 'Training & Education',
-        description: 'Comprehensive training and education programs to enhance your team\'s expertise and uphold industry standards.',
-        link: '#',
+        link: constants.solutions.path + '/' + constants.solutions.programmingPackaging.path,
         image: SolutionsImage3
     }
 ]

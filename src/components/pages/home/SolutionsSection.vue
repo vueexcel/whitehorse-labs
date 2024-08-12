@@ -2,24 +2,23 @@
   <SectionHeader title="What We Do" subtitle="Our Solutions" class="pb-0 bg-white" ref="sectionRef" />
 
   <div class="bg-white w-full px-4 sm:px-8 md:px-12 sm:top-0">
-    <div class="max-w-4xl rounded-lg lg:ml-60 aspect-[3/4] sm:aspect-video mb-8 sticky flex"
+    <div class="max-w-4xl rounded-lg lg:ml-60 aspect-[3/4] sm:aspect-video mb-8 sticky flex group overflow-hidden"
       v-for="(item, index) in SOLUTIONS_LIST" :key="item.id" ref="cardsRef"
       :style="`top: ${(index * 12) + (120 + (width < 768 ? 35 : 0))}px`">
-      <router-link :to="constants.solutions.path + '/' + item.link" class="block flex-1 h-full w-full group overflow-hidden rounded-lg">
-        <img :src="item.image" alt="images" class="object-cover w-full h-full rounded-lg group-hover:scale-105 duration-500" />
-        <div class="absolute top-0 left-0 flex flex-col justify-between w-full h-full p-5 sm:px-20">
-          <span class="text-xs text-white sm:absolute left-5 top-12">{{ index < 9 ? '0' + (index + 1) : (index + 1)
-              }}</span>
-              <h5 class="text-3xl text-white sm:mt-5">{{ item.title }}</h5>
+      <img :src="item.image" alt="images"
+        class="object-cover w-full h-full rounded-lg group-hover:scale-105 duration-500" />
+      <div class="absolute top-0 left-0 flex flex-col justify-between w-full h-full p-5 sm:px-20">
+        <span class="text-xs text-white sm:absolute left-5 top-12">{{ index < 9 ? '0' + (index + 1) : (index + 1)
+            }}</span>
+            <h5 class="text-3xl text-white sm:mt-5">{{ item.title }}</h5>
 
-              <div>
-                <p class="block text-sm text-white md:text-lg">
-                  {{ item.description }}
-                </p>
-                <BaseButton title="Learn More" class="mt-5 md:mb-2" />
-              </div>
-        </div>
-      </router-link>
+            <div>
+              <p class="block text-sm text-white md:text-lg">
+                {{ item.description }}
+              </p>
+              <BaseButton title="Learn More" class="mt-5 md:mb-2" :to="constants.solutions.path + '/' + item.link" />
+            </div>
+      </div>
     </div>
     <div class="w-full" style="height: 120px"></div>
   </div>
