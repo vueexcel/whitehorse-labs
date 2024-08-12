@@ -3,20 +3,20 @@
     <div class="relative w-full h-screen bg-no-repeat bg-cover" ref="heroSection"
       :style="'background-image: url(' + backgroundImage + ')'">
       <div ref="innerContent"
-        class="w-full h-full mx-auto max-w-[1350px] px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border">
-        <h5 class="text-3xl sm:text-4xl md:text-5xl leading-[1.2] text-white font-roboto text-center sm:text-left"
+        class="w-full h-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border">
+        <h5 class="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl leading-[1.2] text-white font-roboto text-center sm:text-left"
           style="line-height: 1.1;">
           <slot></slot>
         </h5>
 
         <div class="flex justify-center w-full my-10 md:my-20">
-          <p class="max-w-sm text-center text-white sm:max-w-md sm:text-left">
+          <p class="max-w-sm 3xl:max-w-lg text-center text-white sm:max-w-md sm:text-left 3xl:text-lg">
             <slot name="description"></slot>
           </p>
         </div>
 
         <div
-          class="absolute flex flex-col items-center w-full text-white sm:static bottom-5 sm:justify-between sm:flex-row sm:left-0 sm:right-0">
+          class="absolute flex flex-col items-center left-0 right-0 text-white sm:static bottom-5 sm:justify-between sm:flex-row sm:left-0 sm:right-0">
           <RedTitle :title="title" class="mb-5 ml-0 w-max" />
 
           <p class="flex items-center text-xs text-white cursor-pointer w-max hover:opacity-75 font-roboto-mono">
