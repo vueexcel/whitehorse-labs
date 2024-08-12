@@ -1,8 +1,8 @@
 <template>
   <header class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
-    <div class="w-full p-4 py-3 mx-auto bg-black rounded-md">
-      <div class="flex items-center w-full max-w-[1350px] mx-auto z-40">
+    <div class="w-full px-4 sm:px-12 py-3 mx-auto bg-black rounded-md">
+      <div class="flex items-center w-full mx-auto z-40">
         <div class="w-auto block">
           <router-link to="/" class="flex">
             <img src="@/assets/images/nav-bar/logo.svg" alt="logo" class="h-8 min-h-6" />
@@ -36,7 +36,7 @@
           </button>
         </div>
       </div>
-      <div class="flex items-center w-full max-w-[1350px] mx-auto z-30" v-if="currentActive"
+      <div class="flex items-center w-full mx-auto z-30" v-if="currentActive"
         :style="{ height: subMenuItems.length ? '200px' : '0', transition: `height ${subMenuItems.length ? 250 : 50}ms ease` }">
         <ul class="flex items-start py-10 pb-4" v-show="showSubmenuItems.length">
           <li v-for="link in subMenuItems" :key="link.label" class="mx-4">
