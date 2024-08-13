@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import constants, { getTitle } from '@/constants/routes.constants'
 import { useAnimateStore } from '@/store/useAnimateStore';
 
@@ -151,6 +152,21 @@ router.beforeEach((_to, _from, next) => {
 
 router.afterEach(() => {
   useAnimateStore().scrollToTop()
+
+  const images = document.getElementsByTagName('img');
+  setTimeout(() => {
+    const totalImagesToBeLoaded = images.length;
+    let loadedImages = 0;
+    
+    for (let i = 0; i < totalImagesToBeLoaded; i++) {
+      images[i].onload = () => {
+        loadedImages++;
+        if (loadedImages === totalImagesToBeLoaded) {
+          ScrollTrigger.refresh();
+        }
+      }
+    }
+  })
 });
 
 export default router;
