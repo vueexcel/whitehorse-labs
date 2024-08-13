@@ -98,26 +98,26 @@ export const Languages = [
     {
         label: 'Global',
         sublabel: '(English)',
-        link: '/global'
+        link: '/en'
     },
     {
         label: 'Germany',
         sublabel: '(Deutsch)',
-        link: '/germany'
+        link: '/de'
     },
     {
         label: 'China',
         sublabel: '(中文版)',
-        link: '/china'
+        link: '/cn'
     },
     {
         label: 'Singapore',
         sublabel: '(中文版)',
-        link: '/singapore'
+        link: '/sg'
     },
     {
         label: 'India',
         sublabel: '(हिन्दी)',
-        link: '/india'
+        link: '/in'
     }
 ]
