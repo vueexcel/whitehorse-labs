@@ -41,13 +41,21 @@ export const useAnimate = (
         /** IN SOME CASE GSAP ANIMATION ARE NOT WORKING WHEN CHANGING ROUTES. */
         ScrollTrigger.refresh();
 
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 50)
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 50)
 
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 200)
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 200)
+
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 500)
+
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 1000)
     })
 
     onUnmounted(() => {
