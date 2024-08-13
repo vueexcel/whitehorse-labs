@@ -47,15 +47,17 @@ export const useAnimate = (
 
         setTimeout(() => {
             ScrollTrigger.refresh();
-        }, 200)
-
-        setTimeout(() => {
-            ScrollTrigger.refresh();
         }, 500)
 
         setTimeout(() => {
             ScrollTrigger.refresh();
         }, 1000)
+
+        
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 2000)
+
     })
 
     onUnmounted(() => {
