@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 export const useAnimateStore = defineStore('animate', () => {
     const lenis = new Lenis({
-        lerp: 0.04,
+        lerp: 0.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(4, -10 * t)),
         touchMultiplier: 2,
         infinite: false
@@ -22,11 +22,12 @@ export const useAnimateStore = defineStore('animate', () => {
 
     const scrollToTop = (transition = false) => {
         if (transition) {
-            lenis.stop()
-            lenis.scrollTo(0, { duration: 0 }) // scroll without animation
-            lenis.start()
+            lenis.scrollTo(0, { duration: 0, immediate: true, lerp: 1 })
         } else {
-            lenis.scrollTo(0)
+            window.scrollTo({ top: 0, behavior: 'auto' }) 
+            lenis.stop()
+            lenis.scrollTo(0, { duration: 0, immediate: true, lerp: 1 })
+            lenis.start()
         }
     }
 
