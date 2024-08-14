@@ -32,6 +32,7 @@ const pageLoaderStore = usePageLoader();
 
 watch(pageLoaderStore, (value) => {
   if (value.imageLoaded && !value.loading) {
+    lottie.value.stop();
     ScrollTrigger.refresh();
   }
 })
@@ -43,7 +44,7 @@ let i = 0;
 const handleEnterFrame = () => {
   i++;
   if (i === 100) {
-    lottie.value.stop();
+    pageLoaderStore.imageLoaded && lottie.value.stop();
     pageLoaderStore.stopLoading();
     i = 0;
   }
