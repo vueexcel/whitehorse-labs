@@ -79,7 +79,6 @@ const width = ref(window.innerWidth);
 
 useAnimate(({ to }) => {
   if (cardsRef.value && sectionRef.value?.section) {
-    console.log("%cAnimation started", "color: green; font-size: 24px; font-weight: bold;font-family: 'Fira Code';");
     const section = sectionRef.value?.section;
     const cards = cardsRef.value;
     const cardHeight = cards[0].offsetHeight + 30;

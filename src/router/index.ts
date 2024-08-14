@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import constants, { getTitle } from '@/constants/routes.constants'
+
 import { useAnimateStore } from '@/store/useAnimateStore';
+import { usePageLoader } from '@/store/usePageLoader';
 
 const {
   landingpage,
@@ -140,6 +141,8 @@ const router = createRouter({
 });
 
 router.beforeEach((_to, _from, next) => {
+  usePageLoader().beforeRouteChange();
+
   if (_to.name === about.ourLocations.name) {
     document.title = getTitle(_to.name as string);
     next({ name: contact.name, hash: '#locations' });
@@ -151,22 +154,8 @@ router.beforeEach((_to, _from, next) => {
 });
 
 router.afterEach(() => {
+  usePageLoader().afterRouteChange();
   useAnimateStore().scrollToTop()
-
-  const images = document.getElementsByTagName('img');
-  setTimeout(() => {
-    const totalImagesToBeLoaded = images.length;
-    let loadedImages = 0;
-    
-    for (let i = 0; i < totalImagesToBeLoaded; i++) {
-      images[i].onload = () => {
-        loadedImages++;
-        if (loadedImages === totalImagesToBeLoaded) {
-          ScrollTrigger.refresh();
-        }
-      }
-    }
-  })
 });
 
 export default router;
