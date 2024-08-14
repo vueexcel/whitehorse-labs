@@ -7,7 +7,7 @@
       <div v-if="pageLoaderStore.loading"
         class="text-white fixed top-0 left-0 h-full w-full bg-black flex justify-center items-center"
         style="z-index: 100;">
-        <Vue3Lottie @on-loop-complete="pageLoaderStore.stopLoading()" autoPlay :animation-link="'/wh_loading2.json'"
+        <Vue3Lottie ref="lottie" @on-enter-frame="handleEnterFrame" autoPlay :loop="false" :animation-link="'/wh_loading2.json'"
           :width="(windowWidth * 0.3)" :height="(windowWidth * 0.3)" />
       </div>
     </transition>
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie'
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -37,4 +37,15 @@ watch(pageLoaderStore, (value) => {
 })
 
 const windowWidth = window.innerWidth
+const lottie = ref<typeof Vue3Lottie>(null!)
+
+let i = 0;
+const handleEnterFrame = () => {
+  i++;
+  if (i === 100) {
+    lottie.value.stop();
+    pageLoaderStore.stopLoading();
+    i = 0;
+  }
+}
 </script>
