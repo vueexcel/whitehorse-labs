@@ -6,7 +6,7 @@
     <div v-if="pageLoaderStore.loading"
       class="text-white fixed top-0 left-0 h-full w-full bg-black flex justify-center items-center"
       style="z-index: 100;">
-      <Vue3Lottie :animation-data="WHLJsonLogo" :width="windowWidth * 0.3" :height="windowWidth * 0.3" />
+      <Vue3Lottie :animation-link="'wh_loading2.json'" :width="(windowWidth * 0.3)" :height="(windowWidth * 0.3)" />
     </div>
   </div>
 </template>
@@ -17,7 +17,6 @@ import { Vue3Lottie } from 'vue3-lottie'
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import 'lenis/dist/lenis.css'
-import WHLJsonLogo from '@/assets/wh_loading2.json'
 
 import NavBar from '@/components/common/NavBar.vue'
 
@@ -29,9 +28,7 @@ useAnimateStore(); // initialize store
 const pageLoaderStore = usePageLoader();
 
 watch(pageLoaderStore, (value) => {
-  if (value.loading) {
-    // start loading
-  } else {
+  if (!value.loading) {
     ScrollTrigger.refresh();
   }
 })
