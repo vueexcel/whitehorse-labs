@@ -3,11 +3,14 @@
     <NavBar />
     <router-view />
 
-    <div v-if="pageLoaderStore.loading"
-      class="text-white fixed top-0 left-0 h-full w-full bg-black flex justify-center items-center"
-      style="z-index: 100;">
-      <Vue3Lottie :animation-link="'wh_loading2.json'" :width="(windowWidth * 0.3)" :height="(windowWidth * 0.3)" />
-    </div>
+    <transition name="fade-slide">
+      <div v-if="pageLoaderStore.loading"
+        class="text-white fixed top-0 left-0 h-full w-full bg-black flex justify-center items-center"
+        style="z-index: 100;">
+        <Vue3Lottie @on-loop-complete="pageLoaderStore.stopLoading()" autoPlay :animation-link="'/wh_loading2.json'"
+          :width="(windowWidth * 0.3)" :height="(windowWidth * 0.3)" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -28,7 +31,7 @@ useAnimateStore(); // initialize store
 const pageLoaderStore = usePageLoader();
 
 watch(pageLoaderStore, (value) => {
-  if (!value.loading) {
+  if (value.imageLoaded && !value.loading) {
     ScrollTrigger.refresh();
   }
 })

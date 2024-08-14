@@ -4,13 +4,21 @@ import { nextTick } from "vue";
 export const usePageLoader = defineStore("pageLoader", {
     state: () => ({
         loading: true,
+        imageLoaded: false,
+        needToWait: false
     }),
     actions: {
         startLoading() {
+            this.imageLoaded = false;
             this.loading = true;
+            this.needToWait = false;
         },
         stopLoading() {
-            this.loading = false;
+            if (!this.imageLoaded) {
+                this.needToWait = true;
+            } else {
+                this.loading = false;
+            }
         },
         beforeRouteChange() {
             this.startLoading();
@@ -23,7 +31,11 @@ export const usePageLoader = defineStore("pageLoader", {
                 const onLoadListener = () => {
                     loadedImages++;
                     if (loadedImages === totalImagesToBeLoaded) {
-                        this.stopLoading();
+                        this.imageLoaded = true;
+                        if (this.needToWait) {
+                            this.needToWait = false;
+                            this.loading = false;
+                        }
                     }
                 }
 

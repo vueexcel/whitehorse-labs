@@ -49,3 +49,16 @@ body {
     scrollbar-width: none;  /* Firefox */
   }
 }
+
+/* Fade-in and Slide-down transition */
+.fade-slide-enter-active, .fade-slide-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fade-slide-enter {
+  opacity: 0;
+}
+
+.fade-slide-leave-to {
+  transform: translateY(-100vh);
+}
