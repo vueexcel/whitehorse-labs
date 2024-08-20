@@ -10,7 +10,8 @@ const {
   contact,
   caseStudies,
   solutions,
-  about
+  about,
+  locations
 } = constants;
 
 const router = createRouter({
@@ -136,6 +137,13 @@ const router = createRouter({
       path: contact.path,
       name: contact.name,
       component: () => import('../views/ContactView.vue')
+    },
+
+    // Locations
+    {
+      path: locations.path,
+      name: locations.name,
+      component: () => import('../views/LocationView.vue')
     }
   ]
 });

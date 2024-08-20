@@ -7,7 +7,7 @@
         </slot>
       </div>
       <div class="flex flex-col w-full">
-        <div class="flex flex-col items-start lg:items-end w-full mb-8 lg:flex-row max-h-max">
+        <div class="flex flex-col items-start lg:items-end w-full mb-8 lg:flex-row max-h-max" v-if="headerShown">
           <h4 class="max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
             :class="[textClass, headingClass]">
             <slot name="subtitle">
@@ -23,7 +23,7 @@
             </component>
           </slot>
         </div>
-        <div class="max-w-full sm:max-w-5xl" v-if="$slots.top || $slots.topBottom">
+        <div :class="topBottomClass" v-if="$slots.top || $slots.topBottom">
           <div class="grid w-full grid-cols-1 gap-10 mt-2 mb-8 sm:gap-4 md:grid-cols-2" v-if="$slots.top">
             <slot name="top"></slot>
           </div>
@@ -42,14 +42,19 @@ import { ref } from 'vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 
-defineProps<{
+withDefaults(defineProps<{
   title?: string
   cta?: string
   ctaLink?: string
   subtitle?: string
   textClass?: string
   headingClass?: string
-}>()
+  headerShown?: boolean,
+  topBottomClass?: string
+}>(), {
+  headerShown: true,
+  topBottomClass: 'max-w-full sm:max-w-5xl'
+})
 
 const section = ref<HTMLElement | null>(null)
 defineExpose({

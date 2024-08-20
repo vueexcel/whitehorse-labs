@@ -126,6 +126,11 @@ const ROUTES = {
         path: '/contact',
         name: 'contact',
         title: title('Contact')
+    },
+    locations: {
+        path: '/locations/:lang',
+        name: 'locations',
+        title: title('Locations')
     }
 }
 

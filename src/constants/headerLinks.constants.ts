@@ -1,6 +1,6 @@
 import constants from '@/constants/routes.constants'
 
-export const { landingpage, resources, contact, caseStudies, solutions, about } = constants
+export const { landingpage, resources, contact, caseStudies, solutions, about, locations } = constants
 
 export default [
     {
@@ -91,6 +91,8 @@ export default [
     }
 ]
 
+const locationPath = locations.path.split("/").slice(0, 2).join("/")
+
 export const Languages = [
     {
         label: 'Please select your region and language'
@@ -98,26 +100,26 @@ export const Languages = [
     {
         label: 'Global',
         sublabel: '(English)',
-        link: '/en'
+        link: locationPath + '/en'
     },
     {
         label: 'Germany',
         sublabel: '(Deutsch)',
-        link: '/de'
+        link: locationPath + '/de'
     },
     {
         label: 'China',
         sublabel: '(中文版)',
-        link: '/cn'
+        link: locationPath + '/cn'
     },
     {
         label: 'Singapore',
         sublabel: '(中文版)',
-        link: '/sg'
+        link: locationPath + '/sg'
     },
     {
         label: 'India',
         sublabel: '(हिन्दी)',
-        link: '/in'
+        link: locationPath + '/in'
     }
 ]
