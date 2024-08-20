@@ -1,6 +1,6 @@
 <template>
   <section class="w-full h-auto sticky top-0 -z-10">
-    <div class="relative w-full h-screen bg-no-repeat bg-cover" ref="heroSection"
+    <div class="relative w-full h-screen bg-no-repeat bg-cover inner-content" ref="heroSection"
       :style="'background-image: url(' + backgroundImage + ')'">
       <div ref="innerContent"
         class="w-full h-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border">
@@ -69,3 +69,15 @@ useAnimate(({ to }) => {
   })
 })
 </script>
+
+<style scoped>
+.inner-content::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+</style>
