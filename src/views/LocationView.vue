@@ -33,7 +33,7 @@
 
         <CompanySection />
         <ServicesSection cta="" cta-link="#" title="Our capabilites" :items="SERVICES_LIST" />
-        <WiderBox :background-image="WiderImage" link="" link-text="" class="bg-white">
+        <WiderBox :background-image="WiderImage"  class="bg-white">
             <template #title>
                 Quality is Our Commitment
             </template>
