@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
+  <header v-if="!isMobile" class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
     <div class="w-full px-4 sm:px-12 py-3 mx-auto bg-black rounded-md">
       <div class="flex items-center w-full mx-auto z-40">
@@ -27,12 +27,12 @@
           <button
             class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95"
             @mouseenter="currentActive = 'languages'">
-            <img src="@/assets/images/nav-bar/globe.svg" alt="right-arrow-outlined" />
+            <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
             <span class="ml-2 whitespace-nowrap hidden lg:block">Global | English</span>
           </button>
           <button
             class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95">
-            <img src="@/assets/images/nav-bar/search.svg" alt="right-arrow-outlined" />
+            <img src="@/assets/images/nav-bar/search.svg" alt="search" />
           </button>
         </div>
       </div>
@@ -56,29 +56,115 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navbar -->
+  <header v-if="isMobile && !showMenu" class="fixed top-0 left-0 right-0 z-50 w-full p-4 transition-transform duration-500"
+    :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
+    <div class="w-full flex px-4 sm:px-12 py-3 mx-auto bg-black rounded-md">
+      <div class="w-fit block">
+        <router-link to="/" class="flex">
+          <img src="@/assets/images/common/mobileLogo.svg" alt="logo" class="h-8 min-h-6" />
+        </router-link>
+      </div>
+      <div class="flex items-center ml-auto">
+        <button @click="showMobileMenu"
+          class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95">
+          <img src="@/assets/icons/menu.svg" alt="menu" />
+        </button>
+      </div>
+    </div>
+  </header>
+
+ <!-- Mobile Menu Panel -->
+ <div v-if="showMenu" class="fixed top-0 left-0 right-0 z-40 w-full h-fit min-h-full  bg-black bg-opacity-90 flex justify-center pt-32"
+  >
+    <div class="text-white">
+      <div class="flex items-center">
+        <button @click="showMobileMenu" class="absolute top-4 left-4 text-white text-2xl">
+        &times;
+      </button>
+      <div  class="absolute top-6 right-4 text-white">
+      <button @click="toggleSearchbar">
+        <img v-if="!showSearchbar" src="@/assets/images/nav-bar/search.svg" alt="search" />
+      </button>
+      <input @keyup.enter="showSearchbar = false" type="search" placeholder="Search" v-if="showSearchbar" class="w-[90vw] px-2 py-2 bg-transparent focus:outl-400 items-center">
+      </div>
+      </div>
+      <ul class="space-y-4 text-center">
+          <li v-for="link in NavbarLinks" :key="link.label" @mouseenter="toggleSubMenu(link.label)" @mouseleave="activeSubMenu = null"   
+          @click="showMenu=false"
+          class="h-full">
+            <router-link :role="!link.sublinks ? 'button' : 'anchor'" :to="link.sublinks ? '' : link.link"
+            class="text-lg block py-2 px-4">
+              {{ link.label }}
+            </router-link> 
+
+      <!-- Expandable Submenu -->
+      <ul v-if="activeSubMenu === link.label" class="bg-gray-800 rounded-md mt-2">
+        <li v-for="subLink in getSubMenuItems(link.label)" :key="subLink.label" class="px-4 py-2">
+          <router-link :to="subLink.link" class="text-white hover:bg-gray-700 block rounded">
+            <h5 class="mb-1 text-lg font-bold">{{ subLink.label }}</h5>
+            <p class="text-sm">{{ subLink.sublabel }}</p>
+          </router-link>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="flex flex-col items-start px-4 mt-4">
+    <button class="flex items-center justify-center p-2 text-sm text-white transition-all hover:opacity-75 active:scale-95">
+      <img src="@/assets/images/nav-bar/right-arrow-outlined.svg" alt="right-arrow-outlined" />
+      <span class="ml-2">Client Portal</span>
+    </button>
+    <button class="flex items-center justify-center p-2 text-sm text-white transition-all hover:opacity-75 active:scale-95"
+      @mouseenter="currentActive = 'languages'">
+      <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
+      <span class="ml-2">Global | English</span>
+    </button>
+  </div>
+</div>
+ </div>
+
 </template>
 
+
+
 <script lang="ts" setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import NavbarLinks, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import NavbarLinks, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants';
 import { useDebounce } from '@/hooks/useDeboune';
 
-const currentActive = ref<string | null>(null)
+const currentActive = ref<string | null>(null);
+const activeSubMenu = ref<string | null>(null); 
+
 const subMenuItems = computed(() => {
   return {
     ...(NavbarLinks.filter((link) => link.sublinks).reduce((prev, link) => {
       // @ts-ignore
-      prev[link.label] = link.sublinks
-      return prev
+      prev[link.label] = link.sublinks;
+      return prev;
     }, {}) as any),
     languages: LanguagesLinks
-  }[currentActive.value as string] || []
-})
- 
+  }[currentActive.value as string] || [];
+});
+
 const showSubmenuItems = useDebounce(subMenuItems, 150);
 
 const isNavbarVisible = ref(true);
 const lastScrollTop = ref(0);
+const showMenu = ref(false);
+const showSearchbar = ref(false);
+
+const toggleSearchbar = () => {
+  showSearchbar.value = !showSearchbar.value;
+};
+
+const showMobileMenu = () => {
+  showMenu.value = !showMenu.value;
+};
+
+const toggleSubMenu = (label: string) => {
+  activeSubMenu.value = activeSubMenu.value === label ? null : label;
+};
 
 const handleScroll = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -92,11 +178,41 @@ const handleScroll = () => {
   lastScrollTop.value = scrollTop <= 0 ? 0 : scrollTop;
 };
 
+const handleResize = () => {
+  isMobile.value = window.innerWidth < 1024;
+  if (!isMobile.value) {
+    showMenu.value = false; 
+  }
+};
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleResize);
+  handleResize();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('resize', handleResize); 
 });
+
+const isMobile = ref(window.innerWidth < 1024);
+
+watch(isMobile, (newVal) => {
+  if (!newVal) {
+    showMenu.value = false;
+  }
+});
+
+const getSubMenuItems = (label: string) => {
+  return {
+    ...(NavbarLinks.filter((link) => link.sublinks).reduce((prev, link) => {
+      // @ts-ignore
+      prev[link.label] = link.sublinks;
+      return prev;
+    }, {}) as any),
+    languages: LanguagesLinks
+  }[label] || [];
+};
 </script>
+
