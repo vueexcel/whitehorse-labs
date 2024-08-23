@@ -43,7 +43,7 @@ const lottie = ref<typeof Vue3Lottie>(null!)
 let i = 0;
 const handleEnterFrame = () => {
   i++;
-  if (i === 100) {
+  if (i === 80) {
     pageLoaderStore.imageLoaded && lottie.value.stop();
     pageLoaderStore.stopLoading();
     i = 0;
