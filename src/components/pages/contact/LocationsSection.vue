@@ -87,8 +87,8 @@ const DUMMY_DATA = [
     {
         location: 'Bangalore',
         address:
-            '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
-        phone: '+86 755 668 6688',
+            '25th Cross Basavanapura Main Rd K.r.puram Fl 1, Devasandra, Karnataka, 560036, India',
+        phone: '+91 8095678177',
         email: 'Email',
         website: 'Visit website'
     }
