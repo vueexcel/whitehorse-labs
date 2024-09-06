@@ -129,6 +129,11 @@ const OUR_VALUES_LIST = [
     title: 'Embrace People',
     subtitle: 'We embracing people as priority',
     description: 'Adopting a people-focused approach underlines the company\'s commitment to valuing human connections and well-being, creating a nurturing and inclusive environment that attracts and retains talent. This approach resonates with employees, boosting satisfaction and loyalty, while it assures the audience of the company\'s genuine care and commitment to positive impact, fostering deeper emotional ties and loyalty to the brand.'
-  }
+  },
+  {
+    title: 'Surpass expectations',
+    subtitle: 'A passion for surpassing expectations',
+    description:'A collective passion for exceeding expectations propels the company towards continuous improvement and exceptional performance, instilling a culture of ambition and innovation. This passion not only motivates employees to excel but also assures the audience of the company\'s dedication to delivering unparalleled value and quality, reinforcing the company\'s position as a dedicated and forward-thinking industry leader.'
+  },
 ]
 </script>
