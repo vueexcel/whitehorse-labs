@@ -20,8 +20,9 @@
     <NewsSection  
       subtitle="News & Insights"
       cta="View All News and Insights"
-      :items="DUMMY_DATA"
+      :items="blogStore.getSimpleBlogPosts.slice(0, 3)"
       class="pt-0 sm:pt-8 bg-white"
+      :load-more="false"
     />
     <JoinusSection />
     <FooterSection />
@@ -44,27 +45,32 @@ import constants from '@/constants/routes.constants'
 
 import BackgroundImage from '@/assets/images/home/hero-2.png'
 
-import NewsImage1 from '@/assets/images/home/news-1.png'
-import NewsImage2 from '@/assets/images/home/news-2.png'
-import NewsImage3 from '@/assets/images/home/news-3.png'
+import { useBlogStore } from '@/store/useBlogStore';
 
-const DUMMY_DATA = [
-  {
-    title:
-      "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-    image: NewsImage1,
-    link: '#'
-  },
-  {
-    title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-    image: NewsImage2,
-    link: '#'
-  },
-  {
-    title:
-      'May 2023 Quality Report: Electronic Component Quality Insights from White Horse Laboratories',
-    image: NewsImage3,
-    link: '#'
-  }
-]
+const blogStore = useBlogStore()
+blogStore.blogPosts.length === 0 && blogStore.getBlogPosts() // fetch blogs
+
+// import NewsImage1 from '@/assets/images/home/news-1.png'
+// import NewsImage2 from '@/assets/images/home/news-2.png'
+// import NewsImage3 from '@/assets/images/home/news-3.png'
+
+// const DUMMY_DATA = [
+//   {
+//     title:
+//       "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+//     image: NewsImage1,
+//     link: '#'
+//   },
+//   {
+//     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+//     image: NewsImage2,
+//     link: '#'
+//   },
+//   {
+//     title:
+//       'May 2023 Quality Report: Electronic Component Quality Insights from White Horse Laboratories',
+//     image: NewsImage3,
+//     link: '#'
+//   }
+// ]
 </script>
