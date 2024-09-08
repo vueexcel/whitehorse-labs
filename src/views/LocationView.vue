@@ -13,9 +13,7 @@
             <template #header></template>
             <template #top>
                 <div class="w-full flex-1">
-                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"> Precision
-                        {{ content.sectionHeader.title.join('<br class="hidden md:block">') }}
-                    </h4>
+                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0" v-html="content.sectionHeader.title.join(`<br class='hidden md:block'></h4>`)"></h4>
                     <p class="text-[#828282] font-roboto max-w-md" v-html="content.sectionHeader.paragraph"></p>
                 </div>
 
