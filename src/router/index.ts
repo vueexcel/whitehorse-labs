@@ -157,7 +157,10 @@ router.beforeEach((_to, _from, next) => {
     return;
   }
 
-  document.title = getTitle(_to.name as string);
+  document.title = getTitle(
+    _to.name as string,
+    ((_to.params.id + '').split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ') || '404 Not Found') as string
+  );
   next();
 });
 

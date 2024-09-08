@@ -2,7 +2,7 @@ export const SITE_NAME = 'White Horse Laboratories'; // WHL
 
 export const title = (name: string) => `${name} | ${SITE_NAME}`
 
-export const getTitle = (name: string) => {
+export const getTitle = (name: string, defaultTitle = '') => {
     for (const value of Object.values(ROUTES)) {
         if (typeof value === 'object') {
             for (const subValue of Object.values(value)) {
@@ -21,7 +21,7 @@ export const getTitle = (name: string) => {
         }
     }
 
-    return title('404 Not Found')
+    return title(defaultTitle)
 }
 
 const ROUTES = {

@@ -3,12 +3,11 @@
         <template #cta v-if="$slots.default">
             <slot></slot>
         </template>
-
-        {{ console.log(items) }}
         
         <ul class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
-            <li v-for="({ title, image }, index) in items" :key="index" class="w-full">
-                <router-link :to="'/resources/news-insight/' + (index + 1)" class="block h-full">
+            <li v-for="({ title, image, link }, index) in items" :key="index" class="w-full">
+                <router-link :to="'/resources/news-insight/' + link
+                    " class="block h-full">
                     <div class="w-full h-72 bg-center bg-no-repeat bg-cover overflow-hidden bg-gray-300">
                         <img :src="image" :alt="'news-' + index" class="w-full h-full object-cover hover:scale-105 duration-500" />
                     </div>

@@ -32,7 +32,7 @@ import HeroImage from '@/assets/images/resources/news-hero.jpg'
 import { useBlogStore } from '@/store/useBlogStore';
 
 const blogStore = useBlogStore()
-blogStore.blogPosts.length === 0 && blogStore.getBlogPosts() // fetch blogs
+blogStore.getInitialBlogPosts() // fetch blogs
 
 
 // const DUMMY_DATA = [

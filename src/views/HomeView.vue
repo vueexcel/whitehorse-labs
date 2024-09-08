@@ -48,7 +48,7 @@ import BackgroundImage from '@/assets/images/home/hero-2.png'
 import { useBlogStore } from '@/store/useBlogStore';
 
 const blogStore = useBlogStore()
-blogStore.blogPosts.length === 0 && blogStore.getBlogPosts() // fetch blogs
+blogStore.getInitialBlogPosts() // fetch blogs
 
 // import NewsImage1 from '@/assets/images/home/news-1.png'
 // import NewsImage2 from '@/assets/images/home/news-2.png'
