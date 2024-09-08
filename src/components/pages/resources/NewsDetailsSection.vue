@@ -8,9 +8,9 @@
             {{ blogPost.title }}
         </h2>
     </section>
-    <SectionHeader subtitle="" class="bg-white" :headerShown="false" v-if="!loading">
+    <SectionHeader subtitle="" class="bg-white pt-12 sm:pt-20 pb-12 sm:pb-20" :headerShown="false" v-if="!loading">
         <template #title>
-            <span class="text-sm font-roboto-mono text-neutral-500" v-html="dateAndCategories"></span>
+            <span class="text-sm font-roboto-mono text-neutral-500 block mb-5 sm:mb-0" v-html="dateAndCategories"></span>
         </template>
 
         <template #topBottom>
