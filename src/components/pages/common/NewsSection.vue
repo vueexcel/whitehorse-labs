@@ -26,7 +26,7 @@
         <div v-if="!blogStore.initial && loadMore" :class="{'disabled:opacity-70': blogStore.loading}" class="mt-20 flex justify-center">
             <BaseButton
                 class="w-full" 
-                @click="blogStore.getBlogPosts()" 
+                @click="blogStore.loadMore" 
                 remove-icon 
             >
                 Load more
@@ -37,7 +37,6 @@
 
 <script setup lang="ts">
 import SectionHeader from '@/components/layout/SectionHeader.vue';
-// import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 
 import { useBlogStore } from '@/store/useBlogStore';
 

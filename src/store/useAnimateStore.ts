@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 export const useAnimateStore = defineStore('animate', () => {
     const lenis = new Lenis({
-        lerp: 0.2,
+        lerp: 0.1,
         easing: (t) => Math.min(1, 1.001 - Math.pow(4, -10 * t)),
         touchMultiplier: 2,
         infinite: false

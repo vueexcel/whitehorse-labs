@@ -42,18 +42,18 @@ export const useBlogStore = defineStore("blog", {
         initial: true
     }),
     actions: {
-        async getInitialBlogPosts(queries: Record<string, string> = {}) {
+        async getInitialBlogPosts(queries: Record<string, any> = {}) {
             if (this.blogPosts.length == 0) {
                 this.blogPosts = await this.getBlogPosts(queries);
             }
         },
-        async getBlogPosts(queries: Record<string, string> = {}): Promise<Blog[]> {
+        async getBlogPosts(queries: Record<string, any> = {}): Promise<Blog[]> {
             try {
                 queries = {
                     limit: queries.limit || (`${this.blogPosts.length + 6}`),
                     sort: queries.sort || "-date_created",
                     fields: queries.fields || "*.*",
-                    filter: queries.filter || '{"status":"published","translations":{"languages_code":"en-US"}}',
+                    filter: JSON.stringify(queries.filter || {"status":"published","translations":{"languages_code":"en-US"}}),
                     meta: queries.meta || "filter_count",
                 }
 
@@ -89,8 +89,22 @@ export const useBlogStore = defineStore("blog", {
             }
         },
         async getSinglePost(slug: string) {
-            const blogs = await this.getBlogPosts({ filter: `{"status":"published","translations":{"languages_code":"en-US", "slug":"${slug}"}}` });
+            const blogs = await this.getBlogPosts({
+                limit: "1",
+                filter: {
+                    status: "published",
+                    translations: {
+                        languages_code: "en-US",
+                        slug: slug
+                    }
+                }
+            });
             return blogs[0];
+        },
+        async loadMore() {
+            if (!this.initial) {
+                this.blogPosts = await this.getBlogPosts({ limit: `${this.blogPosts.length + 6}` });
+            }
         },
         getRandomBlogPosts(slug: string): SimpleBlog[] {
             return this.getSimpleBlogPosts

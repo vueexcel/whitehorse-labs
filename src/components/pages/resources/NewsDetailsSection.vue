@@ -1,5 +1,5 @@
 <template>
-    <section class="sm:px-12 px-6 w-full sm:pt-28 pt-24 bg-white">
+    <section class="sm:px-12 px-6 w-full sm:pt-28 pt-24 bg-white" :class="{ 'opacity-0': blogStore.loading }">
         <div class="w-full max-w-4xl mx-auto pointer-events-none max-h-[40rem]">
             <img :src="blogPost.image" alt="News Image" class="w-full h-auto">
         </div>
@@ -8,7 +8,7 @@
             {{ blogPost.title }}
         </h2>
     </section>
-    <SectionHeader subtitle="" class="bg-white pt-12 sm:pt-20 pb-12 sm:pb-20" :headerShown="false" v-if="!loading">
+    <SectionHeader subtitle="" class="bg-white pt-12 sm:pt-20 pb-12 sm:pb-20" :headerShown="false" :class="{ 'opacity-0': blogStore.loading }">
         <template #title>
             <span class="text-sm font-roboto-mono text-neutral-500 block mb-5 sm:mb-0" v-html="dateAndCategories"></span>
         </template>

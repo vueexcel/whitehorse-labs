@@ -8,7 +8,7 @@
         class="text-white fixed top-0 left-0 h-full w-full bg-black flex justify-center items-center"
         style="z-index: 100;">
         <Vue3Lottie ref="lottie" @on-enter-frame="handleEnterFrame" autoPlay :loop="false" :animation-link="'/wh_loading2.json'"
-          :width="(windowWidth * 0.3)" :height="(windowWidth * 0.3)" />
+          :width="Math.max((windowWidth * 0.3), 200)" :height="Math.max((windowWidth * 0.3), 200)" />
       </div>
     </transition>
   </div>

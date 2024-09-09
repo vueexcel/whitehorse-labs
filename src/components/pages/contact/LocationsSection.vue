@@ -32,7 +32,6 @@
             </div>
 
             <img :src="WorldMapImage" alt="world-map" class="w-full mt-0 sm:mt-20 max-w-5xl mb-12 sm:mb-32" />
-            <!-- <WorldMap fill="#dfe7f0" /> -->
         </template>
     </SectionHeader>
 </template>
@@ -43,7 +42,6 @@ import SectionHeader from '@/components/layout/SectionHeader.vue'
 import { useAnimateStore } from '@/store/useAnimateStore'
 
 import WorldMapImage from '@/assets/images/contact/world-map.png'
-// import WorldMap from '@/components/common/WorldMap.vue';
 
 const sectionRef = ref<{ section: HTMLElement }>();
 

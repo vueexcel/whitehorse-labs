@@ -36,28 +36,6 @@ export const useAnimate = (
                 )
             }
         })
-        
-        /** JUST FOR RECALCULATING ANIMATION POSITIONS */
-        /** IN SOME CASE GSAP ANIMATION ARE NOT WORKING WHEN CHANGING ROUTES. */
-        // ScrollTrigger.refresh();
-
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 50)
-
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 500)
-
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 1000)
-
-        
-        // setTimeout(() => {
-        //     ScrollTrigger.refresh();
-        // }, 2000)
-
     })
 
     onUnmounted(() => {
