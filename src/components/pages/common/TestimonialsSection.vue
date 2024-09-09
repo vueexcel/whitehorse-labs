@@ -28,7 +28,7 @@
     <template #topBottom>
       <ul
         ref="testimonials"
-        class="flex items-start w-full overflow-hidden overflow-x-auto pointer-events-none sm:-translate-y-14 sm:pr-5"
+        class="flex items-start w-full overflow-hidden overflow-x-auto pointer-events-none sm:pr-5"
       >
         <li
           class="relative w-full h-auto max-w-full pl-5 shrink-0"
