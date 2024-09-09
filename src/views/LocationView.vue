@@ -2,6 +2,7 @@
     <main>
         <HeroSection :title="content.heroSection.subtitle" :background-image="content.heroSection.backgroundImage">
             <span v-html="content.heroSection.title.slice(0, 1).join(`<br class='hidden md:block'></span>`)"></span>
+            <br class="hidden md:block" />
             <span class="font-Tiempos-Headline">{{ content.heroSection.title.slice(-1)[0] }}</span>
 
             <template #description>
@@ -17,7 +18,7 @@
                     <p class="text-[#828282] font-roboto max-w-md" v-html="content.sectionHeader.paragraph"></p>
                 </div>
 
-                <img :src="content.sectionHeader.image" alt="top" class="h-full object-cover pointer-events-none max-w-sm sm:ml-auto" />
+                <img :src="content.sectionHeader.image" alt="top" class="h-full object-cover pointer-events-none max-w-full sm:max-w-sm sm:ml-auto" />
             </template>
         </SectionHeader>
 
@@ -25,17 +26,10 @@
         <ServicesSection cta="" :cta-link="content.serviceSection.link" :title="content.serviceSection.title" :items="content.serviceSection.content" />
         <WiderBox :background-image="content.widerBox.image"  class="bg-white">
             <template #title>
-                Quality is Our Commitment
+                {{ content.widerBox.title }}
             </template>
 
-            At White Horse Laboratories, we are dedicated to safeguarding global supply chains by utilizing
-            state-of-the-art
-            testing equipment and both industry-standard and proprietary testing methods.
-            <br><br>What truly sets us apart are two core principles: an unyielding commitment to integrity and a
-            collaborative
-            approach with our clients. These guiding values enable us to craft bespoke solutions tailored to your
-            specific
-            needs, ensuring your success every step of the way.
+           <div v-html="content.widerBox.paragraph"></div>
         </WiderBox>
 
         <SectionHeader :title="content.calendarSection.title" :subtitle="content.calendarSection.subtitle" class="bg-white">
