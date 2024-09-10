@@ -31,7 +31,8 @@
                 </div>
             </div>
 
-            <img :src="WorldMapImage" alt="world-map" class="w-full mt-0 sm:mt-20 max-w-5xl mb-12 sm:mb-32" />
+            <WorldMap :locations="DUMMY_DATA" class="relative w-full z-10 mt-0 sm:mt-20 max-w-4xl mb-12 sm:mb-32" />
+            <!-- <img :src="WorldMapImage" alt="world-map" class="w-full mt-0 sm:mt-20 max-w-5xl mb-12 sm:mb-32" /> -->
         </template>
     </SectionHeader>
 </template>
@@ -39,9 +40,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+import WorldMap from '@/components/pages/contact/WorldMap.vue'
 import { useAnimateStore } from '@/store/useAnimateStore'
 
-import WorldMapImage from '@/assets/images/contact/world-map.png'
+// import WorldMapImage from '@/assets/images/contact/world-map.png'
 
 const sectionRef = ref<{ section: HTMLElement }>();
 
@@ -51,7 +53,9 @@ const DUMMY_DATA = [
         address: '29260 Clemens Rd Suite B, Westlake, OH 44145, United States',
         phone: '+1 833-856-2360',
         email: 'Email',
-        website: 'Visit website'
+        website: 'Visit website',
+        lat: 41.4546,
+        lng: -81.9218,
     },
     {
         location: 'Shenzhen',
@@ -59,28 +63,36 @@ const DUMMY_DATA = [
             '4A Technology Building H, Heping East Road, Gang Zhi Long Science Park, Qinghu, Longhua District, Shenzhen, CN',
         phone: '+86 755 668 6688',
         email: 'Email',
-        website: 'Visit website'
+        website: 'Visit website',
+        lat: 22.5431,
+        lng: 114.0579,
     },
     {
         location: 'Singapore',
         address: '10 Genting Lane, #05-00 Jay Gee Melwani House, Singapore 349583',
         phone: '+65 6539 9658',
         email: 'Email',
-        website: 'Visit website'
+        website: 'Visit website',
+        lat: 1.3521,
+        lng: 103.8198,
     },
     {
         location: 'Munich',
         address: 'Lindberghstraße 12, 82178 Puchheim, Germany',
         phone: '+49 89 541 973 12',
         email: 'Email',
-        website: 'Visit website'
+        website: 'Visit website',
+        lat: 48.1351,
+        lng: 11.5819,
     },
     {
         location: 'Hong Kong',
         address: '220-248 Texaco Road, Suite 905, Hong Kong, Tsuen Wan 999077, HK',
         phone: '+852 6539 9658',
         email: 'Email',
-        website: 'Visit website'
+        website: 'Visit website',
+        lat: 22.3964,
+        lng: 114.1095,
     },
     {
         location: 'Bangalore',
@@ -88,8 +100,10 @@ const DUMMY_DATA = [
             '25th Cross Basavanapura Main Rd K.r.puram Fl 1, Devasandra, Karnataka, 560036, India',
         phone: '+91 8095678177',
         email: 'Email',
-        website: 'Visit website'
-    }
+        website: 'Visit website',
+        lat: 12.9716,
+        lng: 77.5946,
+    },
 ]
 
 onMounted(() => {

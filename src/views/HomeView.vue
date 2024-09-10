@@ -16,7 +16,7 @@
       and safe, delivering peace of mind and trust in every transaction.
     </WiderBox>
     <CaseStudySection />
-    <TestimonialsSection />
+    <TestimonialszzSection />
     <NewsSection  
       subtitle="News & Insights"
       cta="View All News and Insights"

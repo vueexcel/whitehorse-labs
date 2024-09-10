@@ -13,8 +13,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
     "autoprefixer": "^10.4.19",
     "gsap": "^3.12.5",
+    "leaflet": "^1.9.4",
     "lenis": "^1.1.9",
     "pinia": "^2.1.7",
     "postcss": "^8.4.39",

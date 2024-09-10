@@ -20,6 +20,7 @@ import { Vue3Lottie } from 'vue3-lottie'
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import 'lenis/dist/lenis.css'
+import 'leaflet/dist/leaflet.css'; // leaflet css
 
 import NavBar from '@/components/common/NavBar.vue'
 
