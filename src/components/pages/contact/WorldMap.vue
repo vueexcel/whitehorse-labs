@@ -25,8 +25,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
+
+// @ts-ignore
 import { Icon } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
 
@@ -45,5 +47,3 @@ defineProps(['locations'])
 const zoom = ref(2)
 const osmAttribution = ref('Map data © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors')
 </script>
-
-<style></style>

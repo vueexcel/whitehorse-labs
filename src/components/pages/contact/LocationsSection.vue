@@ -40,6 +40,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
+
+// @ts-ignore
 import WorldMap from '@/components/pages/contact/WorldMap.vue'
 import { useAnimateStore } from '@/store/useAnimateStore'
 
