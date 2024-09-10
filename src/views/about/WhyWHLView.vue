@@ -113,7 +113,7 @@ const SOLUTIONS_LIST = [
 
 const OUR_VALUES_LIST = [
   {
-    title: '',
+    title: 'Our People, Our Strength',
     subtitle: 'Our values define us',
     description: '160+ employees enrich the team at White Horse Laboratories with their individual skills, knowledge and personality. It is only through the successful interaction of these unique characters that the good work consistently appreciated by our customers becomes possible.'
   },
