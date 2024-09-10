@@ -51,7 +51,7 @@ const addzero = (num: number) => {
 
 const contentStyle = (index: number) => {
     if (scrollY.value <= 0) {
-        return 'background-size: 100% 100%;';
+        return `background-size: 100% ${index == 0 ? '100' : '0'}%;`;
     }
 
     const nextHeader = childNodes.value[0][index + 1];
