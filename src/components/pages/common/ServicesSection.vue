@@ -22,10 +22,17 @@
       </ul>
     </template>
 
-    <div :class="['w-full mt-5', images.length == 1 ? '' : 'grid w-full grid-cols-1 gap-8 sm:grid-cols-2']">
-      <ParallaxBackground class="w-full h-full" v-for="(image, index) in images" :key="index" :src="image"
-        :alt="'service-' + index" />
-    </div>
+    <template #topBottom v-if="!Array.isArray(images)">
+      <ParallaxBackground class="w-full h-full flex !justify-center !items-center" :src="images"
+        :alt="'service-1'" />
+    </template>
+
+    <template v-else #default>
+      <div :class="['w-full mt-5 flex !justify-center !items-center ', images?.length == 1 ? 'max-w-3xl flex justify-center items-center ' : 'grid w-full grid-cols-1 gap-8 sm:grid-cols-2 !justify-center !items-center']">
+        <ParallaxBackground class="w-full h-full flex !justify-center !items-center" v-for="(image, index) in images" :key="index" :src="image"
+          :alt="'service-' + index" />
+      </div>
+    </template>
   </SectionHeader>
 </template>
 
