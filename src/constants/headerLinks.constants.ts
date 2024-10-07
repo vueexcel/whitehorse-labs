@@ -100,7 +100,7 @@ export const Languages = [
     {
         label: 'Global',
         sublabel: '(English)',
-        link: locationPath + '/en'
+        link: '/'
     },
     {
         label: 'Germany',
