@@ -37,6 +37,8 @@
         </SectionHeader>
         <ServiceSection cta-link="mailto:solutions@whitehorselabs.com" :items="SERVICES_LIST" title="Factory Auditing"
             cta="Contact a Quality Consultant" />
+
+        <ParallaxBackground :src="Service7Image" class="!pb-0 h-full w-full" />
         <CaseStudySection />
         <TestimonialsSection />
         <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
@@ -65,11 +67,12 @@ import Service3Image from '@/assets/images/solutions/factory-auditing/service-3.
 import Service4Image from '@/assets/images/solutions/factory-auditing/service-4.png'
 import Service5Image from '@/assets/images/solutions/factory-auditing/service-5.png'
 import Service6Image from '@/assets/images/solutions/factory-auditing/service-6.png'
-import Service7Image from '@/assets/images/solutions/factory-auditing/service-7.png'
+import Service7Image from '@/assets/images/solutions/factory-auditing/service-7a.png'
 
 import SolutionsImage1 from '@/assets/images/solutions/testing-laboratory.png'
 import SolutionsImage2 from '@/assets/images/solutions/programming-packaging.png'
 import SolutionsImage3 from '@/assets/images/solutions/training-education.png'
+import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 
 const SERVICES_LIST = [
     {
@@ -127,7 +130,7 @@ const SERVICES_LIST = [
             'PSI - Pre-shipment Inspection',
             'IMC - Inventory Material Counting'
         ],
-        images: [Service7Image]
+        images: []
     }
 ]
 

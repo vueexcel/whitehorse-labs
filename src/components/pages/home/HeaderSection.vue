@@ -30,16 +30,16 @@
 
         <div class="w-full h-screen z-10 transition-none max-w-[100] overflow-hidden fixed top-0 left-0">
             <div ref="imageSectionRef" class="w-full relative h-full bottom-0 flex items-center justify-between">
-                <img :src="Image1" alt="images" class="absolute top-0 left-0 pointer-events-none" />
-                <img :src="Image2" alt="images" class="absolute top-0 right-0 pointer-events-none" />
+                <img :src="Image1" alt="images" class="absolute top-[7%] left-[10%] pointer-events-none h-64" />
+                <img :src="Image2" alt="images" class="absolute top-[4%] right-[3%] pointer-events-none h-72 w-52" />
                 <img :src="Image3" alt="images"
-                    class="absolute pointer-events-none top-[50%] h-52 left-0 translate-y-[-20%]" />
+                    class="absolute pointer-events-none top-[50%] left-[2%] translate-y-[-20%] h-40" />
                 <img :src="Image5" alt="images"
-                    class="absolute pointer-events-none h-52 right-0 top-[50%] translate-y-[-20%]" />
-                <img :src="Image6" alt="images" class="absolute bottom-8 pointer-events-none left-[20%]" />
-                <img :src="Image7" alt="images" class="absolute bottom-5 pointer-events-none right-[20%]" />
+                    class="absolute pointer-events-none h-52 right-[8%] top-[50%] translate-y-[-20%]" />
+                <img :src="Image6" alt="images" class="absolute  bottom-[5%] pointer-events-none left-[25%] h-44    " />
+                <img :src="Image7" alt="images" class="absolute bottom-5 pointer-events-none right-[30%] h-36" />
                 <p ref="heroTextRef"
-                    class="text-white opacity-0 mt-56 absolute left-[50%] translate-x-[-50%] text-center text-sm max-w-md sm:text-3xl px-6 sm:px-12">
+                    class="text-white opacity-0 mt-56 absolute left-[50%] translate-x-[-50%] text-center text-sm max-w-xl sm:text-3xl px-6 sm:px-12">
                     We safeguard supply chains with specialized testing, inspection, and logistics solutions,
                     strategically integrated to ensure product integrity and reduce risk.
                 </p>
@@ -56,12 +56,12 @@ import MainImage from '@/assets/images/home/landingImage.png';
 import { useListener } from '@/hooks/useListener';
 import { useAnimate } from '@/hooks/useAnimate';
 
-import Image1 from '@/assets/images/home/Image-1.png';
-import Image2 from '@/assets/images/home/Image-2.png';
-import Image3 from '@/assets/images/home/Image-3.png';
+import Image1 from '@/assets/images/home/Image-1a.png';
+import Image2 from '@/assets/images/home/Image-2a.png';
+import Image3 from '@/assets/images/home/Image-3a.png';
 import Image5 from '@/assets/images/home/Image-5.png';
-import Image6 from '@/assets/images/home/Image-6.png';
-import Image7 from '@/assets/images/home/Image-7.png';
+import Image6 from '@/assets/images/home/Image-6a.png';
+import Image7 from '@/assets/images/home/Image-7a.png';
 
 const windowHeight = ref(window.innerHeight)
 

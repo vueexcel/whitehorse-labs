@@ -3,7 +3,6 @@
         <HeroSection :background-image="HeroImage" title="global guardians of technological integrity" subtitle="">
             Empower Your Team <br class="hidden md:block" /> with Industry-Leading <br class="hidden md:block" /> <span
                 class="font-Tiempos-Headline"> Training & Education</span>
-            Seamless
             <template #description>
                 At White Horse Labs, we offer comprehensive training and education services designed to enhance your
                 team's skills and knowledge in the electronics industry.

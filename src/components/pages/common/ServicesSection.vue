@@ -22,16 +22,15 @@
       </ul>
     </template>
 
-    <template #topBottom v-if="!Array.isArray(images)">
-      <ParallaxBackground class="w-full h-full flex !justify-center !items-center" :src="images"
-        :alt="'service-1'" />
-    </template>
-
-    <template v-else #default>
+    <template v-if="Array.isArray(images)" #default>
       <div :class="['w-full mt-5 flex !justify-center !items-center ', images?.length == 1 ? 'max-w-3xl flex justify-center items-center ' : 'grid w-full grid-cols-1 gap-8 sm:grid-cols-2 !justify-center !items-center']">
         <ParallaxBackground class="w-full h-full flex !justify-center !items-center" v-for="(image, index) in images" :key="index" :src="image"
           :alt="'service-' + index" />
       </div>
+    </template>
+    <template #topBottom v-else>
+      <ParallaxBackground  class="w-full h-full flex !justify-center !items-center" :src="(images as any)"
+        :alt="'service-1'" />
     </template>
   </SectionHeader>
 </template>

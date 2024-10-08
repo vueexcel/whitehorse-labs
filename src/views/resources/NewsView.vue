@@ -23,7 +23,7 @@ import NewsSection from '@/components/pages/common/NewsSection.vue';
 import JoinusSection from '@/components/pages/common/JoinusSection.vue';
 import FooterSection from '@/components/pages/common/FooterSection.vue';
 
-import HeroImage from '@/assets/images/resources/news-hero.jpg'
+import HeroImage from '@/assets/images/resources/news-hero-a.png';
 
 import { useBlogStore } from '@/store/useBlogStore';
 

@@ -233,9 +233,6 @@ const SP_LANG = {
         directionLink: '#',
         image: SP_MapImage
     }
-    // Singapore:
-// Address: 10 Genting Lane #05-00 Jay Gee Melwani Singapore 349583
-// Phone:+65 6539 9638
 }
 
 export type Language = 'en' | 'de' | 'in' | 'cn' | 'sg';

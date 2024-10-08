@@ -34,7 +34,7 @@
     </SectionHeader>
     <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" :items="SERVICES_LIST" title="Programming, Packaging & Logistics"
         cta="Contact a Quality Consultant" />
-    <FullWidthBox :background-image="BackgroundImage" :link="constants.contact.path" link-text="Contact today">
+    <FullWidthBox :background-image="BackgroundImage" :link="constants.contact.path" link-text="Contact us today">
         Trust White Horse Labs as your on-site 3PL and fulfillment center, simplifying and expediting your packaging,
         storage, and consolidated shipping needs. We ensure the integrity of your supply chain, providing a seamless
         connection between your suppliers and customers. Our comprehensive services guarantee efficiency and
