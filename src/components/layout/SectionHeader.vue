@@ -8,7 +8,7 @@
       </div>
       <div class="flex flex-col w-full">
         <div class="flex flex-col items-start lg:items-end w-full mb-8 lg:flex-row max-h-max" v-if="headerShown">
-          <h4 class="max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
+          <h4 class="max-w-md mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
             :class="[textClass, headingClass]">
             <slot name="subtitle">
               {{ subtitle }}
@@ -28,6 +28,8 @@
             <slot name="top"></slot>
           </div>
           <slot name="topBottom"></slot>
+          <slot name="DuoImage"></slot>
+          <slot name="MultipleImage"></slot>
         </div>
       </div>
     </div>

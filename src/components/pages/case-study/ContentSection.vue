@@ -7,7 +7,7 @@
         </template>
 
         <div class="grid w-full grid-cols-1 gap-8 mt-8 sm:grid-cols-2">
-            <router-link to="/case-studies/1" class="w-full" v-for="(data, index) in DUMMY_DATA" :key="data.title">
+            <router-link :to="`/case-studies/${data.link}`" class="w-full" v-for="(data, index) in DUMMY_DATA" :key="data.title">
                 <ParallaxBackground :src="data.image" :alt="'service-' + index" class="w-full h-auto" />
 
                 <h5 class="max-w-xl mt-3 text-sm text-black font-roboto sm:text-md lg:text-lg">
@@ -22,8 +22,9 @@
 import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
 
-import NewsImage1 from '@/assets/images/common/case-study/case-study-1.png'
-import NewsImage2 from '@/assets/images/common/case-study/case-study-2.png'
+import NewsImage1 from '@/assets/images/common/case-study/case-study-1a.png'
+import NewsImage2 from '@/assets/images/common/case-study/case-study-2a.png'
+import NewsImage3 from '@/assets/images/common/case-study/case-study-3a.png'
 
 const CATEGORIES = [
     {
@@ -51,69 +52,75 @@ const CATEGORIES = [
 const DUMMY_DATA = [
     {
         title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+            "Uncovering Counterfeit Power Switch ICs to Protect Production Integrity",
         image: NewsImage1,
-        link: '#'
+        link: 1
     },
     {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+        title: "Safeguarding a Trader's Reputation by Detecting Counterfeit Components",
         image: NewsImage2,
-        link: '#'
+        link: 2
     },
     {
         title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-        image: NewsImage1,
-        link: '#'
+            "Resolving Open Circuit Failures in Film Resistors for Smooth Production",
+        image: NewsImage3,
+        link: 3
     },
-    {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-        image: NewsImage2,
-        link: '#'
-    },
-    {
-        title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-        image: NewsImage1,
-        link: '#'
-    },
-    {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-        image: NewsImage2,
-        link: '#'
-    },
-    {
-        title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-        image: NewsImage1,
-        link: '#'
-    },
-    {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-        image: NewsImage2,
-        link: '#'
-    },
-    {
-        title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-        image: NewsImage1,
-        link: '#'
-    },
-    {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-        image: NewsImage2,
-        link: '#'
-    },
-    {
-        title:
-            "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
-        image: NewsImage1,
-        link: '#'
-    },
-    {
-        title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
-        image: NewsImage2,
-        link: '#'
-    }
+    // {
+    //     title:
+    //         "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+    //     image: NewsImage1,
+    //     link: '#'
+    // },
+    // {
+    //     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+    //     image: NewsImage2,
+    //     link: '#'
+    // },
+    // {
+    //     title:
+    //         "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+    //     image: NewsImage1,
+    //     link: '#'
+    // },
+    // {
+    //     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+    //     image: NewsImage2,
+    //     link: '#'
+    // },
+    // {
+    //     title:
+    //         "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+    //     image: NewsImage1,
+    //     link: '#'
+    // },
+    // {
+    //     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+    //     image: NewsImage2,
+    //     link: '#'
+    // },
+    // {
+    //     title:
+    //         "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+    //     image: NewsImage1,
+    //     link: '#'
+    // },
+    // {
+    //     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+    //     image: NewsImage2,
+    //     link: '#'
+    // },
+    // {
+    //     title:
+    //         "Thomas Mayr Appointed as New Sales Director to Spearhead White Horse Laboratories' Expansion in Europe",
+    //     image: NewsImage1,
+    //     link: '#'
+    // },
+    // {
+    //     title: "Efficient Testing Meets Expertise at White Horse Laboratories' New German Test Lab",
+    //     image: NewsImage2,
+    //     link: '#'
+    // }
 ]
 </script>

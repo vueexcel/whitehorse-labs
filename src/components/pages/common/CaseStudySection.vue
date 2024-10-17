@@ -1,6 +1,6 @@
 <template>
-  <SectionHeader subtitle="Case Studies" title="How we do it" cta="View All Case Studies" :cta-link="constants.caseStudies.path"
-    class="sm:py-20 bg-white">
+  <SectionHeader subtitle="Explore More" title="How we do it" cta="View All Case Studies"
+    :cta-link="constants.caseStudies.path" class="sm:py-20 bg-white">
     <div class="grid w-full grid-cols-1 gap-8 mt-8 sm:grid-cols-2">
       <ParallaxBackground class="w-full h-full" v-for="(data, index) in DUMMY_DATA" :key="data.id" :src="data.image"
         :alt="'case-study-' + index">

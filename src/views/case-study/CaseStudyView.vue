@@ -19,5 +19,5 @@ import HeroSection from '@/components/pages/common/HeroSection.vue';
 import FooterSection from '@/components/pages/common/FooterSection.vue';
 import JoinusSection from '@/components/pages/common/JoinusSection.vue';
 
-import HeroImage from '@/assets/images/case-studies/case-study-hero-1.png'
+import HeroImage from '@/assets/images/case-studies/case-study-hero-1a.png'
 </script>
