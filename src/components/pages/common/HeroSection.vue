@@ -1,12 +1,14 @@
 <template>
   <section class="w-full h-auto sticky top-0 -z-10">
     <div class="relative w-full h-screen bg-no-repeat bg-cover inner-content" ref="heroSection"
-      :style="'background-image: url(' + backgroundImage + ')'">
+      :style="`background-image: url(${backgroundImage}); background-position: center; background-size: cover;`">
+
       <div ref="innerContent"
         class="w-full h-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 mb-8 flex flex-col justify-center sm:justify-end py-8 box-border">
-        <h5 class="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl leading-[1.2] text-white font-roboto text-center sm:text-left"
+        <h5
+          class="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl leading-[1.2] text-white font-roboto text-center sm:text-left"
           style="line-height: 1.1;">
-          <slot></slot> 
+          <slot></slot>
         </h5>
 
         <div class="flex justify-center w-full my-10 md:my-20">

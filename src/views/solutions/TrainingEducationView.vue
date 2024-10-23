@@ -31,7 +31,8 @@
             </template>
         </SectionHeader>
         <ServicesSection cta-link="mailto:solutions@whitehorselabs.com" :items="SERVICES_LIST" title="Training & Education" cta="Contact a Quality Consultant" />
-        <CaseStudySection />
+        <!-- @vue-expect-error -->
+        <CaseStudySection :showcategory="false" />
         <TestimonialsSection />
         <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
         <JoinusSection />
@@ -44,7 +45,7 @@ import HeroSection from '@/components/pages/common/HeroSection.vue'
 import SectionHeader from '@/components/layout/SectionHeader.vue'
 import BaseButton from '@/components/common/BaseButton.vue'
 import ServicesSection from '@/components/pages/common/ServicesSection.vue'
-import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
+import CaseStudySection from '@/components/pages/case-study/ContentSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'

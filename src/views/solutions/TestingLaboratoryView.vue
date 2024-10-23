@@ -37,7 +37,8 @@
     </SectionHeader>
     <ServicesSection cta-link="#" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
     <TestingSection />
-    <CaseStudySection />
+    <!-- @vue-expect-error -->
+    <CaseStudySection :showcategory="false" />
     <TestimonialsSection />
     <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
     <JoinusSection />
@@ -47,7 +48,7 @@
 
 <script setup lang="ts">
 import TestingSection from '@/components/pages/solutions/TestingSection.vue'
-import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
+import CaseStudySection from '@/components/pages/case-study/ContentSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'

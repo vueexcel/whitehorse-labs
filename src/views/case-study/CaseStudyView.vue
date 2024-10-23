@@ -7,7 +7,8 @@
                 chains to drive their vision forward.
             </template>
         </HeroSection>
-        <ContentSection />
+        <!-- @vue-expect-error -->
+        <ContentSection :showcategory="true" />
         <JoinusSection />
         <FooterSection />
     </main>

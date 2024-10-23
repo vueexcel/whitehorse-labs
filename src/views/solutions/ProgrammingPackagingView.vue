@@ -46,7 +46,8 @@
             We’re Your Secure Link Between Suppliers and Customers
         </template>
     </FullWidthBox>
-    <CaseStudySection />
+    <!-- @vue-expect-error -->
+    <CaseStudySection :showcategory="false" />
     <TestimonialsSection />
     <SolutionSection 
         :items="SOLUTIONS_LIST"
@@ -76,7 +77,7 @@ import ServiceImage3 from '@/assets/images/solutions/programming-packaging/servi
 import ServiceImage4 from '@/assets/images/solutions/programming-packaging/service-4.png'
 import ServiceImage5 from '@/assets/images/solutions/programming-packaging/service-5.png'
 import ServiceImage6 from '@/assets/images/solutions/programming-packaging/service-6.png'
-import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
+import CaseStudySection from '@/components/pages/case-study/ContentSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
 import SolutionSection from '@/components/pages/common/SolutionSection.vue'
 

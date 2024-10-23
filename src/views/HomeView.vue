@@ -1,6 +1,9 @@
 <template>
   <main>
-    <HeaderSection />
+   <div>
+    <HeaderSection v-if="showScreen" />
+    <HeaderSectionMobile v-else />
+   </div>
     <SolutionsSection />
     <AboutSection />
     <CompanySection />
@@ -15,7 +18,8 @@
       analysis. Leading with transparency, rigor, and integrity, we ensure your products are reliable
       and safe, delivering peace of mind and trust in every transaction.
     </WiderBox>
-    <CaseStudySection />
+    <!-- @vue-expect-error -->
+    <CaseStudySection :showcategory="false" />
     <TestimonialszzSection />
     <NewsSection  
       subtitle="News & Insights"
@@ -30,16 +34,37 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onBeforeUnmount , ref } from 'vue';
 import HeaderSection from '@/components/pages/home/HeaderSection.vue'
 import NewsSection from '@/components/pages/common/NewsSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
 import SolutionsSection from '@/components/pages/home/SolutionsSection.vue'
-import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
+// import CaseStudySection from '@/components/pages/common/CaseStudySection.vue'
+import CaseStudySection from '@/components/pages/case-study/ContentSection.vue'
 import WiderBox from '@/components/pages/common/WiderBox.vue'
 import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 import CompanySection from '@/components/pages/home/CompanySection.vue'
 import AboutSection from '@/components/pages/home/AboutSection.vue'
+// @ts-expect-error
+import HeaderSectionMobile from '@/components/pages/home/HeaderSectionMobile.vue'
+
+
+const showScreen = ref(window.innerWidth >= 768);
+
+const updateScreenWidth = () => {
+  showScreen.value = window.innerWidth >= 768;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateScreenWidth);
+});
+
+
 
 import constants from '@/constants/routes.constants'
 

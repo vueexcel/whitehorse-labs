@@ -39,7 +39,8 @@
             cta="Contact a Quality Consultant" />
 
         <ParallaxBackground :src="Service7Image" class="!pb-0 h-full w-full" />
-        <CaseStudySection />
+        <!-- @vue-expect-error -->
+        <CaseStudySection :showcategory="false" />
         <TestimonialsSection />
         <SolutionSection :items="SOLUTIONS_LIST" :title="'Discover More Solutions'" />
         <JoinusSection />
@@ -49,7 +50,7 @@
 
 <script setup lang="ts">
 import ServiceSection from '@/components/pages/common/ServicesSection.vue';
-import CaseStudySection from '@/components/pages/common/CaseStudySection.vue';
+import CaseStudySection from '@/components/pages/case-study/ContentSection.vue';
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue';
 import SolutionSection from '@/components/pages/common/SolutionSection.vue';
 import HeroSection from '@/components/pages/common/HeroSection.vue';
