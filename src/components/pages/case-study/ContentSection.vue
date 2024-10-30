@@ -16,7 +16,8 @@
             </router-link>
         </div>
     </SectionHeader>
-    <SectionHeader v-else subtitle="Explore More" title="How we do it" cta="View All Case Studies"
+    <!-- @vue-expect-error -->
+    <SectionHeader v-else :subtitle="subtitleRef || 'Explore more'" title="How we do it" cta="View All Case Studies"
     :cta-link="constants.caseStudies.path" class="sm:py-20 bg-white">
     <div class="grid w-full grid-cols-1 gap-8 mt-8 sm:grid-cols-2">
         <router-link :to="`/case-studies/${data.link}`" class="w-full" v-for="(data, index) in filteredData" :key="data.title">
@@ -31,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed , ref , watch } from 'vue';
 import { useRoute } from 'vue-router';
 import ParallaxBackground from '@/components/common/ParallaxBackground.vue';
 import SectionHeader from '@/components/layout/SectionHeader.vue';
@@ -44,12 +45,26 @@ const route = useRoute();
 
 import constants from '@/constants/routes.constants'
 
-defineProps<{
+
+
+
+
+const props =defineProps<{
     showcategory: {
         type: boolean
         default: true
+    }, 
+    subtitle : {
+        type: string
+        default: 'Explore more'
     }
 }>()
+
+const subtitleRef = ref(props.subtitle);
+// Watcher to update subtitleRef whenever the subtitle prop changes
+watch(() => props.subtitle, (newSubtitle) => {
+  subtitleRef.value = newSubtitle;
+});
 
 const CATEGORIES = [
     {

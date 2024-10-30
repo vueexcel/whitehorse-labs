@@ -17,7 +17,7 @@
           </p>
         </div>
 
-        <div
+        <div v-if="showScroll"
           class="absolute flex flex-col items-center left-0 right-0 text-white sm:static bottom-5 sm:justify-between sm:flex-row sm:left-0 sm:right-0">
           <RedTitle :title="title" class="mb-5 ml-0 w-max" />
 
@@ -34,19 +34,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import RedTitle from '@/components/common/RedTitle.vue'
-import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+import { ref, watch, withDefaults, defineProps } from 'vue';
+import RedTitle from '@/components/common/RedTitle.vue';
+import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 import { useAnimate } from '@/hooks/useAnimate';
 
-defineProps<{
-  title: string
-  backgroundImage: string
-}>()
+// Define props with default value for showScroll
+const props = withDefaults(defineProps<{
+  title: string;
+  backgroundImage: string;
+  showScroll?: boolean;
+}>(), {
+  showScroll: true
+});
 
-const heroSection = ref<HTMLElement | null>(null)
-const triggerBox = ref<HTMLElement | null>(null)
-const innerContent = ref<HTMLElement | null>(null)
+const showScroll = ref(props.showScroll);
+
+const heroSection = ref<HTMLElement | null>(null);
+const triggerBox = ref<HTMLElement | null>(null);
+const innerContent = ref<HTMLElement | null>(null);
 
 useAnimate(({ to }) => {
   to(heroSection.value, {
@@ -70,6 +76,15 @@ useAnimate(({ to }) => {
     }
   })
 })
+
+// Watch for changes in the showScroll prop to update the internal ref
+watch(
+  () => props.showScroll,
+  (newValue) => {
+    showScroll.value = newValue;
+  },
+  { immediate: true }
+);
 </script>
 
 <style scoped>

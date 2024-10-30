@@ -1,13 +1,16 @@
 <template>
   <main>
-   <div>
-    <HeaderSection v-if="showScreen" />
-    <HeaderSectionMobile v-else />
-   </div>
+    <div>
+      <HeaderSection v-if="showScreen" />
+      <div v-else>
+        <HeaderSectionMobile />
+      </div>
+    </div>
     <SolutionsSection />
     <AboutSection />
     <CompanySection />
-    <WiderBox :background-image="BackgroundImage" :link="constants.about.path + '/' + constants.about.whyWhiteHorseLabs.path" :link-text="'Why White Horse Labs'">
+    <WiderBox :background-image="BackgroundImage"
+      :link="constants.about.path + '/' + constants.about.whyWhiteHorseLabs.path" :link-text="'Why White Horse Labs'">
       <template #title>
         More than peace of mind.<br />
         It’s our promise to you.
@@ -19,22 +22,17 @@
       and safe, delivering peace of mind and trust in every transaction.
     </WiderBox>
     <!-- @vue-expect-error -->
-    <CaseStudySection :showcategory="false" />
+    <CaseStudySection :showcategory="false" :subtitle="'Case Studies'" />
     <TestimonialszzSection />
-    <NewsSection  
-      subtitle="News & Insights"
-      cta="View All News and Insights"
-      :items="blogStore.getSimpleBlogPosts.slice(0, 3)"
-      class="pt-0 sm:pt-8 bg-white"
-      :load-more="false"
-    />
+    <NewsSection subtitle="News & Insights" cta="View All News and Insights"
+      :items="blogStore.getSimpleBlogPosts.slice(0, 3)" class="pt-0 sm:pt-8 bg-white" :load-more="false" />
     <JoinusSection />
     <FooterSection />
   </main>
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount , ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import HeaderSection from '@/components/pages/home/HeaderSection.vue'
 import NewsSection from '@/components/pages/common/NewsSection.vue'
 import TestimonialsSection from '@/components/pages/common/TestimonialsSection.vue'
@@ -46,6 +44,7 @@ import JoinusSection from '@/components/pages/common/JoinusSection.vue'
 import FooterSection from '@/components/pages/common/FooterSection.vue'
 import CompanySection from '@/components/pages/home/CompanySection.vue'
 import AboutSection from '@/components/pages/home/AboutSection.vue'
+import HeroSection from '@/components/pages/common/HeroSection.vue';
 // @ts-expect-error
 import HeaderSectionMobile from '@/components/pages/home/HeaderSectionMobile.vue'
 
