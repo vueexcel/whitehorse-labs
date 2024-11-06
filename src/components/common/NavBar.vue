@@ -31,9 +31,13 @@
             <span class="ml-2 whitespace-nowrap hidden lg:block">Global | English</span>
           </button>
           <button
-            class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95">
-            <img src="@/assets/images/nav-bar/search.svg" alt="search" />
+            class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95"
+            @click="toggleSearchbar">
+            <img v-if="!showSearchbar" src="@/assets/images/nav-bar/search.svg" alt="search" />
           </button>
+          <input v-if="showSearchbar" @keyup.enter="showSearchbar = false" placeholder="Search"
+            class="w-fit p-2 text-sm bg-transparent border-b-2 border-orange-300 text-white focus:outline-none">
+          <img :src="corssIcon" alt="cross" v-if="showSearchbar" @click="toggleSearchbar" class="cursor-pointer">
         </div>
       </div>
       <div class="flex items-center w-full mx-auto z-30" v-if="currentActive"
@@ -44,9 +48,8 @@
               {{ link.label }}
             </h5>
             <router-link v-else :to="link.link" active-class="bg-[#161616] border-[#4F4F4F]"
-              class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg" :class="[
-                !link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80'
-              ]">
+              class="block p-4 px-6 text-white transition-all border border-transparent rounded-lg"
+              :class="[!link.link ? '' : 'hover:bg-[#161616] hover:border-[#4F4F4F] hover:opacity-80']">
               <h5 class="mb-1 text-lg font-bold">{{ link.label }}</h5>
               <p class="">{{ link.sublabel }}</p>
             </router-link>
@@ -61,7 +64,7 @@
   <header v-if="isMobile && !showMenu"
     class="fixed top-0 left-0 right-0 z-50 overflow-x-clip max-w-[100vw] p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
-    <div class="max-w-[100vw] flex px-4 sm:px-12 py-3 mx-auto bg-black rounded-md">
+    <div class="max-w-[100vw] flex px-4 sm:px-12 p-3 mx-auto bg-black rounded-md">
       <div class="w-fit block">
         <router-link to="/" class="flex">
           <img src="@/assets/images/common/mobileLogo.svg" alt="logo" class="h-8 min-h-6" />
@@ -77,72 +80,96 @@
   </header>
 
   <!-- Mobile Menu Panel -->
-  <div v-if="showMenu" 
-    class="fixed top-0 left-0 right-0 z-40 max-w-[100vw] overflow-y-auto min-h-full  bg-black bg-opacity-90 flex justify-center pt-32">
-    <div class="text-white">
+  <div v-if="showMenu"
+    class="fixed top-0 left-0 right-0 z-40 max-w-[100vw] overflow-y-auto min-h-full bg-black bg-opacity-90 flex pt-32">
+    <div class="text-white w-full">
       <div class="flex items-center">
-        <button @click="showMobileMenu" class="absolute top-4 left-4 text-white text-2xl">
-          &times;
-        </button>
-        <div class="absolute top-6 right-4 text-white">
-          <button @click="toggleSearchbar">
-            <img v-if="!showSearchbar" src="@/assets/images/nav-bar/search.svg" alt="search" />
-          </button>
-          <input @keyup.enter="showSearchbar = false" type="search" placeholder="Search" v-if="showSearchbar"
-            class="w-[85vw] mb-2 px-2 py-2 bg-transparent focus:outl-400 items-center">
-        </div>
+        <img :src="corssIcon" alt="cross" @click="showMobileMenu"
+          class="absolute top-6 right-7 text-white text-2xl cursor-pointer hover:opacity-75">
       </div>
-      <ul class="space-y-4 text-center">  
-        <li v-for="link in NavbarLinks" :key="link.label" @mouseenter="toggleSubMenu(link.label)" 
-          @mouseleave="activeSubMenu = null" class="h-full">
-          <router-link  :role="!link.sublinks ? 'button' : 'anchor'" :to="link.sublinks ? '' : link.link"
-            class="text-lg block py-2 px-4">
-            {{ link.label }}
-          </router-link>
+      <ul class="px-4">
+        <li v-for="link in NavbarLinks" :key="link.label" @click="toggleAccordion(link.label)">
+          <div class="pb-3 flex justify-between items-center cursor-pointer">
+            <router-link @click="!link.sublinks && (showMenu = false)" :role="!link.sublinks ? 'button' : 'anchor'"
+              :to="link.sublinks ? '' : link.link" class="text-xl pl-2 w-full">
+              {{ link.label }}
+            </router-link>
 
-          <ul v-if="activeSubMenu === link.label" class="bg-gray-800 rounded-md mt-2">
-            <li v-for="subLink in getSubMenuItems(link.label)" :key="subLink.label" class="px-4 py-2 "  @click="showMenu = false">
-              <router-link :to="subLink.link" class="text-white hover:bg-gray-700 block rounded">
-                <h5 class="mb-1 text-lg font-bold">{{ subLink.label }}</h5>
-                <p class="text-sm">{{ subLink.sublabel }}</p>
-              </router-link>
-            </li>
-          </ul>
+            <img v-if="link.sublinks" :src="dropDownIcon" alt="dropdown" class="pr-2"
+              :class="{ 'rotate-180 pl-2': isAccordionOpen(link.label) }">
+          </div>
+          <!-- @vue-ignore -->
+          <transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
+            <div v-if="isAccordionOpen(link.label)" class="overflow-hidden">
+              <ul class="ml-4 py-1 rounded-md">
+                <li v-for="subLink in getSubMenuItems(link.label)" :key="subLink.label"
+                  class="px-4 py-2 hover:bg-gray-700 rounded-md" @click="showMenu = false">
+                  <router-link :to="subLink.link" class="text-white block rounded">
+                    <h5 class="mb-1 text-md font-bold">{{ subLink.label }}</h5>
+                    <p class="text-sm text-gray-200">{{ subLink.sublabel }}</p>
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </transition>
+
+
         </li>
       </ul>
-      <div class="relative flex flex-col px-4 mt-4 space-y-4 text-center " >
-        <button
-          class="flex items-center justify-center p-2 text-sm text-white transition-all hover:opacity-75 active:scale-95">
+      <div class="relative flex flex-col px-4 mt-4 ">
+        <button class="flex items-center p-2 text-md text-white transition-all hover:opacity-75 active:scale-95">
           <img src="@/assets/images/nav-bar/right-arrow-outlined.svg" alt="right-arrow-outlined" />
           <span class="ml-2">Client Portal</span>
         </button>
-        <button 
-          @click="toggleSubMenu('languages')" 
-          class="flex items-center justify-center p-2 text-sm text-white transition-all hover:opacity-75 active:scale-95">
-          <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
-          <span class="ml-2" >Global | English</span>
+        <button @click="toggleAccordion('languages')"
+          class="flex items-center justify-between p-2 text-md text-white transition-all hover:opacity-75 active:scale-95 w-full">
+          <div class="flex items-center">
+            <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
+            <span class="ml-2">Global | English</span>
+          </div>
+          <img :src="dropDownIcon" class="pl-2" :class="{ 'rotate-180': isAccordionOpen('languages') }" alt="dropdown" />
         </button>
+        <!-- @vue-ignore -->
+        <transition @before-enter="beforeEnter" @enter="enter" @leave="leave">
+          <div v-if="isAccordionOpen('languages')" class="pl-5 overflow-hidden">
+            <ul class="rounded-md py-1">
+              <li v-for="subLink in getSubMenuItems('languages')" :key="subLink.label"
+                class="px-4 py-0.5 hover:bg-gray-700 rounded-md" @click="showMenu = false">
+                <h5 class="mb-1 text-[13px] text-gray-200">{{ subLink.heading }}</h5>
+                <router-link :to="subLink.link" class="text-white block rounded">
+                  <div class="flex items-center">
+                    <h5 class="text-md">{{ subLink.label }}</h5>
+                    <p class="text-md">{{ subLink.sublabel }}</p>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </transition>
 
-        <ul v-if="activeSubMenu === 'languages'" class="bg-gray-800 absolute left-[-100px] bottom-8 pb-5 rounded-md mt-2 w-max">
-          <li v-for="subLink in getSubMenuItems('languages')" :key="subLink.label" class="px-4 py-2" @click="showMenu = false">
-            <router-link :to="subLink.link" class="text-white hover:bg-gray-700 block rounded">
-              <h5 class="mb-1 text-lg font-bold">{{ subLink.label }}</h5>
-              <p class="text-sm">{{ subLink.sublabel }}</p>
-            </router-link>
-          </li>
-        </ul>
+        <div class="text-white">
+          <button @click="toggleSearchbar" class="w-full">
+            <div class="flex gap-2 items-center p-2 text-md text-white transition-all hover:opacity-75 active:scale-95">
+              <img src="@/assets/images/nav-bar/search.svg" alt="search" /><span>Search</span>
+            </div>
+          </button>
+          <div class="flex item-center">
+            <input placeholder="Search" v-if="showSearchbar"
+              class="w-[85vw] mb-2 px-2 py-2 bg-transparent focus:outline-none border-b-2 border-orange-300">
+            <img :src="corssIcon" alt="cross" v-if="showSearchbar" @click="toggleSearchbar" class="cursor-pointer">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </template>
-
-
 
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 import NavbarLinks, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants';
 import { useDebounce } from '@/hooks/useDeboune';
+import dropDownIcon from '@/assets/icons/dropdown.svg'
+import corssIcon from '@/assets/icons/cross.svg'
 import { useAnimateStore } from '@/store/useAnimateStore';
 
 const currentActive = ref<string | null>(null);
@@ -166,16 +193,27 @@ const lastScrollTop = ref(0);
 const showMenu = ref(false);
 const showSearchbar = ref(false);
 
+const openedAccordion = ref<string | null>(null);
+
+const isAccordionOpen = (label: string) => {
+  return openedAccordion.value === label;
+};
+
+const toggleAccordion = (label: string) => {
+  if (openedAccordion.value === label) {
+    openedAccordion.value = null;
+  } else {
+    openedAccordion.value = label;
+  }
+};
+
 const toggleSearchbar = () => {
   showSearchbar.value = !showSearchbar.value;
+  openedAccordion.value = null;
 };
 
 const showMobileMenu = () => {
   showMenu.value = !showMenu.value;
-};
-
-const toggleSubMenu = (label: string) => {
-  activeSubMenu.value = activeSubMenu.value === label ? null : label;
 };
 
 const handleScroll = () => {
@@ -237,4 +275,17 @@ const getSubMenuItems = (label: string) => {
     languages: LanguagesLinks
   }[label] || [];
 };
+function beforeEnter(el: HTMLElement) {
+  el.style.height = '0';
+}
+
+function enter(el: HTMLElement) {
+  el.style.transition = 'height 0.3s ease';
+  el.style.height = `${el.scrollHeight}px`;
+}
+
+function leave(el: HTMLElement) {
+  el.style.transition = 'height 0.3s ease';
+  el.style.height = '0';
+}
 </script>

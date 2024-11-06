@@ -95,7 +95,7 @@ const locationPath = locations.path.split("/").slice(0, 2).join("/")
 
 export const Languages = [
     {
-        label: 'Please select your region and language'
+        heading: 'Please select your region and language'
     },
     {
         label: 'Global',
