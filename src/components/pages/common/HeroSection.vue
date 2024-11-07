@@ -39,7 +39,6 @@ import RedTitle from '@/components/common/RedTitle.vue';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue';
 import { useAnimate } from '@/hooks/useAnimate';
 
-// Define props with default value for showScroll
 const props = withDefaults(defineProps<{
   title: string;
   backgroundImage: string;
@@ -77,7 +76,6 @@ useAnimate(({ to }) => {
   })
 })
 
-// Watch for changes in the showScroll prop to update the internal ref
 watch(
   () => props.showScroll,
   (newValue) => {

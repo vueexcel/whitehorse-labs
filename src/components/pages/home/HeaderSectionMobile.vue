@@ -9,10 +9,10 @@
   </HeroSection>
 
   <div class="bg-black h-[60vh] flex items-center justify-center overflow-hidden" :showScroll="false">
-      <p class="parallax-text text-white text-center text-xl sm:text-3xl px-6 sm:px-12 max-w-[1200px] mx-auto">
-        We safeguard supply chains with specialized testing, inspection, and logistics solutions,
-        strategically integrated to ensure product integrity and reduce risk.
-      </p>
+    <p class="parallax-text text-white text-center text-xl sm:text-3xl px-6 sm:px-12 max-w-[1200px] mx-auto">
+      We safeguard supply chains with specialized testing, inspection, and logistics solutions,
+      strategically integrated to ensure product integrity and reduce risk.
+    </p>
   </div>
 </template>
 

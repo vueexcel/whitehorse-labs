@@ -2,8 +2,10 @@
     <section class="w-full h-[300vh] bg-black sticky top-[-200vh] z-[-1]">
         <div class="h-screen w-full">
             <div class="flex flex-end flex-col w-full h-full z-20 relative" ref="heroImageRef">
-                <div class="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover home-bg-1" :style="{backgroundImage: `url(${MainImage})`}"></div>
-                <div class="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover home-bg-2" :style="{backgroundImage: `url(${MainImage})`}"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover home-bg-1"
+                    :style="{ backgroundImage: `url(${MainImage})` }"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover home-bg-2"
+                    :style="{ backgroundImage: `url(${MainImage})` }"></div>
             </div>
         </div>
 

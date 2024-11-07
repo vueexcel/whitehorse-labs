@@ -61,7 +61,6 @@ const props =defineProps<{
 }>()
 
 const subtitleRef = ref(props.subtitle);
-// Watcher to update subtitleRef whenever the subtitle prop changes
 watch(() => props.subtitle, (newSubtitle) => {
   subtitleRef.value = newSubtitle;
 });

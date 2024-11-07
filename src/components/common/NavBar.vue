@@ -127,7 +127,8 @@
             <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
             <span class="ml-2">Global | English</span>
           </div>
-          <img :src="dropDownIcon" class="pl-2" :class="{ 'rotate-180': isAccordionOpen('languages') }" alt="dropdown" />
+          <img :src="dropDownIcon" class="pl-2" :class="{ 'rotate-180': isAccordionOpen('languages') }"
+            alt="dropdown" />
         </button>
         <!-- @vue-ignore -->
         <transition @before-enter="beforeEnter" @enter="enter" @leave="leave">

@@ -297,7 +297,6 @@ const IN_LANG = {
             '#1315 Ardente Office One ',
             'Tower A, 3rd Floor, Hoody Circle,',
             'Bangalore 560048, Karnataka, India',
-            // 'Phone: +65 6539 9638',
             'Email: <a href="mailto:info@whitehorselabs.com" class="text-[#FF544F] underline hover:opacity-75">info@whitehorselabs.com</a>',
         ],
         directionLink: '#',

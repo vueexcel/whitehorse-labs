@@ -11,31 +11,37 @@
                 {{ content.heroSection.paragraph }}
             </template>
         </HeroSection>
-        <SectionHeader :title="content.sectionHeader.subtitle" class="bg-white" :header-shown="false" top-bottom-class="w-full max-w-6xl">
+        <SectionHeader :title="content.sectionHeader.subtitle" class="bg-white" :header-shown="false"
+            top-bottom-class="w-full max-w-6xl">
             <template #header></template>
             <template #top>
                 <div class="w-full flex-1">
-                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0" v-html="content.sectionHeader.title.join(`<br class='hidden md:block'></h4>`)"></h4>
+                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
+                        v-html="content.sectionHeader.title.join(`<br class='hidden md:block'></h4>`)"></h4>
                     <p class="text-[#828282] font-roboto max-w-md" v-html="content.sectionHeader.paragraph"></p>
                 </div>
 
-                <img :src="content.sectionHeader.image" alt="top" class="h-full object-cover pointer-events-none max-w-full sm:max-w-sm sm:ml-auto" />
+                <img :src="content.sectionHeader.image" alt="top"
+                    class="h-full object-cover pointer-events-none max-w-full sm:max-w-sm sm:ml-auto" />
             </template>
         </SectionHeader>
 
         <CompanySection />
-        <ServicesSection cta="" :cta-link="content.serviceSection.link" :title="content.serviceSection.title" :items="content.serviceSection.content" />
+        <ServicesSection cta="" :cta-link="content.serviceSection.link" :title="content.serviceSection.title"
+            :items="content.serviceSection.content" />
         <!-- @vue-ignore-->
-        <ServicesSection cta="" v-if="content?.OurTeamSection"  :cta-link="content?.OurTeamSection.link" :title="content?.OurTeamSection.title" :items="content?.OurTeamSection.content" />
-        <WiderBox :background-image="content.widerBox.image"  class="bg-white">
+        <ServicesSection cta="" v-if="content?.OurTeamSection" :cta-link="content?.OurTeamSection.link"
+            :title="content?.OurTeamSection.title" :items="content?.OurTeamSection.content" />
+        <WiderBox :background-image="content.widerBox.image" class="bg-white">
             <template #title>
                 {{ content.widerBox.title }}
             </template>
 
-           <div v-html="content.widerBox.paragraph"></div>
+            <div v-html="content.widerBox.paragraph"></div>
         </WiderBox>
 
-        <SectionHeader :title="content.calendarSection.title" :subtitle="content.calendarSection.subtitle" class="bg-white">
+        <SectionHeader :title="content.calendarSection.title" :subtitle="content.calendarSection.subtitle"
+            class="bg-white">
             <template #top>
                 <p class="text-[#828282] font-roboto">
                     {{ content.calendarSection.paragraph }}
@@ -43,24 +49,28 @@
             </template>
         </SectionHeader>
         <section class="w-full px-6 mx-auto bg-white pt-12 pb-20 flex items-center justify-center">
-            <iframe class="w-full max-w-6xl" :src="content.calendarSection.calendarUrl" style="border: 0" width="100%" height="600"
-                frameborder="0" scrolling="no"></iframe>
+            <iframe class="w-full max-w-6xl" :src="content.calendarSection.calendarUrl" style="border: 0" width="100%"
+                height="600" frameborder="0" scrolling="no"></iframe>
         </section>
 
-        <SectionHeader :title="content.contactSection.title" :header-shown="false" class="bg-white" top-bottom-class="w-full max-w-7xl">
+        <SectionHeader :title="content.contactSection.title" :header-shown="false" class="bg-white"
+            top-bottom-class="w-full max-w-7xl">
             <template #header></template>
             <template #top>
                 <div class="w-full flex-1 max-w-lg">
-                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0" v-html="content.contactSection.subtitle.join(`<br class='hidden md:block'>`)"></h4>
+                    <h4 class="mb-5 max-w-sm mt-4 text-2xl text-black sm:text-3xl font-roboto sm:mt-0"
+                        v-html="content.contactSection.subtitle.join(`<br class='hidden md:block'>`)"></h4>
                     <p class="font-roboto text-[#828282] sm:text-lg">
                         <span v-html="content.contactSection.paragraph.join('<br>')"></span><br><br>
-                        <a :href="content.contactSection.directionLink" class="text-[#FF544F] underline hover:opacity-75">
+                        <a :href="content.contactSection.directionLink"
+                            class="text-[#FF544F] underline hover:opacity-75">
                             Directions
                         </a>
                     </p>
                 </div>
 
-                <img :src="content.contactSection.image" alt="top" class="w-full object-cover pointer-events-none max-w-3xl sm:ml-auto" />
+                <img :src="content.contactSection.image" alt="top"
+                    class="w-full object-cover pointer-events-none max-w-3xl sm:ml-auto" />
             </template>
         </SectionHeader>
 
