@@ -35,9 +35,21 @@
             @click="toggleSearchbar">
             <img v-if="!showSearchbar" src="@/assets/images/nav-bar/search.svg" alt="search" />
           </button>
-          <input v-if="showSearchbar" @keyup.enter="showSearchbar = false" placeholder="Search"
-            class="w-fit p-2 text-sm bg-transparent border-b-2 border-orange-300 text-white focus:outline-none">
-          <img :src="corssIcon" alt="cross" v-if="showSearchbar" @click="toggleSearchbar" class="cursor-pointer">
+          <div v-if="showSearchbar" class="relative">
+            <div class="flex items-center gap-0.5">
+              <input v-model="searchQuery" @keyup.enter="showSearchbar = false" @input="filterSuggestions"
+                placeholder="Search"
+                class="w-fit p-2 text-sm bg-transparent border-b-2 border-orange-300 text-white focus:outline-none" />
+              <img :src="corssIcon" alt="cross" @click="toggleSearchbar" class="cursor-pointer" />
+            </div>
+            <ul v-if="searchSuggestions.length" class="absolute bg-white text-black w-full rounded shadow mt-1">
+              <li v-for="suggestion in searchSuggestions" :key="suggestion.label">
+                <router-link :to="suggestion.link" class="block px-4 py-2 hover:bg-gray-100" @click="closeSearch">
+                  {{ suggestion.label }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="flex items-center w-full mx-auto z-30" v-if="currentActive"
@@ -56,11 +68,11 @@
           </li>
         </ul>
         <div class="size-44"></div>
+
       </div>
     </div>
   </header>
 
-  <!-- Mobile Navbar -->
   <header v-if="isMobile && !showMenu"
     class="fixed top-0 left-0 right-0 z-50 overflow-x-clip max-w-[100vw] p-4 transition-transform duration-500"
     :class="{ '-translate-y-full': !isNavbarVisible }" @mouseleave="currentActive = null">
@@ -79,7 +91,6 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Panel -->
   <div v-if="showMenu"
     class="fixed top-0 left-0 right-0 z-40 max-w-[100vw] overflow-y-auto min-h-full bg-black bg-opacity-90 flex pt-32">
     <div class="text-white w-full">
@@ -148,17 +159,26 @@
           </div>
         </transition>
 
-        <div class="text-white">
+        <div class="relative flex flex-col">
           <button @click="toggleSearchbar" class="w-full">
             <div class="flex gap-2 items-center p-2 text-md text-white transition-all hover:opacity-75 active:scale-95">
               <img src="@/assets/images/nav-bar/search.svg" alt="search" /><span>Search</span>
             </div>
           </button>
-          <div class="flex item-center">
-            <input placeholder="Search" v-if="showSearchbar"
-              class="w-[85vw] mb-2 px-2 py-2 bg-transparent focus:outline-none border-b-2 border-orange-300">
-            <img :src="corssIcon" alt="cross" v-if="showSearchbar" @click="toggleSearchbar" class="cursor-pointer">
+
+          <div class="flex item-center" v-if="showSearchbar">
+            <input v-model="searchQuery" @keyup.enter="closeSearch" @input="filterSuggestions" placeholder="Search"
+              class="w-[85vw] mb-2 px-2 py-2 bg-transparent focus:outline-none border-b-2 border-orange-300 text-white">
+            <img :src="corssIcon" alt="cross" @click="toggleSearchbar" class="cursor-pointer ml-2" />
           </div>
+
+          <ul v-if="searchSuggestions.length && showSearchbar" class="bg-white text-black w-full rounded shadow mt-1 max-h-36  overflow-auto">
+            <li v-for="suggestion in searchSuggestions" :key="suggestion.label">
+              <router-link :to="suggestion.link" class="block px-4 py-2 hover:bg-gray-100" @click="closeSearch">
+                {{ suggestion.label }}
+              </router-link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -175,6 +195,8 @@ import { useAnimateStore } from '@/store/useAnimateStore';
 
 const currentActive = ref<string | null>(null);
 const activeSubMenu = ref<string | null>(null);
+const searchQuery = ref<string>('');
+const searchSuggestions = ref<Array<{ label: string; link: string }>>([]);
 
 const subMenuItems = computed(() => {
   return {
@@ -206,11 +228,6 @@ const toggleAccordion = (label: string) => {
   } else {
     openedAccordion.value = label;
   }
-};
-
-const toggleSearchbar = () => {
-  showSearchbar.value = !showSearchbar.value;
-  openedAccordion.value = null;
 };
 
 const showMobileMenu = () => {
@@ -289,4 +306,31 @@ function leave(el: HTMLElement) {
   el.style.transition = 'height 0.3s ease';
   el.style.height = '0';
 }
+
+const toggleSearchbar = () => {
+  showSearchbar.value = !showSearchbar.value;
+  openedAccordion.value = null;
+  if (!showSearchbar.value) searchQuery.value = '';
+};
+const closeSearch = () => {
+  showSearchbar.value = false;
+  searchSuggestions.value = [];
+  searchQuery.value = '';
+  showMenu.value = false;
+};
+
+const filterSuggestions = () => {
+  const query = searchQuery.value.toLowerCase();
+
+  if (query) {
+    // @ts-ignore
+    searchSuggestions.value = NavbarLinks.flatMap((link) => {
+      const sublinks = link.sublinks || [];
+      const allLinks = [{ label: link.label, link: link.link }].concat(sublinks);
+      return allLinks.filter(({ label }) => label.toLowerCase().includes(query));
+    });
+  } else {
+    searchSuggestions.value = [];
+  }
+};
 </script>

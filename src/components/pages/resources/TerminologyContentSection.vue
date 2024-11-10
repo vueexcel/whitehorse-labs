@@ -135,7 +135,7 @@ const tableData = [
   {
     word: 'MSL',
     definition:
-      'Moisture Barrier Bag, a packaging type that is moisture-resistant, often used with desiccant and humidity indicators.',
+      'The Moisture Sensitivity Level – known in the electronics industry as simply “MSL” – helps identify how long a component can be exposed to 60-85% relative humidity at temperatures less than 86 degrees F before it becomes compromised for the reflow soldering process.',
     example: Image7
   },
   {

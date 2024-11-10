@@ -32,10 +32,10 @@
         </p>
       </template>
       <template #topBottom>
-        <BaseButton title="Request a Sample Report" />
+        <BaseButton title="Request a Sample Report" to="mailto:info@whitehorselabs.com" />
       </template>
     </SectionHeader>
-    <ServicesSection cta-link="#" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
+    <ServicesSection cta-link="mailto:info@whitehorselabs.com" cta="Request a Sample Report" title="test lab services" :items="SERVICES_LIST" />
     <TestingSection />
     <!-- @vue-expect-error -->
     <CaseStudySection :showcategory="false" />

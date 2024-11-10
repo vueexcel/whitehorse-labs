@@ -9,7 +9,7 @@
           <h4 class="max-w-sm mt-4 text-2xl text-white sm:text-4xl font-roboto sm:mt-0">
             How our testing process works
           </h4>
-          <BaseButton title="Request a Sample Report" class="mt-8" />
+          <BaseButton title="Request a Sample Report" to="mailto:info@whitehorselabs.com" class="mt-8" />
         </div>
       </div>
       <div class="flex-1 ml-0 sm:max-w-lg sm:ml-32 md:ml-0 sm:block">
