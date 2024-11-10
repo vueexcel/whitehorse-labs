@@ -1,9 +1,7 @@
 <template>
   <section class="px-6 py-12 bg-black md:px-12 sm:pb-2" role="footer">
-    <div
-      class="border-t border-t-[#828282] w-full pt-8 md:pt-16 pb-1 flex flex-col sm:flex-row items-center sm:items-start">
-      <router-link to="/"
-        class="flex items-start justify-center h-auto mt-8 mb-20 sm:mt-0 sm:mb-0 sm:ml-5 w-36 sm:w-44 sm:justify-normal">
+    <div class="border-t border-t-[#828282] w-full pt-8 md:pt-16 pb-1 flex flex-col sm:flex-row items-center sm:items-start">
+      <router-link to="/" class="flex items-start justify-center h-auto mt-8 mb-20 sm:mt-0 sm:mb-0 sm:ml-5 w-36 sm:w-44 sm:justify-normal">
         <img :src="Logo" alt="logo" class="h-28 sm:h-24" />
       </router-link>
       <div class="w-full max-w-full md:max-w-6xl">
@@ -39,7 +37,39 @@ import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
 import YoutubeIcon from '@/components/icons/YoutubeIcon.vue'
 
-import FooterLinks from '@/constants/footerlinks.constants';
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+import { enMenu, cnMenu, deMenu } from '@/constants/footerlinks.constants'
+
+const language = ref('en')
+
+const FooterLinks = computed(() => {
+  switch (language.value) {
+    case 'cn':
+      return cnMenu;
+    case 'de':
+      return deMenu;
+    default:
+      return enMenu;
+  }
+});
+
+const route = useRoute()
+
+watch(
+  () => route.path,
+  (newPath) => {
+    if (newPath.includes('/de')) {
+      language.value = 'de';
+    } else if (newPath.includes('/cn')) {
+      language.value = 'cn';
+    } else {
+      language.value = 'en';
+    }
+  },
+  { immediate: true }
+)
 
 const socialLinks = [
   { name: 'linkedin', href: '#', title: 'linkedin', icon: LinkedinIcon },
