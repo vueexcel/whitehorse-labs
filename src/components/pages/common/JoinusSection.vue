@@ -54,6 +54,11 @@ import BaseButton from '@/components/common/BaseButton.vue'
 import RedTitle from '@/components/common/RedTitle.vue'
 import { useRoute } from 'vue-router'
 
+import { sendEmail } from '@/services/emailService'
+import ToastService from '@/services/toastService'
+
+const toast = ToastService();
+
 const route = useRoute()
 
 import { FORM_TEXT } from '@/constants/formsjoinus.constants'
@@ -64,7 +69,7 @@ const language = ref('en');
 // @ts-ignore
 const formText = computed(() => FORM_TEXT[language.value]);
 
-const { values, disabled, handleSubmit } = useContactForm((values) => {
+const { values, disabled  , resetForm } = useContactForm((values) => {
   const { email, interests, firstName, lastName } = values;
   return !!(firstName.trim() && lastName.trim() && email.trim() && Object.values(interests).some(v => v));
 });
@@ -82,5 +87,37 @@ watch(
     },
     { immediate: true }
 );
+
+const handleSubmit = async () => {
+    console.log("clicled submit")
+    const emailData = {
+        from_name: values.value.firstName,
+        firstName: values.value.firstName,
+        lastName: values.value.lastName,
+        jobTitle : values.value.jobTitle,
+        companyName: values.value.companyName,
+        email: values.value.email,
+        phoneNumber: values.value.phoneNumber,
+        message: values.value.message,
+    };
+
+    const selectedInterests = Object.keys(values.value.interests)
+    // @ts-ignore
+        .filter((key) => values.value.interests[key])
+        .map((key) => key.replace(/([A-Z])/g, ' $1').toUpperCase())
+        .join(', '); 
+        //@ts-ignore
+        emailData.selectedInterests = selectedInterests || 'None selected';
+
+    console.log(emailData)
+    const result = await sendEmail(emailData);
+    console.log(result)
+    if (result.success) {
+      toast.success('Your form submitted successfully! , will contact you shortly.');
+        resetForm();
+    } else {
+      toast.error('There was an error sending your message. Please try again.');
+    }
+};
 
 </script>

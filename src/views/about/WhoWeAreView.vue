@@ -39,12 +39,16 @@ import constants from '@/constants/routes.constants'
 import BackgroundImage1 from '@/assets/images/about/who-we-are/hero-1a.png'
 import BackgroundImage2 from '@/assets/images/about/who-we-are/hero-2.png'
 
-import About1Image from '@/assets/images/about/who-we-are/about-1.png'
-import About2Image from '@/assets/images/about/who-we-are/about-2.png'
-import About3Image from '@/assets/images/about/who-we-are/about-3.png'
-import About4Image from '@/assets/images/about/who-we-are/about-4.png'
-import About5Image from '@/assets/images/about/who-we-are/about-5.png'
-import About6Image from '@/assets/images/about/who-we-are/about-6.png'
+import About1Image from '@/assets/images/about/who-we-are/DNAIP1799487.jpeg'
+import About2Image from '@/assets/images/about/who-we-are/AAAWHC1_2.jpg'
+import About2Image2 from '@/assets/images/about/who-we-are/AAAWHC1_3.jpg'
+import About2Image3 from '@/assets/images/about/who-we-are/AAAWHC1_4.jpg'
+import About3Image from '@/assets/images/about/who-we-are/DNAIP1799250.jpeg'
+import About3Image2 from '@/assets/images/about/who-we-are/DNAIAIP1799446.jpeg'
+import About4Image from '@/assets/images/about/who-we-are/DNAIP1799259.jpeg'
+import About4Image2 from '@/assets/images/about/who-we-are/AAAWHC1_5.jpg'
+import About5Image from '@/assets/images/about/who-we-are/AAAWHC1_1.jpg'
+import About6Image from '@/assets/images/about/who-we-are/DNAIAIP1799449.jpeg'
 
 import SolutionImage1 from '@/assets/images/about/who-we-are/solution-1.png'
 import SolutionImage2 from '@/assets/images/about/who-we-are/solution-2.png'
@@ -56,14 +60,14 @@ const SERVICES_LIST = [
     description:
       'White Horse Laboratories is led by an international group of experienced industry experts. Through very different life stories and career paths we have found our way to the White Horse family.',
     list: 'All employees are educated on the core requirements of a testing laboratory and the electronics industry in general. The quality assurance team additionally receives ongoing training opportunities around international quality assurance practice, related standards and regulations.',
-    images: [About1Image, About2Image]
+    images: [About1Image, About2Image , About2Image2 , About2Image3]
   },
   {
     title: 'Quality assurance team that stands for absolute integrity',
     description:
       'Our quality assurance team stands for absolute integrity and the best protection of your supply chain: adhering to strict international standards and with ISO9001 certification, employees are committed to meeting if not exceeding the quality expectations of both our company and our customers.',
     list: 'All employees are educated on the core requirements of a testing laboratory and the electronics industry in general. The quality assurance team additionally receives ongoing training opportunities around international quality assurance practice, related standards and regulations.',
-    images: [About3Image, About4Image]
+    images: [About4Image2 , About3Image2 ,About4Image, About3Image]
   },
   {
     title: 'People-first sales and customer service team',

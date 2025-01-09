@@ -25,7 +25,7 @@
                     <router-link to="" target="_blank"
                         class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3">{{ item.email
                         }}</router-link>
-                    <router-link to="" target="_blank"
+                    <router-link :to=item.locationPage target="_blank"
                         class="text-[#828282] hover:opacity-75 font-roboto text-sm block my-3 underline">{{ item.website
                         }}</router-link>
                 </div>
@@ -56,6 +56,7 @@ const DUMMY_DATA = [
         phone: '+1 833-856-2360',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/',
         lat: 41.4546,
         lng: -81.9218,
     },
@@ -66,6 +67,7 @@ const DUMMY_DATA = [
         phone: '+86 755 668 6688',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/locations/cn',
         lat: 22.5431,
         lng: 114.0579,
     },
@@ -75,6 +77,7 @@ const DUMMY_DATA = [
         phone: '+65 6539 9658',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/locations/sg',
         lat: 1.3521,
         lng: 103.8198,
     },
@@ -84,6 +87,7 @@ const DUMMY_DATA = [
         phone: '+49 89 541 973 12',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/locations/de',
         lat: 48.1351,
         lng: 11.5819,
     },
@@ -93,6 +97,7 @@ const DUMMY_DATA = [
         phone: '+852 6539 9658',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/locations/cn',
         lat: 22.3964,
         lng: 114.1095,
     },
@@ -103,6 +108,7 @@ const DUMMY_DATA = [
         phone: '+91 8095678177',
         email: 'Email',
         website: 'Visit website',
+        locationPage : '/locations/in',
         lat: 12.9716,
         lng: 77.5946,
     },

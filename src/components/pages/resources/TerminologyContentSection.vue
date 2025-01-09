@@ -50,6 +50,13 @@ import Image10 from '@/assets/images/terminology/bulk-10.png'
 import Image11 from '@/assets/images/terminology/bulk-11.png'
 import Image12 from '@/assets/images/terminology/bulk-12.png'
 import Image13 from '@/assets/images/terminology/bulk-13.png'
+import Image14 from '@/assets/images/terminology/3PL.png'
+import Image15 from '@/assets/images/terminology/Dropshipment.jpg'
+import Image16 from '@/assets/images/terminology/Export_compliance.jpg'
+import Image17 from '@/assets/images/terminology/ISO17025.png'
+import Image18 from '@/assets/images/terminology/Sanitization.png'
+import Image19 from '@/assets/images/terminology/Tariff.jpg'
+import Image20 from '@/assets/images/terminology/Transshipment.jpg'
 
 const tableData = [
   {
@@ -182,6 +189,41 @@ const tableData = [
     definition:
       'A type of packaging primarily used for rectangular, chip components, small surface-mount devices (SMDs), or uniquely-shaped components.',
     example: Image13
+  },
+  {
+    word : '3PL (Third-Party Logistics)' , 
+    definition: 'A service that manages supply chain operations such as warehousing, transportation, and distribution for businesses.',
+    example: Image14
+  },
+  {
+    word : 'Drop-shipment',
+    definition: 'Direct shipping of goods from a supplier or intermediary to the end customer without the need for storage or handling by the seller.',
+    example: Image15
+  },
+  {
+    word : 'Export compliance',
+    definition: 'Adherence to legal and regulatory requirements governing the export of goods, technology, and services to ensure lawful and secure international trade.',
+    example: Image16
+  },
+  {
+    word : 'ISO17025',
+    definition : 'An international standard specifying the general requirements for the competence of testing and calibration laboratories, ensuring accurate and reliable test results.',
+    example: Image17
+  },
+  {
+    word : 'Sanitization',
+    definitiion : 'To remove all supplier information from the packages before shipping.',
+    example: Image18
+  },
+  {
+    word: 'Tariff',
+    definition: 'A tax or duty imposed on imported or exported goods, often used to regulate trade and protect domestic industries.',
+    example: Image19
+  },
+  {
+    word: 'Transshipment',
+    definition: 'The process of transferring goods from one mode of transportation to another during their journey to the destination.',
+    example: Image20
   },
   {
     word: 'Unacceptable',

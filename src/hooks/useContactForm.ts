@@ -45,7 +45,7 @@ export const useContactForm = (isValid: (values: FormValues) => boolean) => {
         }
     })
 
-    const resetForm = () => {
+     const resetForm = () => {
         formValues.value = {
             firstName: '',
             lastName: '',
