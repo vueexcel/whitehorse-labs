@@ -108,7 +108,7 @@ const handleSubmit = async () => {
     const result = await sendEmail(emailData);
     console.log(result)
     if (result.success) {
-        toast.success('Your form submitted successfully! , will contact you shortly.');
+        toast.success('Thanks for contacting us. We\'ll be in touch soon.');
         resetForm();
     } else {
         toast.error('There was an error sending your message. Please try again.');
