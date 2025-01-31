@@ -14,7 +14,7 @@
         <slot></slot>
       </p>
 
-      <router-link v-if="linkText" :to="link" class="flex items-center mt-6 text-white rounded-full hover:opacity-70">
+      <router-link v-if="linkText && link" :to="link || ''" class="flex items-center mt-6 text-white rounded-full hover:opacity-70">
         {{ linkText }}
         <ArrowIcon type="top-right" class="w-4 h-4 ml-2 md:w-6 md:h-6" path-class="stroke-[#FF544F]" />
       </router-link>
@@ -34,6 +34,7 @@ defineProps<{
   link?: string
   linkText?: string
 }>()
+
 
 const textContent = ref<HTMLElement | null>(null)
 const container = ref<HTMLElement | null>(null)
