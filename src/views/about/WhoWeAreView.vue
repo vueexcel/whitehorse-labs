@@ -36,7 +36,7 @@ import FooterSection from '@/components/pages/common/FooterSection.vue'
 
 import constants from '@/constants/routes.constants'
 
-import BackgroundImage1 from '@/assets/images/about/who-we-are/hero-1a.png'
+import BackgroundImage1 from '@/assets/images/about/who-we-are/whoHero.png'
 import BackgroundImage2 from '@/assets/images/about/who-we-are/hero-2.png'
 
 import About1Image from '@/assets/images/about/who-we-are/DNAIP1799487.jpeg'

@@ -93,7 +93,7 @@ const DUMMY_DATA = [
     },
     {
         location: 'Hong Kong',
-        address: '220-248 Texaco Road, Suite 905, Hong Kong, Tsuen Wan 999077, HK',
+        address: '10/F Flat A, Woofo Building, 204-210 Texaco Road, Tsuen Wan, N.T, Hong Kong',
         phone: '+852 6539 9658',
         email: 'Email',
         website: 'Visit website',

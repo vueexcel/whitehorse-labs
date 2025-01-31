@@ -28,7 +28,7 @@
             class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95"
             @mouseenter="currentActive = 'languages'">
             <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
-            <span class="ml-2 whitespace-nowrap hidden lg:block">Global | English</span>
+            <span class="ml-2 whitespace-nowrap hidden lg:block">{{ currentLanguage }}</span>
           </button>
           <button
             class="flex items-center justify-center p-2 mx-1 text-sm text-white transition-all hover:opacity-75 active:scale-95"
@@ -136,7 +136,7 @@
           class="flex items-center justify-between p-2 text-md text-white transition-all hover:opacity-75 active:scale-95 w-full">
           <div class="flex items-center">
             <img src="@/assets/images/nav-bar/globe.svg" alt="globe" />
-            <span class="ml-2">Global | English</span>
+            <span class="ml-2">{{ currentLanguage }}</span>
           </div>
           <img :src="dropDownIcon" class="pl-2" :class="{ 'rotate-180': isAccordionOpen('languages') }"
             alt="dropdown" />
@@ -192,6 +192,22 @@ import { useDebounce } from '@/hooks/useDeboune';
 import dropDownIcon from '@/assets/icons/dropdown.svg'
 import corssIcon from '@/assets/icons/cross.svg'
 import { useAnimateStore } from '@/store/useAnimateStore';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const currentLanguage = computed(() => {
+  const languageMap: Record<string, string> = {
+    de: 'Germany | Deutsch',
+    cn: 'China | 中文版',
+    sg: 'Singapore | 中文版',
+    in: 'India | हिन्दी',
+  };
+
+  const langParam = route.params.lang as string;
+  console.log(langParam)
+  return languageMap[langParam] || 'Global | English';
+});
 
 const currentActive = ref<string | null>(null);
 const activeSubMenu = ref<string | null>(null);

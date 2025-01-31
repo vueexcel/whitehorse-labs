@@ -1,7 +1,7 @@
 <template>
     <SectionHeader title="Certifications" subtitle="" class="pb-0 bg-white">
       <template #topBottom>
-        <ul class="grid w-full grid-cols-2 gap-8 -translate-y-8 md:grid-cols-3 lg:grid-cols-7">
+        <ul class="grid w-full grid-cols-2 gap-8 -translate-y-8 md:grid-cols-3 lg:grid-cols-6">
           <li
             v-for="{ link, image, name, class: cls } in COMPANYS"
             :key="link"
@@ -25,7 +25,6 @@
   import Company4 from '@/assets/images/home/cogd.svg'
   import Company5 from '@/assets/images/home/erai.svg'
   import Company6 from '@/assets/images/home/tuv.svg'
-  import Company7 from '@/assets/images/home/dla.svg'
   
   const COMPANYS = [
     {
@@ -64,12 +63,6 @@
       name: 'Anab',
       class: 'h-24'
     },
-    {
-      link: '#',
-      image: Company7,
-      name: 'dla',
-      class: 'h-24'
-    }
   ]
   </script>
   
