@@ -79,7 +79,7 @@
     <div class="max-w-[100vw] flex px-4 sm:px-12 p-3 mx-auto bg-black rounded-md">
       <div class="w-fit block">
         <router-link to="/" class="flex">
-          <img src="@/assets/images/common/mobileLogo.svg" alt="logo" class="h-8 min-h-6" />
+          <img src="@/assets/images/nav-bar/logo.svg" alt="logo" class="h-8 min-h-6" />
         </router-link>
       </div>
       <div class="flex items-center ml-auto">
