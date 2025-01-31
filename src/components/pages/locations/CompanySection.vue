@@ -7,9 +7,9 @@
             :key="link"
             class="flex items-center justify-center transition hover:opacity-80 flex-1"
           >
-            <router-link :to="link" :title="name" class="flex items-center justify-center">
+            <div class="flex items-center justify-center">
               <img :src="image" :alt="name" :class="cls" class="w-auto" />
-            </router-link>
+            </div>
           </li>
         </ul>
       </template>
