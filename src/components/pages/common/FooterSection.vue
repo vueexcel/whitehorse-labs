@@ -19,10 +19,10 @@
               class="text-red-500 hover:opacity-75" target="_blank"> Wise+Hype </a>
           </p>
           <div class="flex items-center">
-            <router-link :to="socialLink.href" class="mx-2" :title="socialLink.title" v-for="socialLink in socialLinks"
+            <a :href="socialLink.href" target="_blank" class="mx-2" :title="socialLink.title" v-for="socialLink in socialLinks"
               :key="socialLink.name">
               <component :is="socialLink.icon" class="size-5" path-class="fill-[#828282]" />
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
@@ -72,9 +72,9 @@ watch(
 )
 
 const socialLinks = [
-  { name: 'linkedin', href: '#', title: 'linkedin', icon: LinkedinIcon },
-  { name: 'facebook', href: '#', title: 'facebook', icon: FacebookIcon },
-  { name: 'youtube', href: '#', title: 'youtube', icon: YoutubeIcon },
-  { name: 'instagram', href: '#', title: 'instagram', icon: InstagramIcon }
+  { name: 'linkedin', href: 'https://www.linkedin.com/company/white-horse-laboratories/', title: 'linkedin', icon: LinkedinIcon },
+  { name: 'facebook', href: 'https://www.facebook.com/whitehorselabs', title: 'facebook', icon: FacebookIcon },
+  { name: 'youtube', href: 'https://www.youtube.com/channel/UCBpDbB3weRkpX-NF7HIyoFA', title: 'youtube', icon: YoutubeIcon },
+  { name: 'instagram', href: 'https://www.instagram.com/whitehorselabs/', title: 'instagram', icon: InstagramIcon }
 ]
 </script>
