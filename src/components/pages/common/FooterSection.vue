@@ -19,10 +19,10 @@
               class="text-red-500 hover:opacity-75" target="_blank"> Wise+Hype </a>
           </p>
           <div class="flex items-center">
-            <router-link :to="socialLink.href" class="mx-2" :title="socialLink.title" v-for="socialLink in socialLinks"
+            <a :href="socialLink.href" target="_blank" class="mx-2" :title="socialLink.title" v-for="socialLink in socialLinks"
               :key="socialLink.name">
               <component :is="socialLink.icon" class="size-5" path-class="fill-[#828282]" />
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
