@@ -84,7 +84,7 @@ const DUMMY_DATA = [
     {
         location: 'Munich',
         address: 'Lindberghstraße 12, 82178 Puchheim, Germany',
-        phone: '+49 89 541 973 12',
+        phone: '+49 89541973 13',
         email: 'Email',
         website: 'Visit website',
         locationPage : '/locations/de',
