@@ -187,7 +187,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-import NavbarLinks, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants';
+import NavbarLinksData, { Languages as LanguagesLinks } from '@/constants/headerLinks.constants';
 import { useDebounce } from '@/hooks/useDeboune';
 import dropDownIcon from '@/assets/icons/dropdown.svg'
 import corssIcon from '@/assets/icons/cross.svg'
@@ -209,18 +209,23 @@ const currentLanguage = computed(() => {
   return languageMap[langParam] || 'Global | English';
 });
 
+const NavbarLinks = computed(() => {
+  const langParam = route.params.lang as string;
+  // @ts-ignore
+  return NavbarLinksData[langParam] || NavbarLinksData['en'];
+});
+
 const currentActive = ref<string | null>(null);
-const activeSubMenu = ref<string | null>(null);
 const searchQuery = ref<string>('');
 const searchSuggestions = ref<Array<{ label: string; link: string }>>([]);
 
 const subMenuItems = computed(() => {
   return {
-    ...(NavbarLinks.filter((link) => link.sublinks).reduce((prev, link) => {
-      // @ts-ignore
+    // @ts-ignore
+    ...(NavbarLinks.value.filter((link) => link.sublinks).reduce((prev, link) => {
       prev[link.label] = link.sublinks;
       return prev;
-    }, {}) as any),
+    }, {} as any)),
     languages: LanguagesLinks
   }[currentActive.value as string] || [];
 });
@@ -301,11 +306,11 @@ watch(showMenu, (newVal) => {
 
 const getSubMenuItems = (label: string) => {
   return {
-    ...(NavbarLinks.filter((link) => link.sublinks).reduce((prev, link) => {
-      // @ts-ignore
+    // @ts-ignore
+    ...(NavbarLinks.value.filter((link) => link.sublinks).reduce((prev, link) => {
       prev[link.label] = link.sublinks;
       return prev;
-    }, {}) as any),
+    }, {} as any)),
     languages: LanguagesLinks
   }[label] || [];
 };
@@ -339,9 +344,8 @@ const filterSuggestions = () => {
   const query = searchQuery.value.toLowerCase();
 
   if (query) {
-    // @ts-ignore
-    searchSuggestions.value = NavbarLinks.flatMap((link) => {
-      const sublinks = link.sublinks || [];
+    searchSuggestions.value = NavbarLinks.value.flatMap((link : any) => {
+      const sublinks = getSubMenuItems(link.label);
       const allLinks = [{ label: link.label, link: link.link }].concat(sublinks);
       return allLinks.filter(({ label }) => label.toLowerCase().includes(query));
     });
@@ -349,4 +353,5 @@ const filterSuggestions = () => {
     searchSuggestions.value = [];
   }
 };
+
 </script>
